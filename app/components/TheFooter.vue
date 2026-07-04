@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-brand-green text-white">
+  <footer style="background:#1e3a5f; color:rgba(255,255,255,0.75);">
 
     <!-- Main footer content -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
@@ -12,7 +12,7 @@
             <img
               src="https://plain-apac-prod-public.komododecks.com/202606/20/PoBvjgAoMQHRPAglTlSz/image.png"
               alt="DrKitchen"
-              class="h-14 w-auto object-contain"
+              class="h-24 w-auto object-contain"
             />
           </div>
 
@@ -24,24 +24,33 @@
           <div class="space-y-1.5 mb-5">
             <p class="text-white/40 text-[11.5px]"><span class="font-semibold text-white/60">Registered Office:</span> 958 P (LGF), Sector 47, Gurugram, Haryana – 122018</p>
             <p class="text-white/40 text-[11.5px]"><span class="font-semibold text-white/60">Corporate Office:</span> 318, Vardhman Mall, Dwarka, Sector 19, New Delhi – 110075</p>
+            <p class="text-white/40 text-[11.5px]"><span class="font-semibold text-white/60">Branch Office:</span> Vasco, Goa</p>
             <p class="text-white/40 text-[11.5px]"><span class="font-semibold text-white/60">CIN:</span> U46101HR2025PTC137451 &nbsp;|&nbsp; <span class="font-semibold text-white/60">FSSAI:</span> 10826999000207</p>
           </div>
 
           <!-- Social icons -->
           <div class="flex gap-2.5 mb-5">
-            <a v-for="s in socials" :key="s.icon" :href="s.href" target="_blank" rel="noopener noreferrer"
-              class="w-9 h-9 rounded-full bg-white/10 hover:bg-brand-red flex items-center justify-center transition-colors duration-200"
+            <a
+              v-for="s in socials"
+              :key="s.icon"
+              :href="s.href"
+              target="_blank"
+              rel="noopener noreferrer"
               :aria-label="s.label"
+              class="w-9 h-9 rounded-full flex items-center justify-center transition-transform duration-200 hover:scale-110"
+              :style="{ background: s.bg }"
             >
-              <i :class="s.icon + ' text-sm'"></i>
+              <i :class="s.icon + ' text-sm text-white'"></i>
             </a>
           </div>
 
           <!-- FSSAI badge -->
           <div class="flex items-center gap-3">
-            <div class="bg-white rounded-sm px-2 py-1">
-              <p class="text-[10px] font-black tracking-widest text-green-700">FSSAI</p>
-              <p class="text-[8px] text-gray-500 font-semibold">Licensed</p>
+            <div class="rounded-sm overflow-hidden" style="border:2px solid #1a6b2f; background:#fff; display:flex; flex-direction:column; align-items:center; min-width:52px;">
+              <div style="background:#1a6b2f; width:100%; text-align:center; padding:2px 6px;">
+                <p class="text-[10px] font-black tracking-widest" style="color:#fff; margin:0;">FSSAI</p>
+              </div>
+              <p class="text-[8px] font-semibold" style="color:#1a6b2f; padding:2px 4px; margin:0;">Licensed</p>
             </div>
             <div class="bg-white/10 rounded-sm px-3 py-1.5 text-center">
               <p class="text-[8px] text-white/50 tracking-widest uppercase">ISO Certified</p>
@@ -120,10 +129,10 @@
 
 <script setup lang="ts">
 const socials = [
-  { icon: 'fab fa-facebook-f', label: 'Facebook',  href: 'https://www.facebook.com/drkitchen.india/' },
-  { icon: 'fab fa-instagram',  label: 'Instagram', href: 'https://www.instagram.com/drkitchen.suradhuni/' },
-  { icon: 'fab fa-twitter',    label: 'Twitter',   href: 'https://x.com/drkitchenindia' },
-  { icon: 'fab fa-youtube',    label: 'YouTube',   href: 'https://www.youtube.com/@DrKitchenindia' },
+  { icon: 'fab fa-facebook-f', label: 'Facebook',  href: 'https://www.facebook.com/drkitchen.india/',        bg: '#1877F2', hover: '#0d6ae0' },
+  { icon: 'fab fa-instagram',  label: 'Instagram', href: 'https://www.instagram.com/drkitchen.suradhuni/', bg: 'linear-gradient(135deg,#f58529,#dd2a7b,#8134af,#515bd4)', hover: 'linear-gradient(135deg,#e0741f,#c4206a,#6f2a99,#3d48c0)' },
+  { icon: 'fab fa-x-twitter',  label: 'X / Twitter', href: 'https://x.com/drkitchenindia',                   bg: '#000000', hover: '#222222' },
+  { icon: 'fab fa-youtube',    label: 'YouTube',   href: 'https://www.youtube.com/@DrKitchenindia',            bg: '#FF0000', hover: '#cc0000' },
 ]
 
 const accountLinks = ['Home', 'About Us', 'Our Shop', 'Shop Detail', 'Shopping Cart', 'Checkout', 'Contact Us']

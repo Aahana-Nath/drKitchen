@@ -4,9 +4,9 @@
     <div class="top-bar">
       <div class="top-bar__inner">
         <div class="top-bar__contacts">
-          <a href="tel:+919876543210" class="top-bar__link">
+          <a href="tel:+917303269330" class="top-bar__link">
             <i class="fas fa-phone-alt"></i>
-            +91 98765 43210
+            +91 7303269330
           </a>
           <span class="top-bar__sep">|</span>
           <a href="mailto:info@drkitchen.com" class="top-bar__link">

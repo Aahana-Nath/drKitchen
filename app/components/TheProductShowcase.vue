@@ -1,33 +1,34 @@
 <template>
-  <section class="py-20 lg:py-28 bg-white">
+  <section style="background:var(--clr-bg3); padding:52px 0; position:relative; overflow:hidden;">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Header -->
-      <div class="text-center mb-14">
-        <p class="text-brand-gold text-[11px] font-black tracking-[4px] uppercase mb-3">Fresh & Pure</p>
-        <h2 class="font-serif text-4xl lg:text-5xl font-black text-gray-900">Our Premium Products</h2>
-        <div class="flex items-center justify-center gap-3 mt-4">
-          <span class="h-px w-14 bg-brand-red/25"></span>
-          <svg viewBox="0 0 16 16" width="12" height="12" fill="#C73A2B" class="opacity-60">
-            <path d="M8 0L9.8 5.5H16L11 8.9L12.9 14.5L8 11.1L3.1 14.5L5 8.9L0 5.5H6.2Z"/>
-          </svg>
-          <span class="h-px w-14 bg-brand-red/25"></span>
+      <div class="text-center mb-8">
+        <div class="section-label" style="justify-content:center; margin-bottom:10px;">Fresh &amp; Pure</div>
+        <h2 style="font-family:var(--font-display); font-size:36px; font-weight:600; color:var(--clr-dark); margin:0 0 8px; line-height:1.05;">Our Premium Products</h2>
+        <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-top:8px;">
+          <span style="height:1px; width:48px; background:var(--clr-gold); opacity:0.4; display:block;"></span>
+          <svg viewBox="0 0 16 16" width="10" height="10" fill="var(--clr-gold)" style="opacity:0.6;"><path d="M8 0L9.8 5.5H16L11 8.9L12.9 14.5L8 11.1L3.1 14.5L5 8.9L0 5.5H6.2Z"/></svg>
+          <span style="height:1px; width:48px; background:var(--clr-gold); opacity:0.4; display:block;"></span>
         </div>
       </div>
 
       <!-- Products grid -->
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-5 lg:gap-7">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-5">
         <div
           v-for="product in products"
           :key="product.name"
-          class="group bg-white rounded-2xl overflow-hidden border border-gray-100 shadow-card hover:shadow-card-hover transition-all duration-300 hover:-translate-y-1.5"
+          class="dk-card group"
+          style="overflow:hidden;"
         >
           <!-- Image -->
-          <div class="overflow-hidden h-52 relative bg-brand-beige">
+          <div style="overflow:hidden; height:150px; position:relative; background:transparent; border-radius:14px 14px 0 0;">
             <img
               :src="product.image"
               :alt="product.name"
-              class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-500"
+              class="product-glow"
+              style="width:100%; height:100%; object-fit:contain; transition:transform 0.5s ease;"
+              loading="lazy"
             />
             <!-- Tag pill -->
             <span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-brand-gold/90 text-white px-2.5 py-1 rounded-full">
@@ -36,24 +37,25 @@
           </div>
 
           <!-- Body -->
-          <div class="p-5">
-            <h3 class="font-bold text-[15px] text-gray-900 mb-1.5">{{ product.name }}</h3>
-            <p class="text-[13px] text-gray-500 leading-relaxed mb-4">{{ product.desc }}</p>
-            <button
-              class="w-full text-center border border-brand-red/30 text-brand-red hover:bg-brand-red hover:text-white font-semibold text-[13px] py-2.5 rounded-full transition-all duration-200"
+          <div style="padding:12px 14px 14px;">
+            <h3 style="font-family:var(--font-display); font-size:15px; font-weight:600; color:var(--clr-dark); margin:0 0 4px; line-height:1.3;">{{ product.name }}</h3>
+            <p style="font-family:var(--font-body); font-size:12px; color:var(--clr-muted); line-height:1.6; margin:0 0 10px;">{{ product.desc }}</p>
+            <NuxtLink
+              :to="'/products/' + product.slug"
+              style="display:block; width:100%; text-align:center; border:1px solid rgba(181,138,58,0.4); color:var(--clr-gold); background:transparent; font-family:var(--font-body); font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:7px; border-radius:8px; cursor:pointer; transition:all 0.2s ease; text-decoration:none;"
+              @mouseenter="(e) => { e.currentTarget.style.background='var(--clr-accent)'; e.currentTarget.style.color='#fff'; e.currentTarget.style.borderColor='var(--clr-accent)'; }"
+              @mouseleave="(e) => { e.currentTarget.style.background='transparent'; e.currentTarget.style.color='var(--clr-gold)'; e.currentTarget.style.borderColor='rgba(181,138,58,0.4)'; }"
             >
               View Details
-            </button>
+            </NuxtLink>
           </div>
         </div>
       </div>
 
       <!-- View all -->
-      <div class="text-center mt-12">
-        <a href="#"
-           class="inline-flex items-center gap-2.5 border-2 border-brand-red text-brand-red hover:bg-brand-red hover:text-white font-bold text-[13px] tracking-wider uppercase px-10 py-4 rounded-full transition-all duration-200 hover:shadow-lg"
-        >
-          View All Products <i class="fas fa-arrow-right text-xs"></i>
+      <div class="text-center mt-8">
+        <a href="#" class="dk-btn">
+          View All Products <i class="fas fa-arrow-right" style="font-size:11px;"></i>
         </a>
       </div>
 
@@ -64,40 +66,46 @@
 <script setup lang="ts">
 const products = [
   {
+    slug: 'turmeric-powder',
     name: 'Turmeric Powder',
     desc: 'Pure golden turmeric from Erode farms. Rich in curcumin for colour and health.',
     tag: 'Bestseller',
-    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/turmeric.png',
+    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/46b4bcb9-0f6b-48fe-8ded-91aed109a631_removalai_preview.png',
   },
   {
+    slug: 'red-chilli-powder',
     name: 'Red Chilli Powder',
     desc: 'Fiery Byadagi & Kashmiri blend. Deep colour, authentic heat, aromatic finish.',
     tag: 'Popular',
     image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/red_chili.png',
   },
   {
+    slug: 'coriander-powder',
     name: 'Coriander Powder',
     desc: 'Fresh ground from premium Rajasthani dhaniya seeds. Earthy and aromatic.',
     tag: 'New',
     image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/coriander.png',
   },
   {
+    slug: 'garam-masala',
     name: 'Garam Masala',
     desc: "A perfectly balanced blend of 14 whole spices. India's most loved seasoning.",
     tag: 'Bestseller',
-    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/garam_masala.png',
+    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/aram_masala.png',
   },
   {
+    slug: 'kitchen-king',
     name: 'Kitchen King',
     desc: 'The all-purpose masala blend for every dish. Rich, bold and deeply aromatic.',
     tag: 'Premium',
     image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/kitchen_king.png',
   },
   {
+    slug: 'cumin-seeds',
     name: 'Cumin Seeds',
     desc: 'Hand-cleaned Rajasthani jeera. Rich in essential oils, warm and nutty.',
     tag: 'Pure',
-    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/jeera.png',
+    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/cumin.png',
   },
 ]
 </script>

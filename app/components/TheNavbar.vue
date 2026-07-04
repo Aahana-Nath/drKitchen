@@ -47,18 +47,18 @@
           </a>
 
           <!-- Nav links -->
-          <ul class="hidden xl:flex items-center flex-1 justify-center gap-0">
+          <ul class="hidden lg:flex items-center flex-1 justify-center gap-0">
             <li v-for="link in navLinks" :key="link.label">
-              <a
-                href="#"
+              <NuxtLink
+                :to="link.href"
                 class="block px-[11px] py-1.5 text-[15px] font-medium leading-snug text-center transition-colors"
-                :class="link.active
+                :class="route.path === link.href
                   ? 'text-brand-red border-b-2 border-brand-red'
                   : 'text-gray-700 hover:text-brand-red'"
               >
                 {{ link.label }}
                 <i v-if="link.dropdown" class="fas fa-chevron-down text-[9px] ml-0.5 opacity-60"></i>
-              </a>
+              </NuxtLink>
             </li>
           </ul>
 
@@ -81,7 +81,7 @@
           </div>
 
           <!-- Mobile nav toggle -->
-          <button @click="mobileOpen = !mobileOpen" class="xl:hidden ml-auto p-2 text-gray-700">
+          <button @click="mobileOpen = !mobileOpen" class="lg:hidden ml-auto p-2 text-gray-700">
             <i class="fas text-lg" :class="mobileOpen ? 'fa-times' : 'fa-bars'"></i>
           </button>
         </div>
@@ -96,10 +96,10 @@
         leave-from-class="opacity-100 translate-y-0"
         leave-to-class="opacity-0 -translate-y-2"
       >
-        <div v-show="mobileOpen" class="xl:hidden border-t border-gray-100 bg-white px-4 py-3 space-y-1">
+        <div v-show="mobileOpen" class="lg:hidden border-t border-gray-100 bg-white px-4 py-3 space-y-1">
           <a v-for="link in navLinks" :key="link.label" href="#"
              class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-gray-50"
-             :class="link.active ? 'text-brand-red' : 'text-gray-700'"
+             :class="route.path === link.href ? 'text-brand-red' : 'text-gray-700'"
           >{{ link.label }}</a>
         </div>
       </Transition>
@@ -173,17 +173,16 @@
 </template>
 
 <script setup lang="ts">
+const route = useRoute()
 const mobileOpen = ref(false)
 const catOpen = ref(false)
 
 const navLinks = [
-  { label: 'Home',                           active: true,  dropdown: false },
-  { label: 'About Us',                       active: false, dropdown: false },
-  { label: 'From the desk of\nthe Chairman', active: false, dropdown: false },
-  { label: 'Our Products',                   active: false, dropdown: true  },
-  { label: 'Founders',                       active: false, dropdown: false },
-  { label: 'Archives',                       active: false, dropdown: false },
-  { label: 'Contact Us',                     active: false, dropdown: false },
+  { label: 'Home',           href: '/',         dropdown: false },
+  { label: 'About Us',       href: '/about-us',  dropdown: false },
+  { label: "Founder's Note", href: '/about',     dropdown: false },
+  { label: 'Our Products',   href: '/our-products', dropdown: true  },
+  { label: 'Contact Us',     href: '/contact-us', dropdown: false },
 ]
 
 const categories = [
