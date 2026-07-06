@@ -7,7 +7,15 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  modules: ["@nuxtjs/tailwindcss"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/sitemap"],
+
+  site: {
+    url: "https://www.drkitchen.com",
+  },
+
+  sitemap: {
+    autoLastmod: true,
+  },
 
   tailwindcss: {
     configPath: "~/tailwind.config.ts",
