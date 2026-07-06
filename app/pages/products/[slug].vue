@@ -1,5 +1,5 @@
 <template>
-  <div style="background:var(--clr-bg); min-height:100vh;">
+  <div class="bg-[var(--clr-bg)] min-h-screen">
     <TheNavbar />
 
     <div v-if="product">
@@ -7,50 +7,46 @@
       <!-- ══════════════════════════════════════════════════
            1. HERO
       ══════════════════════════════════════════════════ -->
-      <section style="position:relative; overflow:hidden; min-height:500px; display:flex; align-items:center;">
+      <section class="relative overflow-hidden min-h-[350px] md:min-h-[450px] lg:min-h-[500px] flex items-center">
 
         <!-- Background: full-bleed image when heroBg is set, else cream -->
-        <div v-if="product.heroBg" style="position:absolute; inset:0;">
-          <img :src="product.heroBg" :alt="product.name + ' hero'" style="width:100%; height:100%; object-fit:cover; object-position:center;" />
+        <div v-if="product.heroBg" class="absolute inset-0">
+          <img :src="product.heroBg" :alt="product.name + ' hero'" class="w-full h-full object-cover object-center" />
           <!-- Gradient: strong dark on left for legibility, fades to transparent right -->
-          <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(15,9,3,0.82) 0%, rgba(15,9,3,0.62) 35%, rgba(15,9,3,0.18) 62%, rgba(15,9,3,0.0) 100%);"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-[rgba(15,9,3,0.88)] via-[rgba(15,9,3,0.62)] to-transparent"></div>
         </div>
-        <div v-else style="position:absolute; inset:0; background:var(--clr-bg);">
-          <div style="position:absolute; inset:0; background:radial-gradient(ellipse 80% 70% at 10% 50%, rgba(181,138,58,0.07) 0%, transparent 70%);"></div>
+        <div v-else class="absolute inset-0 bg-[var(--clr-bg)]">
+          <div class="absolute inset-0 bg-[radial-gradient(ellipse_80%_70%_at_10%_50%,rgba(181,138,58,0.07)_0%,transparent_70%)]"></div>
         </div>
 
-        <div style="max-width:1280px; width:100%; margin:0 auto; padding:0 48px; position:relative; z-index:1;">
+        <div class="max-w-7xl w-full mx-auto px-5 md:px-8 lg:px-12 relative z-[1]">
 
           <!-- Left: text -->
-          <div style="padding:52px 0 120px;">
+          <div class="py-10 pb-24 md:py-12 md:pb-28 lg:pb-32">
             <!-- Eyebrow label -->
-            <div style="display:inline-flex; align-items:center; gap:10px; margin-bottom:14px;">
-              <span style="height:1px; width:28px; display:block;" :style="{ background: product.heroBg ? '#D4A84B' : 'var(--clr-gold)', opacity: '0.7' }"></span>
-              <span :style="{ fontFamily:'var(--font-body)', fontSize:'11px', fontWeight:'700', letterSpacing:'4px', textTransform:'uppercase', color: product.heroBg ? '#D4A84B' : 'var(--clr-gold)' }">{{ product.category }}</span>
-              <span style="height:1px; width:28px; display:block;" :style="{ background: product.heroBg ? '#D4A84B' : 'var(--clr-gold)', opacity: '0.7' }"></span>
+            <div class="inline-flex items-center gap-2.5 mb-3">
+              <span class="h-px w-6 lg:w-7 block" :style="{ background: product.heroBg ? '#D4A84B' : 'var(--clr-gold)', opacity: '0.7' }"></span>
+              <span class="font-body text-[10px] lg:text-[11px] font-bold tracking-widest uppercase" :style="{ color: product.heroBg ? '#D4A84B' : 'var(--clr-gold)' }">{{ product.category }}</span>
+              <span class="h-px w-6 lg:w-7 block" :style="{ background: product.heroBg ? '#D4A84B' : 'var(--clr-gold)', opacity: '0.7' }"></span>
             </div>
 
-            <h1 :style="{ fontFamily:'var(--font-display)', fontSize:'58px', fontWeight:'600', color: product.heroBg ? '#fff' : 'var(--clr-dark)', lineHeight:'1.05', margin:'0 0 10px', letterSpacing:'-0.01em' }">{{ product.name }}</h1>
-            <p :style="{ fontFamily:'var(--font-display)', fontStyle:'italic', fontSize:'20px', color: product.heroBg ? 'rgba(255,255,255,0.80)' : 'var(--clr-muted)', margin:'0 0 20px', fontWeight:'400' }">{{ product.subtitle }}</p>
-            <p :style="{ fontFamily:'var(--font-body)', fontSize:'14px', color: product.heroBg ? 'rgba(255,255,255,0.75)' : 'var(--clr-muted)', lineHeight:'1.85', maxWidth:'420px', margin:'0 0 28px', whiteSpace:'pre-line' }">{{ product.tagline }}</p>
+            <h1 class="font-display text-3xl md:text-4xl lg:text-5xl xl:text-[58px] font-semibold leading-none mb-2 lg:mb-2.5 tracking-tight" :style="{ color: product.heroBg ? '#fff' : 'var(--clr-dark)' }">{{ product.name }}</h1>
+            <p class="font-display italic text-base lg:text-xl mb-4 lg:mb-5" :style="{ color: product.heroBg ? 'rgba(255,255,255,0.80)' : 'var(--clr-muted)' }">{{ product.subtitle }}</p>
+            <p class="font-body text-sm text-white/75 leading-relaxed lg:leading-loose max-w-md mb-6 lg:mb-7 whitespace-pre-line" :style="{ color: product.heroBg ? 'rgba(255,255,255,0.75)' : 'var(--clr-muted)' }">{{ product.tagline }}</p>
 
             <!-- 4 feature icons -->
-            <div style="display:flex; gap:20px; margin-bottom:32px; flex-wrap:wrap;">
-              <div v-for="f in product.heroFeatures" :key="f.label" style="display:flex; flex-direction:column; align-items:center; gap:6px; width:70px;">
-                <div :style="{ width:'48px', height:'48px', borderRadius:'50%', border:'1.5px solid rgba(212,168,75,0.55)', display:'flex', alignItems:'center', justifyContent:'center', background: product.heroBg ? 'rgba(255,255,255,0.08)' : 'rgba(247,241,231,0.85)', backdropFilter: product.heroBg ? 'blur(4px)' : 'none' }">
-                  <i :class="f.icon" style="font-size:17px; color:#D4A84B;"></i>
+            <div class="flex gap-4 lg:gap-5 mb-6 lg:mb-8 flex-wrap">
+              <div v-for="f in product.heroFeatures" :key="f.label" class="flex flex-col items-center gap-1.5 w-14 lg:w-[70px]">
+                <div class="w-10 h-10 lg:w-12 lg:h-12 rounded-full border border-[rgba(212,168,75,0.55)] flex items-center justify-center" :style="{ background: product.heroBg ? 'rgba(255,255,255,0.08)' : 'rgba(247,241,231,0.85)' }">
+                  <i :class="f.icon" class="text-sm lg:text-[17px] text-[#D4A84B]"></i>
                 </div>
-                <span :style="{ fontFamily:'var(--font-body)', fontSize:'10px', fontWeight:'600', color: product.heroBg ? 'rgba(255,255,255,0.85)' : 'var(--clr-dark)', textAlign:'center', lineHeight:'1.3', whiteSpace:'pre-line' }">{{ f.label }}</span>
+                <span class="font-body text-[9px] lg:text-[10px] font-semibold text-center leading-tight whitespace-pre-line" :style="{ color: product.heroBg ? 'rgba(255,255,255,0.85)' : 'var(--clr-dark)' }">{{ f.label }}</span>
               </div>
             </div>
 
             <!-- CTA -->
-            <NuxtLink to="/contact-us"
-              style="display:inline-flex; align-items:center; gap:10px; background:#1c2b1a; color:#fff; font-family:var(--font-body); font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase; padding:14px 28px; border-radius:6px; text-decoration:none; transition:background 0.2s ease;"
-              @mouseenter="(e) => e.currentTarget.style.background='#2d4228'"
-              @mouseleave="(e) => e.currentTarget.style.background='#1c2b1a'"
-            >
-              Contact Sales <i class="fas fa-arrow-right" style="font-size:10px;"></i>
+            <NuxtLink to="/contact-us" class="inline-flex items-center gap-2.5 bg-[#1c2b1a] hover:bg-[#2d4228] text-white font-body text-xs font-bold tracking-widest uppercase px-6 py-3 lg:px-7 lg:py-3.5 rounded-md no-underline transition-colors">
+              Contact Sales <i class="fas fa-arrow-right text-[10px]"></i>
             </NuxtLink>
           </div>
 
@@ -60,50 +56,46 @@
       <!-- ══════════════════════════════════════════════════
            2. ABOUT + WHY DRKITCHEN
       ══════════════════════════════════════════════════ -->
-      <section style="background:transparent; padding:0 48px; position:relative; z-index:2; margin-top:-72px;">
-        <div style="max-width:1280px; margin:0 auto; background:#F7F1E5; border-radius:16px; box-shadow:0 8px 40px rgba(0,0,0,0.14); overflow:hidden; display:grid; grid-template-columns:1fr 1fr; position:relative; min-height:200px;">
+      <section class="px-4 md:px-8 lg:px-12 relative z-[2] -mt-16 lg:-mt-[72px]">
+        <div class="max-w-7xl mx-auto bg-[#F7F1E5] rounded-2xl shadow-[0_8px_40px_rgba(0,0,0,0.14)] overflow-hidden grid grid-cols-1 lg:grid-cols-2 min-h-[200px]">
 
           <!-- ── Left: About This Spice ── -->
-          <div style="padding:22px 28px; position:relative; background:#F7F1E5;">
-            <p style="font-family:var(--font-body); font-size:10px; font-weight:700; color:var(--clr-gold); letter-spacing:3px; text-transform:uppercase; margin:0 0 4px;">Product Story</p>
-            <h2 style="font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--clr-dark); margin:0 0 8px; line-height:1.2;">About This Spice</h2>
+          <div class="p-5 lg:p-6 relative bg-[#F7F1E5]">
+            <p class="font-body text-[10px] font-bold text-[var(--clr-gold)] tracking-widest uppercase mb-1">Product Story</p>
+            <h2 class="font-display text-lg lg:text-[22px] font-bold text-[var(--clr-dark)] mb-2 leading-snug">About This Spice</h2>
             <!-- Gold rule ornament -->
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:14px;">
-              <div style="width:36px; height:2px; background:var(--clr-gold); border-radius:2px;"></div>
-              <span style="width:6px; height:6px; border-radius:50%; background:var(--clr-gold);"></span>
-              <div style="width:16px; height:2px; background:var(--clr-gold); opacity:0.4; border-radius:2px;"></div>
+            <div class="flex items-center gap-2 mb-3">
+              <div class="w-9 h-0.5 bg-[var(--clr-gold)] rounded"></div>
+              <span class="w-1.5 h-1.5 rounded-full bg-[var(--clr-gold)]"></span>
+              <div class="w-4 h-0.5 bg-[var(--clr-gold)] opacity-40 rounded"></div>
             </div>
             <!-- Text + botanical image side-by-side -->
-            <div style="display:flex; align-items:flex-start; gap:0;">
-              <div style="flex:1; padding-right:14px;">
-                <p v-for="t in product.aboutText" :key="t" style="font-family:var(--font-body); font-size:12.5px; color:#444; line-height:1.75; margin:0 0 7px;">{{ t }}</p>
+            <div class="flex items-start gap-0">
+              <div class="flex-1 pr-3">
+                <p v-for="t in product.aboutText" :key="t" class="font-body text-xs text-gray-700 leading-relaxed mb-1.5">{{ t }}</p>
               </div>
               <!-- Botanical image -->
-              <img
-                :src="product.aboutImage"
-                :alt="product.name"
-                style="width:130px; height:150px; object-fit:contain; flex-shrink:0;"
-              />
+              <img :src="product.aboutImage" :alt="product.name" class="w-24 lg:w-[130px] h-auto object-contain shrink-0" />
             </div>
           </div>
 
           <!-- ── Right: Why DrKitchen ── -->
-          <div style="padding:22px 28px; background:linear-gradient(135deg,#f2e8d5 0%,#f5edde 60%,#f3ebd9 100%); border-left:1px solid rgba(181,138,58,0.14);">
-            <p style="font-family:var(--font-body); font-size:10px; font-weight:700; color:var(--clr-accent); letter-spacing:3px; text-transform:uppercase; margin:0 0 4px;">Our Promise</p>
-            <h2 style="font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--clr-dark); margin:0 0 8px; line-height:1.2;">Why DrKitchen <em style="font-style:italic; color:var(--clr-accent);">{{ product.name.split(' ')[0] }}</em>?</h2>
+          <div class="p-5 lg:p-6 bg-gradient-to-br from-[#f2e8d5] via-[#f5edde] to-[#f3ebd9] border-t lg:border-t-0 lg:border-l border-[rgba(181,138,58,0.14)]">
+            <p class="font-body text-[10px] font-bold text-[var(--clr-accent)] tracking-widest uppercase mb-1">Our Promise</p>
+            <h2 class="font-display text-lg lg:text-[22px] font-bold text-[var(--clr-dark)] mb-2 leading-snug">Why DrKitchen <em class="italic text-[var(--clr-accent)]">{{ product.name.split(' ')[0] }}</em>?</h2>
             <!-- Gold rule ornament -->
-            <div style="display:flex; align-items:center; gap:8px; margin-bottom:18px;">
-              <div style="width:36px; height:2px; background:var(--clr-accent); border-radius:2px;"></div>
-              <span style="width:6px; height:6px; border-radius:50%; background:var(--clr-accent);"></span>
-              <div style="width:16px; height:2px; background:var(--clr-accent); opacity:0.4; border-radius:2px;"></div>
+            <div class="flex items-center gap-2 mb-4">
+              <div class="w-9 h-0.5 bg-[var(--clr-accent)] rounded"></div>
+              <span class="w-1.5 h-1.5 rounded-full bg-[var(--clr-accent)]"></span>
+              <div class="w-4 h-0.5 bg-[var(--clr-accent)] opacity-40 rounded"></div>
             </div>
-            <!-- 6 icons in a single row -->
-            <div style="display:flex; align-items:flex-start; gap:6px; justify-content:space-between;">
-              <div v-for="f in product.whyFeatures" :key="f.label" style="display:flex; flex-direction:column; align-items:center; gap:8px; flex:1; min-width:0;">
-                <div style="width:56px; height:56px; border-radius:50%; background:linear-gradient(145deg,#fff4e6,#fde8cc); border:2px solid rgba(199,58,43,0.20); box-shadow:0 4px 14px rgba(199,58,43,0.12); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-                  <i :class="f.icon" style="font-size:20px; color:var(--clr-accent);"></i>
+            <!-- 6 icons in a row -->
+            <div class="flex items-start gap-2 lg:gap-1.5 justify-between flex-wrap">
+              <div v-for="f in product.whyFeatures" :key="f.label" class="flex flex-col items-center gap-2 flex-1 min-w-[50px] max-w-[70px]">
+                <div class="w-10 h-10 lg:w-14 lg:h-14 rounded-full bg-gradient-to-br from-[#fff4e6] to-[#fde8cc] border-2 border-[rgba(199,58,43,0.20)] shadow-[0_4px_14px_rgba(199,58,43,0.12)] flex items-center justify-center shrink-0">
+                  <i :class="f.icon" class="text-base lg:text-xl text-[var(--clr-accent)]"></i>
                 </div>
-                <span style="font-family:var(--font-body); font-size:11px; font-weight:700; color:var(--clr-dark); text-align:center; line-height:1.35; white-space:pre-line;">{{ f.label }}</span>
+                <span class="font-body text-[10px] lg:text-[11px] font-bold text-[var(--clr-dark)] text-center leading-tight whitespace-pre-line">{{ f.label }}</span>
               </div>
             </div>
           </div>
@@ -114,59 +106,59 @@
       <!-- ══════════════════════════════════════════════════
            3. SOURCED FROM | CHARACTERISTICS | BEST USED FOR
       ══════════════════════════════════════════════════ -->
-      <section style="background:var(--clr-bg); border-top:1px solid rgba(181,138,58,0.10); padding:0 48px;">
-        <div style="max-width:1280px; margin:0 auto; padding:36px 0; display:grid; grid-template-columns:1fr 1fr 280px; gap:32px; align-items:stretch;">
+      <section class="px-4 md:px-8 lg:px-12 bg-[var(--clr-bg)] border-t border-[rgba(181,138,58,0.10)]">
+        <div class="max-w-7xl mx-auto py-6 lg:py-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1fr_1fr_280px] gap-5 lg:gap-8 items-stretch">
 
           <!-- Sourced From -->
-          <div style="position:relative; border-radius:14px; overflow:hidden; box-shadow:0 2px 16px rgba(0,0,0,0.10); height:280px;">
+          <div class="relative rounded-xl overflow-hidden shadow-lg h-56 lg:h-[280px]">
             <!-- Background image -->
             <img src="https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/Screenshot_2026-07-04_at_12.52.53_d1p96c"
-              style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center bottom;" />
+              class="absolute inset-0 w-full h-full object-cover object-center lg:object-bottom" />
             <!-- Light overlay — lighter so bg is visible -->
-            <div style="position:absolute; inset:0; background:linear-gradient(to bottom right, rgba(250,244,230,0.82) 0%, rgba(245,236,215,0.65) 60%, rgba(200,180,140,0.20) 100%);"></div>
+            <div class="absolute inset-0 bg-gradient-to-br from-[rgba(250,244,230,0.82)] via-[rgba(245,236,215,0.65)] to-[rgba(200,180,140,0.20)]"></div>
             <!-- Two-column: text left only -->
-            <div style="position:relative; z-index:2; padding:18px 20px 20px; max-width:44%; margin-top:16px;">
-              <p style="font-family:var(--font-body); font-size:9px; font-weight:700; color:#8b6010; letter-spacing:3px; text-transform:uppercase; margin:0 0 3px;">Sourced From</p>
+            <div class="relative z-[2] p-4 lg:p-5 max-w-[60%] lg:max-w-[44%] mt-2 lg:mt-4">
+              <p class="font-body text-[9px] font-bold text-[#8b6010] tracking-widest uppercase mb-1">Sourced From</p>
               <!-- gold arrow ornament -->
-              <div style="display:flex; align-items:center; gap:4px; margin-bottom:8px;">
-                <div style="width:24px; height:1.5px; background:#c8a040;"></div>
-                <span style="color:#c8a040; font-size:12px;">&#8594;</span>
+              <div class="flex items-center gap-1 mb-2">
+                <div class="w-6 h-px bg-[#c8a040]"></div>
+                <span class="text-[#c8a040] text-xs">&#8594;</span>
               </div>
-              <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:20px; font-weight:800; color:#1a1208; margin:0 0 6px; line-height:1.15;">{{ product.sourcedFrom.location }}</h3>
+              <h3 class="font-display text-lg lg:text-xl font-extrabold text-[#1a1208] mb-1.5 leading-tight">{{ product.sourcedFrom.location }}</h3>
               <!-- second ornament -->
-              <div style="display:flex; align-items:center; gap:4px; margin-bottom:12px;">
-                <div style="width:16px; height:1.5px; background:#c8a040;"></div>
-                <span style="color:#c8a040; font-size:10px;">&#8594;</span>
+              <div class="flex items-center gap-1 mb-3">
+                <div class="w-4 h-px bg-[#c8a040]"></div>
+                <span class="text-[#c8a040] text-[10px]">&#8594;</span>
               </div>
-              <p style="font-family:var(--font-body); font-size:11px; color:#3a2e1a; line-height:1.65; margin:0;">{{ product.sourcedFrom.desc }}</p>
+              <p class="font-body text-[11px] text-[#3a2e1a] leading-relaxed">{{ product.sourcedFrom.desc }}</p>
             </div>
           </div>
 
           <!-- Product Characteristics -->
-          <div style="background:#fff; border-radius:14px; padding:22px 24px; box-shadow:0 2px 16px rgba(0,0,0,0.05); border:1px solid rgba(181,138,58,0.10); height:280px; overflow:hidden;">
-            <h3 style="font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--clr-dark); margin:0 0 20px;">Product Characteristics</h3>
-            <div style="display:flex; flex-direction:column; gap:14px;">
-              <div v-for="c in product.characteristics" :key="c.name" style="display:flex; align-items:center; gap:14px;">
-                <div style="display:flex; align-items:center; gap:6px; width:96px; flex-shrink:0;">
-                  <i class="fas fa-circle" style="font-size:6px; color:var(--clr-gold); opacity:0.6;"></i>
-                  <span style="font-family:var(--font-body); font-size:12.5px; color:var(--clr-dark); font-weight:500;">{{ c.name }}</span>
+          <div class="bg-white rounded-xl p-5 lg:p-6 shadow-sm border border-[rgba(181,138,58,0.10)] h-auto lg:h-[280px] overflow-hidden">
+            <h3 class="font-display text-lg lg:text-xl font-bold text-[var(--clr-dark)] mb-4 lg:mb-5">Product Characteristics</h3>
+            <div class="flex flex-col gap-3 lg:gap-3.5">
+              <div v-for="c in product.characteristics" :key="c.name" class="flex items-center gap-3">
+                <div class="flex items-center gap-1.5 w-20 lg:w-24 shrink-0">
+                  <i class="fas fa-circle text-[6px] text-[var(--clr-gold)] opacity-60"></i>
+                  <span class="font-body text-xs text-[var(--clr-dark)] font-medium">{{ c.name }}</span>
                 </div>
-                <div style="flex:1; height:8px; background:#f0e8d8; border-radius:99px; overflow:hidden;">
-                  <div :style="{ width: c.value + '%', height: '100%', background: 'linear-gradient(to right, #c8a96e, #B58A3A)', borderRadius: '99px', transition: 'width 0.8s ease' }"></div>
+                <div class="flex-1 h-2 bg-[#f0e8d8] rounded-full overflow-hidden">
+                  <div :style="{ width: c.value + '%' }" class="h-full bg-gradient-to-r from-[#c8a96e] to-[#B58A3A] rounded-full transition-[width] duration-700"></div>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Best Used For -->
-          <div style="background:#fff; border-radius:14px; padding:16px; box-shadow:0 2px 16px rgba(0,0,0,0.05); border:1px solid rgba(181,138,58,0.10); height:280px; display:flex; flex-direction:column;">
-            <h3 style="font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--clr-dark); margin:0 0 10px;">Best Used For</h3>
-            <div style="flex:1; display:grid; grid-template-columns:1fr 1fr; grid-template-rows:1fr 1fr; gap:8px; overflow:hidden;">
-              <div v-for="item in product.bestUsedFor" :key="item.name" style="display:flex; flex-direction:column; align-items:center; gap:4px; min-height:0;">
-                <div style="width:100%; flex:1; border-radius:8px; overflow:hidden; box-shadow:0 2px 8px rgba(0,0,0,0.10); min-height:0;">
-                  <img :src="item.image" :alt="item.name" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
+          <div class="bg-white rounded-xl p-4 shadow-sm border border-[rgba(181,138,58,0.10)] h-auto lg:h-[280px] flex flex-col md:col-span-2 lg:col-span-1">
+            <h3 class="font-display text-base lg:text-lg font-bold text-[var(--clr-dark)] mb-2.5">Best Used For</h3>
+            <div class="flex-1 grid grid-cols-4 md:grid-cols-4 lg:grid-cols-2 gap-2 overflow-hidden">
+              <div v-for="item in product.bestUsedFor" :key="item.name" class="flex flex-col items-center gap-1 min-h-0">
+                <div class="w-full flex-1 rounded-lg overflow-hidden shadow min-h-0 aspect-square lg:aspect-auto">
+                  <img :src="item.image" :alt="item.name" class="w-full h-full object-cover" loading="lazy" />
                 </div>
-                <span style="font-family:var(--font-body); font-size:10px; color:#555; text-align:center; line-height:1.2; flex-shrink:0;">{{ item.name }}</span>
+                <span class="font-body text-[10px] text-gray-600 text-center leading-tight shrink-0">{{ item.name }}</span>
               </div>
             </div>
           </div>
@@ -177,35 +169,22 @@
       <!-- ══════════════════════════════════════════════════
            4. PAIRS WITH | PROCESS
       ══════════════════════════════════════════════════ -->
-      <section style="background:#fff; border-top:1px solid rgba(181,138,58,0.10);">
-        <div style="max-width:1280px; margin:0 auto; padding:36px 48px; display:grid; grid-template-columns:320px 1fr; gap:40px; align-items:start;">
-
-          <!-- Pairs Beautifully With -->
-          <div style="background:var(--clr-bg); border-radius:14px; padding:24px 22px; border:1px solid rgba(181,138,58,0.10);">
-            <h3 style="font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--clr-dark); margin:0 0 18px;">Pairs Beautifully With</h3>
-            <div style="display:flex; gap:14px; flex-wrap:wrap;">
-              <div v-for="p in product.pairsWith" :key="p.name" style="display:flex; flex-direction:column; align-items:center; gap:6px; width:52px;">
-                <div style="width:52px; height:52px; border-radius:50%; overflow:hidden; border:2px solid rgba(181,138,58,0.22); box-shadow:0 3px 10px rgba(0,0,0,0.10);">
-                  <img :src="p.image" :alt="p.name" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
-                </div>
-                <span style="font-family:var(--font-body); font-size:10px; color:#555; text-align:center; line-height:1.2;">{{ p.name }}</span>
-              </div>
-            </div>
-          </div>
+      <section class="bg-white border-t border-[rgba(181,138,58,0.10)]">
+        <div class="max-w-7xl mx-auto px-4 py-6 md:px-8 lg:px-12 lg:py-9">
 
           <!-- Our Careful Process -->
-          <div style="background:var(--clr-bg); border-radius:14px; padding:24px 22px; border:1px solid rgba(181,138,58,0.10);">
-            <h3 style="font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--clr-dark); margin:0 0 20px;">Our Careful Process</h3>
-            <div style="display:flex; align-items:flex-start; gap:0; overflow-x:auto; padding-bottom:4px;">
+          <div class="bg-[var(--clr-bg)] rounded-xl p-5 md:p-6 lg:p-8 lg:px-10 border border-[rgba(181,138,58,0.10)]">
+            <h3 class="font-display text-lg lg:text-xl font-bold text-[var(--clr-dark)] mb-5 lg:mb-7">Our Careful Process</h3>
+            <div class="flex items-start gap-0 justify-between flex-wrap">
               <template v-for="(step, idx) in product.process" :key="step.label">
-                <div style="display:flex; flex-direction:column; align-items:center; gap:8px; min-width:72px; flex-shrink:0;">
-                  <div style="width:48px; height:48px; border-radius:50%; border:1.5px solid rgba(181,138,58,0.35); background:#fff; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 8px rgba(0,0,0,0.07);">
-                    <i :class="step.icon" style="font-size:17px; color:var(--clr-gold);"></i>
+                <div class="flex flex-col items-center gap-2.5 flex-1 min-w-[60px] lg:min-w-[72px]">
+                  <div class="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-[rgba(181,138,58,0.35)] bg-white flex items-center justify-center shadow">
+                    <i :class="step.icon" class="text-lg lg:text-xl text-[var(--clr-gold)]"></i>
                   </div>
-                  <span style="font-family:var(--font-body); font-size:10px; font-weight:600; color:var(--clr-dark); text-align:center; line-height:1.3; white-space:pre-line;">{{ step.label }}</span>
+                  <span class="font-body text-[10px] lg:text-[11px] font-semibold text-[var(--clr-dark)] text-center leading-tight whitespace-pre-line">{{ step.label }}</span>
                 </div>
-                <div v-if="idx < product.process.length - 1" style="display:flex; align-items:center; padding:0 4px; margin-top:12px; flex-shrink:0;">
-                  <svg width="18" height="12" viewBox="0 0 18 12" fill="none"><path d="M1 6h14M11 1l5 5-5 5" stroke="#c8a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                <div v-if="idx < product.process.length - 1" class="hidden sm:flex items-center px-1 lg:px-2 mt-4 shrink-0">
+                  <svg width="20" height="12" viewBox="0 0 18 12" fill="none"><path d="M1 6h14M11 1l5 5-5 5" stroke="#c8a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
                 </div>
               </template>
             </div>
@@ -217,32 +196,29 @@
       <!-- ══════════════════════════════════════════════════
            5. NUTRITIONAL HIGHLIGHTS | GALLERY
       ══════════════════════════════════════════════════ -->
-      <section style="background:var(--clr-bg); border-top:1px solid rgba(181,138,58,0.10);">
-        <div style="max-width:1280px; margin:0 auto; padding:36px 48px; display:grid; grid-template-columns:300px 1fr; gap:40px; align-items:start;">
+      <section class="bg-[var(--clr-bg)] border-t border-[rgba(181,138,58,0.10)]">
+        <div class="max-w-7xl mx-auto px-4 py-6 md:px-8 lg:px-12 lg:py-9 grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6 lg:gap-10 items-start">
 
           <!-- Nutritional Highlights -->
-          <div style="background:#fff; border-radius:14px; padding:24px 22px; box-shadow:0 2px 16px rgba(0,0,0,0.05); border:1px solid rgba(181,138,58,0.10);">
-            <h3 style="font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--clr-dark); margin:0 0 6px;">Nutritional Highlights</h3>
-            <p style="font-family:var(--font-body); font-size:11px; color:#999; margin:0 0 18px;">(Naturally Contains)</p>
-            <div style="display:flex; gap:14px; flex-wrap:wrap;">
-              <div v-for="n in product.nutritional" :key="n.name" style="display:flex; flex-direction:column; align-items:center; gap:7px; width:54px;">
-                <div style="width:46px; height:46px; border-radius:50%; border:1.5px solid rgba(181,138,58,0.28); background:var(--clr-bg); display:flex; align-items:center; justify-content:center;">
-                  <i :class="n.icon" style="font-size:16px; color:var(--clr-gold);"></i>
+          <div class="bg-white rounded-xl p-5 lg:p-6 shadow-sm border border-[rgba(181,138,58,0.10)]">
+            <h3 class="font-display text-lg lg:text-xl font-bold text-[var(--clr-dark)] mb-1.5">Nutritional Highlights</h3>
+            <p class="font-body text-[11px] text-gray-400 mb-4">(Naturally Contains)</p>
+            <div class="flex gap-3 flex-wrap">
+              <div v-for="n in product.nutritional" :key="n.name" class="flex flex-col items-center gap-2 w-12 lg:w-14">
+                <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full border border-[rgba(181,138,58,0.28)] bg-[var(--clr-bg)] flex items-center justify-content-center">
+                  <i :class="n.icon" class="text-sm lg:text-base text-[var(--clr-gold)] mx-auto"></i>
                 </div>
-                <span style="font-family:var(--font-body); font-size:10px; font-weight:600; color:var(--clr-dark); text-align:center; line-height:1.3;">{{ n.name }}</span>
+                <span class="font-body text-[10px] font-semibold text-[var(--clr-dark)] text-center leading-tight">{{ n.name }}</span>
               </div>
             </div>
           </div>
 
           <!-- Product Gallery -->
-          <div style="background:#fff; border-radius:14px; padding:24px 22px; box-shadow:0 2px 16px rgba(0,0,0,0.05); border:1px solid rgba(181,138,58,0.10);">
-            <h3 style="font-family:var(--font-display); font-size:20px; font-weight:700; color:var(--clr-dark); margin:0 0 16px;">Product Gallery</h3>
-            <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:10px;">
-              <div v-for="(img, idx) in product.gallery" :key="idx" style="border-radius:10px; overflow:hidden; aspect-ratio:1; cursor:pointer; transition:transform 0.2s ease;"
-                @mouseenter="(e) => e.currentTarget.style.transform='scale(1.04)'"
-                @mouseleave="(e) => e.currentTarget.style.transform='scale(1)'"
-              >
-                <img :src="img" :alt="'Gallery ' + (idx+1)" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
+          <div class="bg-white rounded-xl p-5 lg:p-6 shadow-sm border border-[rgba(181,138,58,0.10)]">
+            <h3 class="font-display text-lg lg:text-xl font-bold text-[var(--clr-dark)] mb-4">Product Gallery</h3>
+            <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2 lg:gap-2.5">
+              <div v-for="(img, idx) in product.gallery" :key="idx" class="rounded-lg overflow-hidden aspect-square cursor-pointer transition-transform duration-200 hover:scale-[1.04]">
+                <img :src="img" :alt="'Gallery ' + (idx+1)" class="w-full h-full object-cover" loading="lazy" />
               </div>
             </div>
           </div>
@@ -253,17 +229,14 @@
       <!-- ══════════════════════════════════════════════════
            6. RECIPE INSPIRATION
       ══════════════════════════════════════════════════ -->
-      <section style="background:#fff; border-top:1px solid rgba(181,138,58,0.10);">
-        <div style="max-width:1280px; margin:0 auto; padding:36px 48px;">
-          <h2 style="font-family:var(--font-display); font-size:24px; font-weight:700; color:var(--clr-dark); text-align:center; margin:0 0 22px;">Recipe Inspiration</h2>
-          <div style="display:grid; grid-template-columns:repeat(6,1fr); gap:12px;">
-            <div v-for="r in product.recipes" :key="r.name" style="border-radius:12px; overflow:hidden; position:relative; cursor:pointer; aspect-ratio:0.85; transition:transform 0.25s ease;"
-              @mouseenter="(e) => e.currentTarget.style.transform='scale(1.03)'"
-              @mouseleave="(e) => e.currentTarget.style.transform='scale(1)'"
-            >
-              <img :src="r.image" :alt="r.name" style="width:100%; height:100%; object-fit:cover;" loading="lazy" />
-              <div style="position:absolute; inset:0; background:linear-gradient(to top, rgba(0,0,0,0.65) 0%, transparent 55%); pointer-events:none;"></div>
-              <p style="position:absolute; bottom:8px; left:0; right:0; text-align:center; font-family:var(--font-body); font-size:11px; font-weight:700; color:#fff; padding:0 6px; pointer-events:none; line-height:1.3;">{{ r.name }}</p>
+      <section class="bg-white border-t border-[rgba(181,138,58,0.10)]">
+        <div class="max-w-7xl mx-auto px-4 py-6 md:px-8 lg:px-12 lg:py-9">
+          <h2 class="font-display text-xl lg:text-2xl font-bold text-[var(--clr-dark)] text-center mb-5 lg:mb-6">Recipe Inspiration</h2>
+          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-3">
+            <div v-for="r in product.recipes" :key="r.name" class="rounded-xl overflow-hidden relative cursor-pointer aspect-[1/1.18] transition-transform duration-200 hover:scale-[1.03]">
+              <img :src="r.image" :alt="r.name" class="w-full h-full object-cover" loading="lazy" />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent pointer-events-none"></div>
+              <p class="absolute bottom-2 inset-x-0 text-center font-body text-[11px] font-bold text-white px-1.5 pointer-events-none leading-tight">{{ r.name }}</p>
             </div>
           </div>
         </div>
@@ -272,55 +245,53 @@
       <!-- ══════════════════════════════════════════════════
            7. FAQ | EXPLORE MORE
       ══════════════════════════════════════════════════ -->
-      <section style="background:var(--clr-bg); border-top:1px solid rgba(181,138,58,0.10);">
-        <div style="max-width:1280px; margin:0 auto; padding:36px 48px; display:grid; grid-template-columns:400px 1fr; gap:48px; align-items:start;">
+      <section class="bg-[var(--clr-bg)] border-t border-[rgba(181,138,58,0.10)]">
+        <div class="max-w-7xl mx-auto px-4 py-6 md:px-8 lg:px-12 lg:py-9 grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-8 lg:gap-12 items-start">
 
           <!-- FAQ -->
           <div>
-            <h2 style="font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--clr-dark); margin:0 0 18px;">Frequently Asked Questions</h2>
-            <div style="display:flex; flex-direction:column; gap:0; border-radius:12px; overflow:hidden; border:1px solid rgba(181,138,58,0.14); background:#fff;">
+            <h2 class="font-display text-xl lg:text-[22px] font-bold text-[var(--clr-dark)] mb-4 lg:mb-5">Frequently Asked Questions</h2>
+            <div class="flex flex-col gap-0 rounded-xl overflow-hidden border border-[rgba(181,138,58,0.14)] bg-white">
               <div
                 v-for="(faq, idx) in product.faq"
                 :key="idx"
-                :style="{ borderBottom: idx < product.faq.length - 1 ? '1px solid rgba(181,138,58,0.12)' : 'none' }"
+                :class="idx < product.faq.length - 1 ? 'border-b border-[rgba(181,138,58,0.12)]' : ''"
               >
                 <button
                   @click="openFaq = openFaq === idx ? -1 : idx"
-                  style="width:100%; display:flex; align-items:center; justify-content:space-between; padding:14px 18px; background:transparent; border:none; cursor:pointer; text-align:left; gap:12px;"
+                  class="w-full flex items-center justify-between py-3 px-4 lg:px-5 bg-transparent border-none cursor-pointer text-left gap-3"
                 >
-                  <span style="font-family:var(--font-body); font-size:13px; font-weight:600; color:var(--clr-dark); line-height:1.4;">{{ faq.q }}</span>
-                  <span style="width:22px; height:22px; border-radius:50%; border:1.5px solid rgba(181,138,58,0.35); display:flex; align-items:center; justify-content:center; flex-shrink:0; transition:transform 0.2s ease;" :style="{ transform: openFaq === idx ? 'rotate(45deg)' : 'rotate(0)' }">
+                  <span class="font-body text-xs lg:text-[13px] font-semibold text-[var(--clr-dark)] leading-snug">{{ faq.q }}</span>
+                  <span class="w-5 h-5 lg:w-6 lg:h-6 rounded-full border border-[rgba(181,138,58,0.35)] flex items-center justify-center shrink-0 transition-transform duration-200" :style="{ transform: openFaq === idx ? 'rotate(45deg)' : 'rotate(0)' }">
                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M5 1v8M1 5h8" stroke="var(--clr-gold)" stroke-width="1.5" stroke-linecap="round"/></svg>
                   </span>
                 </button>
-                <div v-show="openFaq === idx" style="padding:0 18px 14px; font-family:var(--font-body); font-size:12.5px; color:#666; line-height:1.75;">{{ faq.a }}</div>
+                <div v-show="openFaq === idx" class="px-4 pb-3 lg:px-5 lg:pb-4 font-body text-xs text-gray-600 leading-relaxed lg:leading-loose">{{ faq.a }}</div>
               </div>
             </div>
           </div>
 
           <!-- Explore More -->
           <div>
-            <h2 style="font-family:var(--font-display); font-size:22px; font-weight:700; color:var(--clr-dark); margin:0 0 18px;">Explore More From DrKitchen</h2>
-            <div style="display:grid; grid-template-columns:repeat(5,1fr); gap:12px; position:relative;">
+            <h2 class="font-display text-xl lg:text-[22px] font-bold text-[var(--clr-dark)] mb-4 lg:mb-5">Explore More From DrKitchen</h2>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2 lg:gap-3 relative">
               <NuxtLink
                 v-for="rel in related"
                 :key="rel.slug"
                 :to="'/products/' + rel.slug"
-                style="background:#fff; border-radius:12px; border:1.5px solid rgba(181,138,58,0.14); overflow:hidden; cursor:pointer; text-decoration:none; transition:transform 0.22s ease, box-shadow 0.22s ease;"
-                @mouseenter="(e) => { e.currentTarget.style.transform='scale(1.04)'; e.currentTarget.style.boxShadow='0 10px 28px rgba(90,60,20,0.13)'; }"
-                @mouseleave="(e) => { e.currentTarget.style.transform='scale(1)'; e.currentTarget.style.boxShadow='none'; }"
+                class="bg-white rounded-xl border border-[rgba(181,138,58,0.14)] overflow-hidden cursor-pointer no-underline transition-all duration-200 hover:scale-[1.04] hover:shadow-lg"
               >
-                <div style="height:110px; background:var(--clr-bg); display:flex; align-items:center; justify-content:center; padding:12px;">
-                  <img :src="rel.image" :alt="rel.name" style="max-height:90px; max-width:100%; object-fit:contain;" loading="lazy" />
+                <div class="h-20 lg:h-28 bg-[var(--clr-bg)] flex items-center justify-center p-2 lg:p-3">
+                  <img :src="rel.image" :alt="rel.name" class="max-h-16 lg:max-h-[90px] max-w-full object-contain" loading="lazy" />
                 </div>
-                <div style="padding:8px 10px 10px; text-align:center;">
-                  <p style="font-family:var(--font-body); font-size:11px; font-weight:700; color:var(--clr-dark); margin:0 0 2px; line-height:1.3;">{{ rel.name }}</p>
-                  <p style="font-family:var(--font-body); font-size:10px; color:var(--clr-muted); margin:0;">{{ rel.hindi }}</p>
+                <div class="p-2 lg:p-2.5 text-center">
+                  <p class="font-body text-[10px] lg:text-[11px] font-bold text-[var(--clr-dark)] mb-0.5 leading-tight">{{ rel.name }}</p>
+                  <p class="font-body text-[9px] lg:text-[10px] text-[var(--clr-muted)]">{{ rel.hindi }}</p>
                 </div>
               </NuxtLink>
-              <!-- Next arrow -->
-              <button style="position:absolute; right:-18px; top:50%; transform:translateY(-50%); width:34px; height:34px; border-radius:50%; background:#C73A2B; border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 12px rgba(140,45,33,0.30);">
-                <i class="fas fa-chevron-right" style="color:#fff; font-size:12px;"></i>
+              <!-- Next arrow (hidden on mobile) -->
+              <button class="hidden lg:flex absolute -right-4 top-1/2 -translate-y-1/2 w-8 h-8 lg:w-9 lg:h-9 rounded-full bg-[#C73A2B] border-none cursor-pointer items-center justify-center shadow-lg">
+                <i class="fas fa-chevron-right text-white text-xs"></i>
               </button>
             </div>
           </div>
@@ -331,30 +302,24 @@
       <!-- ══════════════════════════════════════════════════
            8. BOTTOM CTA BANNER
       ══════════════════════════════════════════════════ -->
-      <section style="background:#1c2b1a; position:relative; overflow:hidden;">
-        <div style="max-width:1280px; margin:0 auto; padding:36px 48px; display:flex; align-items:center; gap:32px;">
-          <!-- Decorative spice image -->
-          <div style="width:90px; height:90px; border-radius:50%; overflow:hidden; border:3px solid rgba(200,169,110,0.3); flex-shrink:0;">
-            <img src="https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=200" alt="spices" style="width:100%; height:100%; object-fit:cover;" />
+      <section class="bg-[#1c2b1a] relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 py-6 md:px-8 lg:px-12 lg:py-9 flex flex-col md:flex-row items-center gap-4 lg:gap-8">
+          <!-- Decorative spice image (hidden on mobile) -->
+          <div class="hidden md:block w-16 h-16 lg:w-[90px] lg:h-[90px] rounded-full overflow-hidden border-[3px] border-[rgba(200,169,110,0.3)] shrink-0">
+            <img src="https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=200" alt="spices" class="w-full h-full object-cover" />
           </div>
           <!-- Text -->
-          <div style="flex:1;">
-            <h3 style="font-family:var(--font-display); font-size:26px; font-weight:700; color:#fff; margin:0 0 6px; line-height:1.2;">Looking for this product?</h3>
-            <p style="font-family:var(--font-body); font-size:13px; color:rgba(255,255,255,0.60); margin:0; line-height:1.6;">Contact us to know where DrKitchen products are available near you.</p>
+          <div class="flex-1 text-center md:text-left">
+            <h3 class="font-display text-lg md:text-xl lg:text-2xl font-bold text-white mb-1 leading-tight">Looking for this product?</h3>
+            <p class="font-body text-xs lg:text-[13px] text-white/60 leading-relaxed">Contact us to know where DrKitchen products are available near you.</p>
           </div>
           <!-- Buttons -->
-          <div style="display:flex; gap:12px; flex-shrink:0;">
-            <NuxtLink to="/contact-us" style="display:inline-flex; align-items:center; gap:8px; border:1.5px solid rgba(200,169,110,0.60); color:#c8a96e; background:transparent; font-family:var(--font-body); font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:12px 22px; border-radius:6px; text-decoration:none; transition:all 0.2s ease;"
-              @mouseenter="(e) => { e.currentTarget.style.background='rgba(200,169,110,0.15)'; }"
-              @mouseleave="(e) => { e.currentTarget.style.background='transparent'; }"
-            >
-              Contact Us <i class="fas fa-arrow-right" style="font-size:10px;"></i>
+          <div class="flex flex-wrap justify-center gap-2 lg:gap-3 shrink-0">
+            <NuxtLink to="/contact-us" class="inline-flex items-center gap-2 border border-[rgba(200,169,110,0.60)] text-[#c8a96e] bg-transparent font-body text-[10px] lg:text-xs font-bold tracking-wider uppercase px-4 py-2.5 lg:px-5 lg:py-3 rounded-md no-underline transition-colors hover:bg-[rgba(200,169,110,0.15)]">
+              Contact Us <i class="fas fa-arrow-right text-[10px]"></i>
             </NuxtLink>
-            <NuxtLink to="/contact-us" style="display:inline-flex; align-items:center; gap:8px; border:1.5px solid rgba(255,255,255,0.25); color:#fff; background:transparent; font-family:var(--font-body); font-size:12px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; padding:12px 22px; border-radius:6px; text-decoration:none; transition:all 0.2s ease;"
-              @mouseenter="(e) => { e.currentTarget.style.background='rgba(255,255,255,0.08)'; }"
-              @mouseleave="(e) => { e.currentTarget.style.background='transparent'; }"
-            >
-              Find Distributor <i class="fas fa-arrow-right" style="font-size:10px;"></i>
+            <NuxtLink to="/contact-us" class="inline-flex items-center gap-2 border border-white/25 text-white bg-transparent font-body text-[10px] lg:text-xs font-bold tracking-wider uppercase px-4 py-2.5 lg:px-5 lg:py-3 rounded-md no-underline transition-colors hover:bg-white/10">
+              Find Distributor <i class="fas fa-arrow-right text-[10px]"></i>
             </NuxtLink>
           </div>
         </div>
@@ -363,8 +328,8 @@
     </div>
 
     <!-- 404 fallback -->
-    <div v-else style="min-height:60vh; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;">
-      <p style="font-family:var(--font-display); font-size:32px; color:var(--clr-dark);">Product not found</p>
+    <div v-else class="min-h-[60vh] flex flex-col items-center justify-center gap-4">
+      <p class="font-display text-2xl lg:text-3xl text-[var(--clr-dark)]">Product not found</p>
       <NuxtLink to="/our-products" class="dk-btn">View All Products</NuxtLink>
     </div>
 
@@ -386,3 +351,27 @@ useHead(() => ({
   meta: [{ name: 'description', content: product.value?.tagline ?? '' }],
 }))
 </script>
+
+<style scoped>
+/* Minimal scoped styles - most layout now uses Tailwind */
+</style>
+
+@media (max-width: 900px) {
+  .slug-three-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .slug-two-grid,
+  .slug-faq-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .slug-h1 { font-size: clamp(32px, 9vw, 48px); }
+  .slug-section-pad { padding: 0 16px; }
+  .slug-about-grid,
+  .slug-three-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>

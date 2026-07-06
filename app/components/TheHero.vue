@@ -1,64 +1,64 @@
 <template>
-  <section style="position:relative; overflow:hidden; min-height:70vh; display:flex; align-items:center;">
+  <section class="relative overflow-hidden min-h-[60vh] lg:min-h-[70vh] flex items-center">
 
     <!-- Full-bleed background image -->
     <img
       src="https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/2b7bbc1d-ca8c-4435-bf40-87d509330a89.png"
       alt="DrKitchen premium spices"
-      style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0;"
+      class="absolute inset-0 w-full h-full object-cover object-center z-0"
     />
 
     <!-- Left-side overlay so text stays readable -->
-    <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(20,14,8,0.72) 0%, rgba(20,14,8,0.55) 40%, rgba(20,14,8,0.15) 65%, transparent 100%); z-index:1;"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[rgba(20,14,8,0.85)] via-[rgba(20,14,8,0.55)] to-transparent z-[1]"></div>
 
     <!-- Text content — overlaid on left -->
-    <div class="fade-up" style="position:relative; z-index:2; padding:56px 64px; width:52%;">
+    <div class="relative z-[2] px-5 py-10 md:px-10 lg:px-16 lg:py-14 w-full lg:w-1/2 fade-up">
 
       <!-- Section label -->
-      <div class="section-label fade-up" style="margin-bottom:24px; color:rgba(255,255,255,0.7);">Pure Spices. Rich Flavors.</div>
+      <div class="section-label fade-up mb-4 lg:mb-6 text-white/70">Pure Spices. Rich Flavors.</div>
 
       <!-- Heading -->
-      <h1 class="fade-up fade-up-d1" style="font-family:var(--font-display); font-size:96px; font-weight:600; color:#fff; line-height:0.9; margin:0 0 20px; letter-spacing:-1px; text-shadow:0 2px 20px rgba(0,0,0,0.3);">
+      <h1 class="font-display font-semibold text-white leading-[0.9] mb-4 lg:mb-5 tracking-tight text-[clamp(2.5rem,10vw,6rem)] fade-up fade-up-d1" style="text-shadow:0 2px 20px rgba(0,0,0,0.3);">
         SPICES<br>
-        <em style="font-style:italic; color:#e8a87c;">THAT TELL</em><br>
+        <em class="italic text-[#e8a87c]">THAT TELL</em><br>
         A STORY
       </h1>
 
       <!-- Ornamental divider -->
-      <div class="fade-up fade-up-d2" style="display:flex; align-items:center; gap:10px; margin-bottom:22px;">
-        <span style="height:1px; width:40px; background:rgba(255,255,255,0.4); display:block;"></span>
-        <svg width="120" height="14" viewBox="0 0 120 14" fill="none">
+      <div class="flex items-center gap-2.5 mb-5 lg:mb-6 fade-up fade-up-d2">
+        <span class="h-px w-8 lg:w-10 bg-white/40 block"></span>
+        <svg width="120" height="14" viewBox="0 0 120 14" fill="none" class="w-20 lg:w-[120px]">
           <path d="M0 7 Q15 2, 30 7 Q45 12, 60 7 Q75 2, 90 7 Q105 12, 120 7" stroke="rgba(255,255,255,0.5)" stroke-width="1" fill="none"/>
           <circle cx="60" cy="7" r="2.5" fill="rgba(255,255,255,0.55)"/>
           <circle cx="30" cy="7" r="1.5" fill="rgba(255,255,255,0.35)"/>
           <circle cx="90" cy="7" r="1.5" fill="rgba(255,255,255,0.35)"/>
         </svg>
-        <span style="height:1px; width:40px; background:rgba(255,255,255,0.4); display:block;"></span>
+        <span class="h-px w-8 lg:w-10 bg-white/40 block"></span>
       </div>
 
       <!-- Description -->
-      <p class="fade-up fade-up-d2" style="font-family:var(--font-body); font-size:16px; line-height:1.85; max-width:400px; color:rgba(255,255,255,0.8); margin-bottom:32px; text-shadow:0 1px 8px rgba(0,0,0,0.3);">
+      <p class="font-body text-sm lg:text-base leading-relaxed lg:leading-loose text-white/80 mb-6 lg:mb-8 max-w-sm lg:max-w-md fade-up fade-up-d2" style="text-shadow:0 1px 8px rgba(0,0,0,0.3);">
         DrKitchen is not just a spice brand — it is born out of history, science, and respect. Crafted to bring purity, flavor, and aroma to every kitchen.
       </p>
 
       <!-- Feature badges -->
-      <div class="fade-up fade-up-d3" style="display:flex; align-items:flex-start; gap:20px; margin-bottom:36px; flex-wrap:nowrap;">
-        <div v-for="f in features" :key="f.label" style="display:flex; align-items:center; gap:9px; flex-shrink:0;">
-          <div :style="{ width:'38px', height:'38px', borderRadius:'50%', border:'1px solid rgba(255,255,255,0.35)', display:'flex', alignItems:'center', justifyContent:'center', flexShrink:'0', background:'rgba(255,255,255,0.08)' }">
-            <i :class="f.icon" style="font-size:13px; color:rgba(255,255,255,0.85);"></i>
+      <div class="flex flex-wrap items-start gap-3 lg:gap-5 mb-8 lg:mb-9 fade-up fade-up-d3">
+        <div v-for="f in features" :key="f.label" class="flex items-center gap-2 lg:gap-2.5 shrink-0">
+          <div class="w-9 h-9 lg:w-10 lg:h-10 rounded-full border border-white/35 flex items-center justify-center shrink-0 bg-white/[0.08]">
+            <i :class="f.icon" class="text-xs lg:text-sm text-white/85"></i>
           </div>
-          <div style="line-height:1.3;">
-            <p style="font-size:12px; font-weight:600; color:#fff; margin:0;">{{ f.label }}</p>
-            <p style="font-size:10px; color:rgba(255,255,255,0.6); margin:0;">{{ f.sub }}</p>
+          <div class="leading-tight">
+            <p class="text-[11px] lg:text-xs font-semibold text-white m-0">{{ f.label }}</p>
+            <p class="text-[10px] text-white/60 m-0">{{ f.sub }}</p>
           </div>
         </div>
       </div>
 
       <!-- CTA -->
-      <a href="#" class="dk-btn fade-up fade-up-d4">
+      <NuxtLink to="/our-products" class="dk-btn fade-up fade-up-d4">
         Explore Our Products
-        <i class="fas fa-arrow-right" style="font-size:11px;"></i>
-      </a>
+        <i class="fas fa-arrow-right text-[11px]"></i>
+      </NuxtLink>
 
     </div>
   </section>

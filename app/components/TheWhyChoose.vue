@@ -1,36 +1,37 @@
 <template>
-  <section style="background:var(--clr-bg2); position:relative; overflow:hidden;">
+  <section class="bg-[var(--clr-bg2)] relative overflow-hidden">
 
     <!-- Background image -->
-    <div style="position:absolute; inset:0; z-index:0;">
+    <div class="absolute inset-0 z-0">
       <img
         src="https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/e36f7d3e-7491-4fd0-a454-0738bba7a8f3.png"
-        style="width:100%; height:100%; object-fit:cover; object-position:center; filter:blur(0.05px) brightness(0.92);"
+        class="w-full h-full object-cover object-center"
+        style="filter:blur(0.05px) brightness(0.92);"
       />
-      <div style="position:absolute; inset:0; background:rgba(247,241,231,0.78);"></div>
+      <div class="absolute inset-0 bg-[rgba(247,241,231,0.78)]"></div>
     </div>
 
-    <div style="max-width:1100px; margin:0 auto; padding:20px 32px 16px; position:relative; z-index:1;">
+    <div class="max-w-6xl mx-auto px-4 py-5 md:px-8 lg:px-8 relative z-[1]">
 
       <!-- Eyebrow -->
-      <div style="text-align:center; margin-bottom:6px;">
-        <div class="section-label" style="justify-content:center;">WHY CHOOSE DRKITCHEN?</div>
+      <div class="text-center mb-1.5">
+        <div class="section-label justify-center">WHY CHOOSE DRKITCHEN?</div>
       </div>
 
       <!-- Heading -->
-      <div style="text-align:center; margin-bottom:6px;">
-        <h2 style="font-family:var(--font-display); font-size:40px; font-weight:700; color:var(--clr-dark); line-height:1.1; margin:0;">Not just spices.</h2>
-        <h2 style="font-family:var(--font-display); font-size:40px; font-weight:700; font-style:italic; color:var(--clr-accent); line-height:1.1; margin:0;">A promise in every grain.</h2>
+      <div class="text-center mb-1.5">
+        <h2 class="font-display text-2xl md:text-3xl lg:text-[40px] font-bold text-[var(--clr-dark)] leading-tight m-0">Not just spices.</h2>
+        <h2 class="font-display text-2xl md:text-3xl lg:text-[40px] font-bold italic text-[var(--clr-accent)] leading-tight m-0">A promise in every grain.</h2>
       </div>
-      <p style="text-align:center; color:var(--clr-dark); font-size:13px; font-weight:700; max-width:540px; margin:0 auto 14px; line-height:1.6;">
+      <p class="text-center text-[var(--clr-dark)] text-xs md:text-sm font-bold max-w-md mx-auto mb-3 leading-relaxed">
         At DrKitchen, every spice goes through a journey of care, science and tradition to deliver unmatched purity, aroma and flavor.
       </p>
 
       <!-- Features grid: left | center bowl with orbit | right -->
-      <div ref="featuresRef" style="display:grid; grid-template-columns:1fr 260px 1fr; align-items:center; gap:0; margin-bottom:12px;">
+      <div ref="featuresRef" class="grid grid-cols-1 lg:grid-cols-[1fr_260px_1fr] items-center gap-0 mb-3">
 
         <!-- Left features -->
-        <div style="display:flex; flex-direction:column; gap:0; padding-right:20px;">
+        <div class="flex flex-col gap-0 lg:pr-5">
           <div
             v-for="(f, i) in leftFeatures"
             :key="f.title"
@@ -46,24 +47,23 @@
                 background: hoveredFeature === f.title ? (f.iconColor || '#c8a96e') : '#faf6ee',
                 border: '1.5px solid ' + (f.iconColor || '#c8a96e') + '66',
                 boxShadow: hoveredFeature === f.title ? '0 4px 16px ' + (f.iconColor || '#c8a96e') + '44' : '0 2px 8px rgba(0,0,0,0.06)',
-                transition: 'all 0.3s ease'
               }"
             >
-              <i :class="f.icon" :style="{ fontSize:'16px', color: hoveredFeature === f.title ? '#fff' : (f.iconColor || '#c8a96e'), transition:'color 0.3s' }"></i>
+              <i :class="f.icon" class="text-base transition-colors duration-300" :style="{ color: hoveredFeature === f.title ? '#fff' : (f.iconColor || '#c8a96e') }"></i>
             </div>
             <div>
-              <p style="font-weight:800; font-size:18px; color:#1a1208; margin:0 0 4px; font-family:'Playfair Display',Georgia,serif;">{{ f.title }}</p>
-              <p style="font-size:14px; color:#666; line-height:1.6; margin:0 0 4px;">{{ f.desc }}</p>
-              <p v-if="f.highlight" style="font-size:14px; font-weight:700; color:#8b1e10; margin:0;">{{ f.highlight }}</p>
+              <p class="font-serif font-extrabold text-base lg:text-lg text-[#1a1208] mb-1 m-0">{{ f.title }}</p>
+              <p class="text-sm text-gray-600 leading-relaxed mb-1 m-0">{{ f.desc }}</p>
+              <p v-if="f.highlight" class="text-sm font-bold text-[#8b1e10] m-0">{{ f.highlight }}</p>
             </div>
           </div>
         </div>
 
-        <!-- Center: bowl + orbit SVG -->
-        <div style="position:relative; width:260px; height:260px; flex-shrink:0; margin:0 auto;">
+        <!-- Center: bowl + orbit SVG (hidden on mobile) -->
+        <div class="hidden lg:block relative w-[260px] h-[260px] shrink-0 mx-auto">
 
           <!-- Animated orbit ring + connector lines SVG -->
-          <svg viewBox="0 0 320 320" width="260" height="260" style="position:absolute; top:0; left:0; z-index:1; pointer-events:none; overflow:visible;">
+          <svg viewBox="0 0 320 320" width="260" height="260" class="absolute top-0 left-0 z-[1] pointer-events-none overflow-visible">
             <!-- Outer slow rotating ring -->
             <circle
               cx="160" cy="160" r="145"
@@ -97,24 +97,26 @@
             @mousedown="startDrag"
             @touchstart.prevent="startTouchDrag"
             @dragstart.prevent
-            style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:225px; height:225px; border-radius:50%; overflow:hidden; border:5px solid #fff; box-shadow:0 12px 48px rgba(0,0,0,0.22); z-index:2; cursor:ew-resize; user-select:none; -webkit-user-select:none;"
+            class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[225px] h-[225px] rounded-full overflow-hidden border-[5px] border-white shadow-[0_12px_48px_rgba(0,0,0,0.22)] z-[2] cursor-ew-resize select-none"
           >
             <img
               draggable="false"
               src="https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/images_1_vfkcbs"
-              :style="{ position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center', clipPath:`inset(0 ${100 - splitPct}% 0 0)`, userSelect:'none', pointerEvents:'none' }"
+              class="absolute top-0 left-0 w-full h-full object-cover object-center select-none pointer-events-none"
+              :style="{ clipPath:`inset(0 ${100 - splitPct}% 0 0)` }"
             />
             <img
               draggable="false"
               src="https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/download__1_.jpeg"
-              :style="{ position:'absolute', top:0, left:0, width:'100%', height:'100%', objectFit:'cover', objectPosition:'center', clipPath:`inset(0 0 0 ${splitPct}%)`, userSelect:'none', pointerEvents:'none' }"
+              class="absolute top-0 left-0 w-full h-full object-cover object-center select-none pointer-events-none"
+              :style="{ clipPath:`inset(0 0 0 ${splitPct}%)` }"
             />
             <!-- Labels -->
-            <div style="position:absolute; top:10px; left:10px; background:rgba(139,30,16,0.85); color:#fff; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; letter-spacing:0.5px; pointer-events:none;">Ground</div>
-            <div style="position:absolute; top:10px; right:10px; background:rgba(26,18,8,0.75); color:#c8a96e; font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; letter-spacing:0.5px; pointer-events:none;">Whole</div>
+            <div class="absolute top-2.5 left-2.5 bg-[rgba(139,30,16,0.85)] text-white text-[11px] font-bold px-2.5 py-1 rounded-full tracking-wide pointer-events-none">Ground</div>
+            <div class="absolute top-2.5 right-2.5 bg-[rgba(26,18,8,0.75)] text-[#c8a96e] text-[11px] font-bold px-2.5 py-1 rounded-full tracking-wide pointer-events-none">Whole</div>
             <!-- Divider -->
-            <div :style="{ position:'absolute', top:0, left:splitPct+'%', transform:'translateX(-50%)', width:'2px', height:'100%', background:'rgba(255,255,255,0.85)', zIndex:3, pointerEvents:'none' }">
-              <div style="position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); width:30px; height:30px; border-radius:50%; background:#fff; box-shadow:0 2px 12px rgba(0,0,0,0.3); display:flex; align-items:center; justify-content:center;">
+            <div class="absolute top-0 h-full w-0.5 bg-white/85 z-[3] pointer-events-none" :style="{ left: splitPct+'%', transform:'translateX(-50%)' }">
+              <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30px] h-[30px] rounded-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.3)] flex items-center justify-center">
                 <svg width="14" height="10" viewBox="0 0 14 10" fill="none">
                   <path d="M1 5h12M4 2L1 5l3 3M10 2l3 3-3 3" stroke="#888" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
@@ -124,7 +126,7 @@
         </div>
 
         <!-- Right features -->
-        <div style="display:flex; flex-direction:column; gap:0; padding-left:20px;">
+        <div class="flex flex-col gap-0 lg:pl-5">
           <div
             v-for="(f, i) in rightFeatures"
             :key="f.title"
@@ -140,15 +142,14 @@
                 background: hoveredFeature === f.title ? (f.iconColor || '#c8a96e') : '#faf6ee',
                 border: '1.5px solid ' + (f.iconColor || '#c8a96e') + '66',
                 boxShadow: hoveredFeature === f.title ? '0 4px 16px ' + (f.iconColor || '#c8a96e') + '44' : '0 2px 8px rgba(0,0,0,0.06)',
-                transition: 'all 0.3s ease'
               }"
             >
-              <i :class="f.icon" :style="{ fontSize:'16px', color: hoveredFeature === f.title ? '#fff' : (f.iconColor || '#c8a96e'), transition:'color 0.3s' }"></i>
+              <i :class="f.icon" class="text-base transition-colors duration-300" :style="{ color: hoveredFeature === f.title ? '#fff' : (f.iconColor || '#c8a96e') }"></i>
             </div>
-            <div style="text-align:left;">
-              <p style="font-weight:800; font-size:18px; color:#1a1208; margin:0 0 4px; font-family:'Playfair Display',Georgia,serif;">{{ f.title }}</p>
-              <p style="font-size:14px; color:#666; line-height:1.6; margin:0 0 4px;">{{ f.desc }}</p>
-              <p v-if="f.highlight" style="font-size:14px; font-weight:700; color:#8b1e10; margin:0;">{{ f.highlight }}</p>
+            <div class="text-left">
+              <p class="font-serif font-extrabold text-base lg:text-lg text-[#1a1208] mb-1 m-0">{{ f.title }}</p>
+              <p class="text-sm text-gray-600 leading-relaxed mb-1 m-0">{{ f.desc }}</p>
+              <p v-if="f.highlight" class="text-sm font-bold text-[#8b1e10] m-0">{{ f.highlight }}</p>
             </div>
           </div>
         </div>
@@ -156,59 +157,61 @@
       </div>
 
       <!-- Quality Difference Bar -->
-      <div style="background:#1c2318; border-radius:12px; overflow:hidden; display:grid; grid-template-columns:155px 1fr 120px; min-height:60px; box-shadow:0 6px 24px rgba(0,0,0,0.18);">
+      <div class="bg-[#1c2318] rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-[155px_1fr_120px] min-h-[60px] shadow-[0_6px_24px_rgba(0,0,0,0.18)]">
 
         <!-- Left text -->
-        <div style="padding:10px 14px; display:flex; flex-direction:column; justify-content:center; border-right:1px solid rgba(255,255,255,0.06);">
-          <p style="font-size:11px; font-weight:600; color:#eee; line-height:1.4; margin:0 0 3px; letter-spacing:0.5px; text-transform:uppercase;">See the DrKitchen</p>
-          <p style="font-family:'Playfair Display',Georgia,serif; font-size:18px; font-weight:800; color:#c8a96e; line-height:1.2; margin:0 0 8px;">Quality Difference</p>
-          <p style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:12px; color:#ddd; line-height:1.5; margin:0;">Try it. Taste it.<br>You'll feel it. →</p>
+        <div class="p-4 md:p-2.5 md:px-3.5 flex flex-col justify-center md:border-r border-white/[0.06]">
+          <p class="text-[11px] font-semibold text-gray-200 leading-snug mb-1 tracking-wide uppercase m-0">See the DrKitchen</p>
+          <p class="font-serif text-lg font-extrabold text-[#c8a96e] leading-tight mb-2 m-0">Quality Difference</p>
+          <p class="font-serif italic text-xs text-gray-300 leading-relaxed m-0 hidden md:block">Try it. Taste it.<br>You'll feel it. →</p>
         </div>
 
         <!-- Comparison circles -->
-        <div style="padding:8px 14px; display:flex; align-items:center; justify-content:center; gap:6px;">
+        <div class="p-3 md:p-2 flex items-center justify-center gap-2 md:gap-1.5 flex-wrap">
 
-          <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
-            <p style="font-size:11px; font-weight:700; color:#c8a96e; letter-spacing:1px; margin:0; text-align:center;">DrKitchen</p>
-            <div style="width:40px; height:40px; border-radius:50%; overflow:hidden; border:2.5px solid #c8a96e; box-shadow:0 0 10px rgba(200,169,110,0.4);">
-              <img src="https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=200" style="width:100%; height:100%; object-fit:cover;" />
+          <div class="flex flex-col items-center gap-1.5">
+            <p class="text-[11px] font-bold text-[#c8a96e] tracking-wider m-0 text-center">DrKitchen</p>
+            <div class="w-10 h-10 rounded-full overflow-hidden border-[2.5px] border-[#c8a96e] shadow-[0_0_10px_rgba(200,169,110,0.4)]">
+              <img src="https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=200" class="w-full h-full object-cover" />
             </div>
-            <div style="text-align:center;">
-              <p style="font-size:12px; color:#fff; margin:0; line-height:1.4;">Bold color</p>
-              <p style="font-size:11px; color:#bbb; margin:0;">Natural oils intact</p>
+            <div class="text-center">
+              <p class="text-xs text-white m-0 leading-snug">Bold color</p>
+              <p class="text-[11px] text-gray-400 m-0">Natural oils intact</p>
             </div>
           </div>
 
-          <div style="display:flex; flex-direction:column; align-items:center; gap:3px; margin-top:-14px;">
-            <span style="width:24px; height:24px; border-radius:50%; background:#2a3624; border:1px solid #4a5e40; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:800; color:#8aab7a; flex-shrink:0;">VS</span>
+          <div class="flex flex-col items-center gap-1 -mt-3.5">
+            <span class="w-6 h-6 rounded-full bg-[#2a3624] border border-[#4a5e40] flex items-center justify-center text-[8px] font-extrabold text-[#8aab7a] shrink-0">VS</span>
           </div>
 
-          <div v-for="(comp, idx) in comparisons" :key="comp.label" style="display:contents;">
-            <div style="display:flex; flex-direction:column; align-items:center; gap:5px;">
-              <p style="font-size:11px; font-weight:700; color:#ddd; letter-spacing:1px; margin:0; text-align:center;">Other Spices</p>
+          <div v-for="(comp, idx) in comparisons" :key="comp.label" class="contents">
+            <div class="flex flex-col items-center gap-1.5">
+              <p class="text-[11px] font-bold text-gray-300 tracking-wider m-0 text-center">Other Spices</p>
               <div
                 @mouseenter="comp.hovered = true" @mouseleave="comp.hovered = false"
-                :style="{ width:'40px', height:'40px', borderRadius:'50%', overflow:'hidden', border:'2px solid #444', filter: comp.hovered ? 'none' : 'saturate(0.3) brightness(0.75)', transition:'filter 0.35s ease, transform 0.25s ease', cursor:'pointer', transform: comp.hovered ? 'scale(1.08)' : 'scale(1)' }">
-                <img :src="comp.img" style="width:100%; height:100%; object-fit:cover;" />
+                class="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-600 transition-all duration-300 cursor-pointer"
+                :class="comp.hovered ? 'scale-110' : 'saturate-[0.3] brightness-75'"
+              >
+                <img :src="comp.img" class="w-full h-full object-cover" />
               </div>
-              <div style="text-align:center;">
-                <p style="font-size:12px; color:#eee; margin:0; line-height:1.4;">{{ comp.label }}</p>
-                <p style="font-size:11px; color:#bbb; margin:0;">{{ comp.sub }}</p>
+              <div class="text-center">
+                <p class="text-xs text-gray-200 m-0 leading-snug">{{ comp.label }}</p>
+                <p class="text-[11px] text-gray-400 m-0">{{ comp.sub }}</p>
               </div>
             </div>
-            <div v-if="idx < comparisons.length - 1" style="display:flex; flex-direction:column; align-items:center; gap:3px; margin-top:-14px;">
-              <span style="width:24px; height:24px; border-radius:50%; background:#2a3624; border:1px solid #4a5e40; display:flex; align-items:center; justify-content:center; font-size:8px; font-weight:800; color:#8aab7a; flex-shrink:0;">VS</span>
+            <div v-if="idx < comparisons.length - 1" class="flex flex-col items-center gap-1 -mt-3.5">
+              <span class="w-6 h-6 rounded-full bg-[#2a3624] border border-[#4a5e40] flex items-center justify-center text-[8px] font-extrabold text-[#8aab7a] shrink-0">VS</span>
             </div>
           </div>
         </div>
 
-        <!-- Right food image -->
-        <div style="overflow:hidden; position:relative;">
+        <!-- Right food image (hidden on mobile) -->
+        <div class="hidden md:block overflow-hidden relative">
           <img
             src="https://images.pexels.com/photos/2474661/pexels-photo-2474661.jpeg?auto=compress&cs=tinysrgb&w=400"
-            style="width:100%; height:100%; object-fit:cover; opacity:0.75;"
+            class="w-full h-full object-cover opacity-75"
           />
-          <div style="position:absolute; inset:0; background:linear-gradient(to right, #1c2318 0%, transparent 40%);"></div>
+          <div class="absolute inset-0 bg-gradient-to-r from-[#1c2318] to-transparent"></div>
         </div>
 
       </div>
@@ -371,9 +374,8 @@ const comparisons = reactive([
 }
 .feature-card--left { transform: translateX(-28px); }
 .feature-card--right { transform: translateX(28px); flex-direction: row-reverse; }
-.feature-card--visible { opacity: 1 !important; transform: translateX(0) !important; }
+.feature-card--visible { opacity: 1; transform: translateX(0); }
 .feature-card:hover { background: rgba(255,255,255,0.72); box-shadow: 0 4px 20px rgba(0,0,0,0.07); }
-.feature-card--right > div:last-child { text-align: left; }
 
 .feature-icon {
   width: 40px;
@@ -383,5 +385,12 @@ const comparisons = reactive([
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 1024px) {
+  .feature-card--right {
+    flex-direction: row;
+  }
 }
 </style>

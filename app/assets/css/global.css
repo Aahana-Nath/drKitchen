@@ -204,3 +204,28 @@ body::after {
   .stagger-children > *:nth-child(6) { animation-delay: 600ms; }
 }
 
+/* ─────────────────────────────────────────
+   GLOBAL MOBILE RESPONSIVENESS
+───────────────────────────────────────── */
+@media (max-width: 768px) {
+  :root {
+    --space-section: 48px;
+    --space-h: 40px;
+  }
+
+  body { overflow-x: hidden; }
+
+  /* 
+   * LEGACY OVERRIDES REMOVED
+   * All components now use Tailwind responsive classes (sm:, md:, lg:)
+   * No more inline style overrides needed.
+   */
+}
+
+@media (max-width: 480px) {
+  .dk-btn {
+    padding: 12px 22px;
+    font-size: 11px;
+  }
+}
+

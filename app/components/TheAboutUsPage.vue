@@ -13,7 +13,7 @@
          QUOTES BAR
     ══════════════════════════════════════════ -->
     <div style="position:relative; z-index:10; margin:-36px 64px 0; background:#fff; border-radius:12px; box-shadow:0 6px 28px rgba(0,0,0,0.09); border:1px solid #f0e8d8;">
-      <div style="display:grid; grid-template-columns:repeat(4,1fr);">
+      <div style="" class="about-quotes-grid">
         <div v-for="(q, i) in quotes" :key="i"
           :style="{ padding:'14px 20px 10px', borderRight: i < 3 ? '1px solid #f0e8d8' : 'none', display:'flex', flexDirection:'column', justifyContent:'space-between', minHeight:'60px' }">
           <div>
@@ -62,7 +62,7 @@
     ══════════════════════════════════════════ -->
     <div style="background:#faf5ee; padding:72px 0 56px;">
       <!-- Header row -->
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:40px; padding:0 80px; margin-bottom:40px; align-items:end;">
+      <div class="about-flavours-grid" style="gap:40px; padding:0 80px; margin-bottom:40px; align-items:end;">
         <div>
           <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
             <span style="height:1px; width:36px; background:#8b6914; opacity:0.7;"></span>
@@ -187,4 +187,28 @@ const regions = [
   transform: translateY(-4px);
   box-shadow: 0 10px 32px rgba(0,0,0,0.12);
 }
-</style>
+
+.about-quotes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+.about-flavours-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+@media (max-width: 768px) {
+  .about-quotes-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .about-flavours-grid {
+    grid-template-columns: 1fr;
+    padding: 0 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-quotes-grid {
+    grid-template-columns: 1fr;
+  }
+}</style>

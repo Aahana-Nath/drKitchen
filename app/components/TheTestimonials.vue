@@ -1,56 +1,56 @@
 <template>
-  <section style="background:var(--clr-bg2); padding:72px 80px; position:relative; overflow:hidden;">
+  <section class="bg-[var(--clr-bg2)] relative overflow-hidden py-12 px-5 md:py-16 md:px-10 lg:py-[72px] lg:px-20">
 
     <!-- Header -->
-    <div style="text-align:center; margin-bottom:28px;">
-      <h2 style="font-family:var(--font-display); font-size:42px; font-weight:600; color:var(--clr-dark); line-height:1.15; margin:0 0 6px;">
-        What Our<br><span style="color:#C73A2B;">Customers Say</span>
+    <div class="text-center mb-6 lg:mb-7">
+      <h2 class="font-display text-2xl md:text-3xl lg:text-[42px] font-semibold text-[var(--clr-dark)] leading-tight mb-1.5">
+        What Our<br><span class="text-[#C73A2B]">Customers Say</span>
       </h2>
       <!-- Ornamental divider -->
-      <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin:14px 0 12px;">
-        <span style="display:block; height:1px; width:48px; background:#c8a96e; opacity:0.7;"></span>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="#c8a96e" style="opacity:0.8;">
+      <div class="flex items-center justify-center gap-2.5 my-3">
+        <span class="block h-px w-10 lg:w-12 bg-[#c8a96e] opacity-70"></span>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="#c8a96e" class="opacity-80">
           <path d="M8 0L9.8 5.5H16L11 8.9L12.9 14.5L8 11.1L3.1 14.5L5 8.9L0 5.5H6.2Z"/>
         </svg>
-        <span style="display:block; height:1px; width:48px; background:#c8a96e; opacity:0.7;"></span>
+        <span class="block h-px w-10 lg:w-12 bg-[#c8a96e] opacity-70"></span>
       </div>
-      <p style="font-size:15px; color:#777; margin:0;">Real feedback from happy DrKitchen customers</p>
+      <p class="text-sm lg:text-[15px] text-gray-500 m-0">Real feedback from happy DrKitchen customers</p>
     </div>
 
     <!-- Testimonial cards -->
-    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:28px; max-width:1200px; margin:0 auto;">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 lg:gap-7 max-w-7xl mx-auto">
       <div
         v-for="t in testimonials"
         :key="t.name"
-        style="background:var(--clr-card); border-radius:var(--radius-card); overflow:hidden; box-shadow:var(--shadow-card); border:1px solid rgba(181,138,58,0.12); display:flex; flex-direction:column;"
+        class="dk-card flex flex-col overflow-hidden"
       >
         <!-- Card content -->
-        <div style="padding:20px 22px 14px; flex:1; display:flex; flex-direction:column;">
+        <div class="p-5 lg:p-6 flex-1 flex flex-col">
           <!-- Stars -->
-          <div style="display:flex; gap:3px; margin-bottom:10px;">
-            <span v-for="n in 5" :key="n" style="font-size:16px; color:#d4a017; line-height:1;">★</span>
+          <div class="flex gap-1 mb-2.5">
+            <span v-for="n in 5" :key="n" class="text-base text-[#d4a017] leading-none">★</span>
           </div>
           <!-- Title -->
-          <p style="font-family:var(--font-display); font-size:17px; font-weight:600; color:var(--clr-dark); margin:0 0 10px; line-height:1.3;">{{ t.title }}</p>
+          <p class="font-display text-base lg:text-[17px] font-semibold text-[var(--clr-dark)] mb-2.5 leading-snug">{{ t.title }}</p>
           <!-- Review -->
-          <div style="flex:1; position:relative;">
-            <span style="font-size:32px; line-height:0.7; color:#C73A2B; font-family:Georgia,serif; display:block; margin-bottom:4px; opacity:0.85;">&ldquo;</span>
-            <p style="font-family:var(--font-body); font-size:13.5px; color:var(--clr-muted); line-height:1.75; margin:0;">{{ t.review }}</p>
-            <span style="font-size:32px; line-height:0.7; color:#C73A2B; font-family:Georgia,serif; display:block; text-align:right; margin-top:4px; opacity:0.85;">&rdquo;</span>
+          <div class="flex-1 relative">
+            <span class="text-3xl leading-[0.7] text-[#C73A2B] font-serif block mb-1 opacity-85">&ldquo;</span>
+            <p class="font-body text-sm text-[var(--clr-muted)] leading-relaxed m-0">{{ t.review }}</p>
+            <span class="text-3xl leading-[0.7] text-[#C73A2B] font-serif block text-right mt-1 opacity-85">&rdquo;</span>
           </div>
         </div>
         <!-- Reviewer -->
-        <div style="padding:12px 22px 18px; display:flex; align-items:center; gap:10px; border-top:1px solid #f5ede0;">
-          <div style="width:48px; height:48px; border-radius:50%; overflow:hidden; flex-shrink:0; border:2px solid #c8a96e;">
-            <img v-if="t.image" :src="t.image" :alt="t.name" style="width:100%; height:100%; object-fit:cover;" />
-            <div v-else style="width:100%; height:100%; background:#c8a96e; display:flex; align-items:center; justify-content:center;">
-              <i class="fas fa-user" style="font-size:18px; color:#fff;"></i>
+        <div class="px-5 py-3 lg:px-6 lg:py-4 flex items-center gap-2.5 border-t border-[#f5ede0]">
+          <div class="w-11 h-11 lg:w-12 lg:h-12 rounded-full overflow-hidden shrink-0 border-2 border-[#c8a96e]">
+            <img v-if="t.image" :src="t.image" :alt="t.name" class="w-full h-full object-cover" />
+            <div v-else class="w-full h-full bg-[#c8a96e] flex items-center justify-center">
+              <i class="fas fa-user text-lg text-white"></i>
             </div>
           </div>
           <div>
-            <p style="font-family:'Playfair Display',Georgia,serif; font-size:15px; font-weight:700; color:#1a1208; margin:0 0 2px;">{{ t.name }}</p>
-            <p style="font-size:12px; color:#888; margin:0; display:flex; align-items:center; gap:4px;">
-              <i class="fas fa-map-marker-alt" style="color:#C73A2B; font-size:10px;"></i>
+            <p class="font-serif text-sm lg:text-[15px] font-bold text-[#1a1208] mb-0.5">{{ t.name }}</p>
+            <p class="text-xs text-gray-500 m-0 flex items-center gap-1">
+              <i class="fas fa-map-marker-alt text-[#C73A2B] text-[10px]"></i>
               {{ t.location }}
             </p>
           </div>

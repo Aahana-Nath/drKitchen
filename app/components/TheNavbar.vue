@@ -97,10 +97,11 @@
         leave-to-class="opacity-0 -translate-y-2"
       >
         <div v-show="mobileOpen" class="lg:hidden border-t border-gray-100 bg-white px-4 py-3 space-y-1">
-          <a v-for="link in navLinks" :key="link.label" href="#"
+          <NuxtLink v-for="link in navLinks" :key="link.label" :to="link.href"
+             @click="mobileOpen = false"
              class="block px-3 py-2.5 text-sm font-medium rounded-lg hover:bg-gray-50"
              :class="route.path === link.href ? 'text-brand-red' : 'text-gray-700'"
-          >{{ link.label }}</a>
+          >{{ link.label }}</NuxtLink>
         </div>
       </Transition>
     </nav>

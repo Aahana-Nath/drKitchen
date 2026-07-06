@@ -1,39 +1,39 @@
 <template>
-  <div style="background:var(--clr-bg); min-height:100vh;">
+  <div class="bg-[var(--clr-bg)] min-h-screen">
     <TheNavbar />
 
     <!-- ═══════════════════════════════════════
          HERO BANNER
     ═══════════════════════════════════════ -->
-    <section style="position:relative; overflow:hidden; min-height:320px; display:flex; align-items:center;">
+    <section class="relative overflow-hidden min-h-[240px] md:min-h-[320px] flex items-center">
 
       <!-- Full-bleed background image -->
       <img
         src="https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/e1d6b9df-b1ee-4c36-ac53-91ba3acedb7f_shwprl"
         alt="DrKitchen Spices"
-        style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;"
+        class="absolute inset-0 w-full h-full object-cover object-center"
       />
 
       <!-- Dark gradient overlay — heavy on left for text legibility, fades out toward right -->
-      <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(26,18,8,0.72) 0%, rgba(26,18,8,0.45) 45%, rgba(26,18,8,0.05) 100%); pointer-events:none;"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[rgba(26,18,8,0.85)] via-[rgba(26,18,8,0.45)] to-[rgba(26,18,8,0.05)] pointer-events-none"></div>
 
       <!-- Text content — left side -->
-      <div style="position:relative; z-index:1; max-width:1400px; width:100%; margin:0 auto; padding:64px 32px;">
-        <div class="section-label" style="margin-bottom:18px; color:#D4A84B;">Our Products</div>
-        <h1 style="font-family:var(--font-display); font-size:62px; font-weight:600; color:#fff; line-height:1.05; margin:0 0 4px; letter-spacing:-0.01em;">
+      <div class="relative z-[1] max-w-7xl w-full mx-auto px-5 py-10 md:px-8 lg:py-16">
+        <div class="section-label mb-4 text-[#D4A84B]">Our Products</div>
+        <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-semibold text-white leading-none mb-1 tracking-tight">
           Pure Spices.
         </h1>
-        <h1 style="font-family:var(--font-display); font-size:62px; font-weight:600; color:#fff; line-height:1.05; margin:0 0 18px; letter-spacing:-0.01em;">
+        <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-semibold text-white leading-none mb-4 tracking-tight">
           Rich Flavours.
         </h1>
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
-          <span style="height:1px; width:36px; background:#D4A84B; opacity:0.7; display:block;"></span>
-          <svg viewBox="0 0 16 16" width="9" height="9" fill="#D4A84B" style="opacity:0.8;"><path d="M8 0L9.8 5.5H16L11 8.9L12.9 14.5L8 11.1L3.1 14.5L5 8.9L0 5.5H6.2Z"/></svg>
-          <span style="height:1px; width:36px; background:#D4A84B; opacity:0.7; display:block;"></span>
+        <div class="flex items-center gap-2.5 mb-4 lg:mb-5">
+          <span class="h-px w-9 bg-[#D4A84B] opacity-70 block"></span>
+          <svg viewBox="0 0 16 16" width="9" height="9" fill="#D4A84B" class="opacity-80"><path d="M8 0L9.8 5.5H16L11 8.9L12.9 14.5L8 11.1L3.1 14.5L5 8.9L0 5.5H6.2Z"/></svg>
+          <span class="h-px w-9 bg-[#D4A84B] opacity-70 block"></span>
         </div>
-        <p style="font-family:var(--font-body); font-size:15px; color:rgba(255,255,255,0.80); line-height:1.8; max-width:420px; margin:0;">
-          Carefully sourced. Scientifically processed.<br>
-          Naturally preserved. Explore our complete<br>
+        <p class="font-body text-sm lg:text-[15px] text-white/80 leading-relaxed lg:leading-loose max-w-md">
+          Carefully sourced. Scientifically processed.<br class="hidden md:block">
+          Naturally preserved. Explore our complete<br class="hidden md:block">
           range of authentic spices.
         </p>
       </div>
@@ -43,33 +43,18 @@
     <!-- ═══════════════════════════════════════
          CATEGORY FILTER BAR
     ═══════════════════════════════════════ -->
-    <div style="background:#fff; border-bottom:1px solid rgba(181,138,58,0.14); box-shadow:0 2px 12px rgba(0,0,0,0.05); position:sticky; top:0; z-index:40;">
-      <div style="max-width:1400px; margin:0 auto; padding:0 32px;">
-        <div style="display:flex; align-items:center; gap:8px; overflow-x:auto; padding:14px 0; scrollbar-width:none;">
+    <div class="bg-white border-b border-[rgba(181,138,58,0.14)] shadow-sm sticky top-0 z-40">
+      <div class="max-w-7xl mx-auto px-4 md:px-8">
+        <div class="flex items-center gap-2 overflow-x-auto py-3 scrollbar-hide">
 
           <button
             v-for="cat in categories"
             :key="cat.label"
             @click="activeCategory = cat.label"
-            :style="{
-              display: 'flex',
-              alignItems: 'center',
-              gap: '7px',
-              padding: '8px 18px',
-              borderRadius: '50px',
-              border: activeCategory === cat.label ? 'none' : '1.5px solid rgba(181,138,58,0.22)',
-              background: activeCategory === cat.label ? 'var(--clr-dark)' : 'transparent',
-              color: activeCategory === cat.label ? '#fff' : 'var(--clr-dark)',
-              fontFamily: 'var(--font-body)',
-              fontSize: '13px',
-              fontWeight: '600',
-              cursor: 'pointer',
-              whiteSpace: 'nowrap',
-              transition: 'all 0.2s ease',
-              flexShrink: '0',
-            }"
+            class="flex items-center gap-1.5 px-4 py-2 rounded-full font-body text-xs md:text-[13px] font-semibold whitespace-nowrap transition-all shrink-0"
+            :class="activeCategory === cat.label ? 'bg-[var(--clr-dark)] text-white border-transparent' : 'border border-[rgba(181,138,58,0.22)] text-[var(--clr-dark)]'"
           >
-            <span v-html="cat.icon" style="width:18px; height:18px; display:flex; align-items:center; justify-content:center;"></span>
+            <span v-html="cat.icon" class="w-4 h-4 flex items-center justify-center"></span>
             {{ cat.label }}
           </button>
 
@@ -80,42 +65,39 @@
     <!-- ═══════════════════════════════════════
          PRODUCTS LISTING
     ═══════════════════════════════════════ -->
-    <section style="max-width:1400px; margin:0 auto; padding:36px 32px 80px;">
+    <section class="max-w-7xl mx-auto px-4 py-8 md:px-8 md:py-10 lg:pb-20">
 
       <!-- Count + Sort + Filter bar -->
-      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:28px;">
-        <p style="font-family:var(--font-body); font-size:14px; color:var(--clr-muted); margin:0;">
-          Showing <strong style="color:var(--clr-dark);">1–{{ filteredProducts.length }}</strong> of <strong style="color:var(--clr-dark);">{{ allProducts.length }}</strong> products
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 lg:mb-7">
+        <p class="font-body text-sm text-[var(--clr-muted)] m-0">
+          Showing <strong class="text-[var(--clr-dark)]">1–{{ filteredProducts.length }}</strong> of <strong class="text-[var(--clr-dark)]">{{ allProducts.length }}</strong> products
         </p>
-        <div style="display:flex; align-items:center; gap:10px;">
-          <div style="display:flex; align-items:center; gap:8px; border:1.5px solid rgba(181,138,58,0.22); border-radius:8px; padding:7px 14px; cursor:pointer; background:#fff;">
-            <span style="font-family:var(--font-body); font-size:13px; color:var(--clr-muted);">Sort by:</span>
-            <span style="font-family:var(--font-body); font-size:13px; font-weight:600; color:var(--clr-dark);">Popular</span>
+        <div class="flex items-center gap-2.5">
+          <div class="hidden md:flex items-center gap-2 border border-[rgba(181,138,58,0.22)] rounded-lg px-3 py-1.5 cursor-pointer bg-white">
+            <span class="font-body text-xs text-[var(--clr-muted)]">Sort by:</span>
+            <span class="font-body text-xs font-semibold text-[var(--clr-dark)]">Popular</span>
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="#5E564C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div style="display:flex; align-items:center; gap:7px; border:1.5px solid rgba(181,138,58,0.22); border-radius:8px; padding:7px 14px; cursor:pointer; background:#fff;">
+          <div class="hidden md:flex items-center gap-1.5 border border-[rgba(181,138,58,0.22)] rounded-lg px-3 py-1.5 cursor-pointer bg-white">
             <svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M1 1H13M3 6H11M5 11H9" stroke="#1F1B16" stroke-width="1.5" stroke-linecap="round"/></svg>
-            <span style="font-family:var(--font-body); font-size:13px; font-weight:600; color:var(--clr-dark);">Filter</span>
-            <span style="width:18px; height:18px; border-radius:50%; border:1.5px solid rgba(181,138,58,0.3); display:flex; align-items:center; justify-content:center; font-size:10px; font-weight:700; color:var(--clr-gold);">0</span>
+            <span class="font-body text-xs font-semibold text-[var(--clr-dark)]">Filter</span>
+            <span class="w-4 h-4 rounded-full border border-[rgba(181,138,58,0.3)] flex items-center justify-center text-[10px] font-bold text-[var(--clr-gold)]">0</span>
           </div>
         </div>
       </div>
 
-      <!-- Product grid — 5 columns -->
-      <div style="display:grid; grid-template-columns:repeat(5, 1fr); gap:22px;">
+      <!-- Product grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-5">
         <NuxtLink
           v-for="product in filteredProducts"
           :key="product.name"
           :to="'/products/' + product.slug"
-          class="product-card"
-          style="background:#fff; border-radius:18px; border:1.5px solid rgba(181,138,58,0.18); box-shadow:0 4px 18px rgba(90,60,20,0.08); overflow:hidden; cursor:pointer; transition:transform 0.28s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.28s ease, border-color 0.28s ease; position:relative; text-decoration:none; display:block;"
-          @mouseenter="(e) => { e.currentTarget.style.transform='scale(1.04)'; e.currentTarget.style.boxShadow='0 20px 56px rgba(90,60,20,0.18)'; e.currentTarget.style.borderColor='rgba(181,138,58,0.45)'; }"
-          @mouseleave="(e) => { e.currentTarget.style.transform='scale(1)'; e.currentTarget.style.boxShadow='0 4px 18px rgba(90,60,20,0.08)'; e.currentTarget.style.borderColor='rgba(181,138,58,0.18)'; }"
+          class="product-card bg-white rounded-2xl border border-[rgba(181,138,58,0.18)] shadow-[0_4px_18px_rgba(90,60,20,0.08)] overflow-hidden relative block no-underline transition-all hover:scale-[1.03] hover:shadow-[0_20px_56px_rgba(90,60,20,0.18)] hover:border-[rgba(181,138,58,0.45)]"
         >
           <!-- Wishlist heart -->
           <button
             @click.stop="toggleWishlist(product.name)"
-            style="position:absolute; top:12px; right:12px; z-index:2; width:34px; height:34px; border-radius:50%; background:rgba(255,255,255,0.92); border:none; cursor:pointer; display:flex; align-items:center; justify-content:center; box-shadow:0 2px 10px rgba(0,0,0,0.12); transition:all 0.2s ease;"
+            class="absolute top-2.5 right-2.5 z-[2] w-8 h-8 rounded-full bg-white/90 border-none cursor-pointer flex items-center justify-center shadow-[0_2px_10px_rgba(0,0,0,0.12)] transition-all"
           >
             <svg width="16" height="15" viewBox="0 0 14 13" fill="none">
               <path
@@ -130,24 +112,30 @@
           </button>
 
           <!-- Product image -->
-          <div style="height:210px; display:flex; align-items:center; justify-content:center; padding:22px 18px 12px; background:var(--clr-bg);">
+          <div class="h-36 md:h-48 lg:h-[210px] flex items-center justify-center px-4 py-4 bg-[var(--clr-bg)]">
             <img
               :src="product.image"
               :alt="product.name"
-              style="max-height:185px; max-width:100%; object-fit:contain; transition:transform 0.35s ease;"
+              class="max-h-full max-w-full object-contain transition-transform"
               loading="lazy"
             />
           </div>
 
           <!-- Info -->
-          <div style="padding:14px 16px 18px;">
-            <p style="font-family:var(--font-body); font-size:15px; font-weight:700; color:var(--clr-dark); margin:0 0 3px; line-height:1.3;">{{ product.name }}</p>
-            <p style="font-family:var(--font-body); font-size:12.5px; font-weight:400; color:var(--clr-muted); margin:0 0 5px; letter-spacing:0.2px;">{{ product.hindi }}</p>
-            <p style="font-family:var(--font-body); font-size:12px; color:#999; margin:0; line-height:1.4;">{{ product.tag }}</p>
+          <div class="p-3 md:p-4">
+            <p class="font-body text-sm md:text-[15px] font-bold text-[var(--clr-dark)] mb-1 leading-snug">{{ product.name }}</p>
+            <p class="font-body text-xs text-[var(--clr-muted)] mb-1 tracking-wide">{{ product.hindi }}</p>
+            <p class="font-body text-[11px] md:text-xs text-gray-400 m-0 leading-snug">{{ product.tag }}</p>
           </div>
 
         </NuxtLink>
       </div>
+
+    </section>
+
+    <TheFooter />
+  </div>
+</template>
 
     </section>
 
@@ -347,6 +335,7 @@ const filteredProducts = computed(() => {
 </script>
 
 <style scoped>
-/* Hide scrollbar on category bar */
-div::-webkit-scrollbar { display: none; }
+/* Hide scrollbar */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { scrollbar-width: none; }
 </style>

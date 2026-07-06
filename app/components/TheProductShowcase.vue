@@ -1,50 +1,46 @@
 <template>
-  <section style="background:var(--clr-bg3); padding:52px 0; position:relative; overflow:hidden;">
+  <section class="bg-[var(--clr-bg3)] py-10 md:py-14 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Header -->
-      <div class="text-center mb-8">
-        <div class="section-label" style="justify-content:center; margin-bottom:10px;">Fresh &amp; Pure</div>
-        <h2 style="font-family:var(--font-display); font-size:36px; font-weight:600; color:var(--clr-dark); margin:0 0 8px; line-height:1.05;">Our Premium Products</h2>
-        <div style="display:flex; align-items:center; justify-content:center; gap:10px; margin-top:8px;">
-          <span style="height:1px; width:48px; background:var(--clr-gold); opacity:0.4; display:block;"></span>
-          <svg viewBox="0 0 16 16" width="10" height="10" fill="var(--clr-gold)" style="opacity:0.6;"><path d="M8 0L9.8 5.5H16L11 8.9L12.9 14.5L8 11.1L3.1 14.5L5 8.9L0 5.5H6.2Z"/></svg>
-          <span style="height:1px; width:48px; background:var(--clr-gold); opacity:0.4; display:block;"></span>
+      <div class="text-center mb-6 md:mb-8">
+        <div class="section-label justify-center mb-2.5">Fresh &amp; Pure</div>
+        <h2 class="font-display text-2xl md:text-3xl lg:text-4xl font-semibold text-[var(--clr-dark)] mb-2 leading-none">Our Premium Products</h2>
+        <div class="flex items-center justify-center gap-2.5 mt-2">
+          <span class="h-px w-10 md:w-12 bg-[var(--clr-gold)] opacity-40 block"></span>
+          <svg viewBox="0 0 16 16" width="10" height="10" fill="var(--clr-gold)" class="opacity-60"><path d="M8 0L9.8 5.5H16L11 8.9L12.9 14.5L8 11.1L3.1 14.5L5 8.9L0 5.5H6.2Z"/></svg>
+          <span class="h-px w-10 md:w-12 bg-[var(--clr-gold)] opacity-40 block"></span>
         </div>
       </div>
 
       <!-- Products grid -->
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4 lg:gap-5">
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4 lg:gap-5">
         <div
           v-for="product in products"
           :key="product.name"
-          class="dk-card group"
-          style="overflow:hidden;"
+          class="dk-card group overflow-hidden"
         >
           <!-- Image -->
-          <div style="overflow:hidden; height:150px; position:relative; background:transparent; border-radius:14px 14px 0 0;">
+          <div class="overflow-hidden h-28 md:h-36 lg:h-[150px] relative bg-transparent rounded-t-xl">
             <img
               :src="product.image"
               :alt="product.name"
-              class="product-glow"
-              style="width:100%; height:100%; object-fit:contain; transition:transform 0.5s ease;"
+              class="product-glow w-full h-full object-contain transition-transform duration-500"
               loading="lazy"
             />
             <!-- Tag pill -->
-            <span class="absolute top-3 left-3 text-[10px] font-bold uppercase tracking-wider bg-brand-gold/90 text-white px-2.5 py-1 rounded-full">
+            <span class="absolute top-2 md:top-3 left-2 md:left-3 text-[9px] md:text-[10px] font-bold uppercase tracking-wider bg-brand-gold/90 text-white px-2 py-0.5 md:px-2.5 md:py-1 rounded-full">
               {{ product.tag }}
             </span>
           </div>
 
           <!-- Body -->
-          <div style="padding:12px 14px 14px;">
-            <h3 style="font-family:var(--font-display); font-size:15px; font-weight:600; color:var(--clr-dark); margin:0 0 4px; line-height:1.3;">{{ product.name }}</h3>
-            <p style="font-family:var(--font-body); font-size:12px; color:var(--clr-muted); line-height:1.6; margin:0 0 10px;">{{ product.desc }}</p>
+          <div class="p-3 md:p-3.5">
+            <h3 class="font-display text-sm md:text-[15px] font-semibold text-[var(--clr-dark)] mb-1 leading-snug">{{ product.name }}</h3>
+            <p class="font-body text-[11px] md:text-xs text-[var(--clr-muted)] leading-relaxed mb-2 md:mb-2.5 line-clamp-2">{{ product.desc }}</p>
             <NuxtLink
               :to="'/products/' + product.slug"
-              style="display:block; width:100%; text-align:center; border:1px solid rgba(181,138,58,0.4); color:var(--clr-gold); background:transparent; font-family:var(--font-body); font-size:11px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; padding:7px; border-radius:8px; cursor:pointer; transition:all 0.2s ease; text-decoration:none;"
-              @mouseenter="(e) => { e.currentTarget.style.background='var(--clr-accent)'; e.currentTarget.style.color='#fff'; e.currentTarget.style.borderColor='var(--clr-accent)'; }"
-              @mouseleave="(e) => { e.currentTarget.style.background='transparent'; e.currentTarget.style.color='var(--clr-gold)'; e.currentTarget.style.borderColor='rgba(181,138,58,0.4)'; }"
+              class="block w-full text-center border border-[rgba(181,138,58,0.4)] text-[var(--clr-gold)] bg-transparent font-body text-[10px] md:text-[11px] font-semibold tracking-wider uppercase py-1.5 md:py-2 rounded-lg transition-all duration-200 hover:bg-[var(--clr-accent)] hover:text-white hover:border-[var(--clr-accent)] no-underline"
             >
               View Details
             </NuxtLink>
@@ -53,10 +49,10 @@
       </div>
 
       <!-- View all -->
-      <div class="text-center mt-8">
-        <a href="#" class="dk-btn">
-          View All Products <i class="fas fa-arrow-right" style="font-size:11px;"></i>
-        </a>
+      <div class="text-center mt-6 md:mt-8">
+        <NuxtLink to="/our-products" class="dk-btn">
+          View All Products <i class="fas fa-arrow-right text-[11px]"></i>
+        </NuxtLink>
       </div>
 
     </div>

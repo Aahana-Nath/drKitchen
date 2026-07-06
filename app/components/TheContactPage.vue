@@ -2,96 +2,95 @@
   <div>
 
     <!-- Hero Section -->
-    <section style="position:relative; overflow:hidden; height:480px;">
+    <section class="relative overflow-hidden h-64 md:h-96 lg:h-[480px]">
       <img
         src="https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/993a91e0-314d-4eca-ad26-069aa1877c2f_kal92h"
         alt="Contact DrKitchen"
-        style="width:100%; height:100%; object-fit:cover; object-position:center 40%;"
+        class="w-full h-full object-cover object-[center_40%]"
       />
       <!-- Overlay gradient -->
-      <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(31,27,22,0.72) 0%, rgba(31,27,22,0.35) 55%, transparent 100%);"></div>
+      <div class="absolute inset-0 bg-gradient-to-r from-[rgba(31,27,22,0.85)] via-[rgba(31,27,22,0.35)] to-transparent"></div>
 
       <!-- Hero text -->
-      <div style="position:absolute; inset:0; display:flex; align-items:center; padding:0 80px;">
+      <div class="absolute inset-0 flex items-center px-5 md:px-12 lg:px-20">
         <div>
-          <div class="section-label" style="margin-bottom:20px; color:rgba(255,255,255,0.75);">Get In Touch</div>
-          <h1 style="font-family:var(--font-display); font-size:68px; font-weight:600; color:#fff; line-height:0.95; margin:0 0 20px;">
+          <div class="section-label mb-4 lg:mb-5 text-white/75">Get In Touch</div>
+          <h1 class="font-display text-3xl md:text-5xl lg:text-[68px] font-semibold text-white leading-none mb-4 lg:mb-5">
             We'd love to<br>
-            <em style="font-style:italic; color:var(--clr-gold-lt);">hear</em> from you
+            <em class="italic text-[var(--clr-gold-lt)]">hear</em> from you
           </h1>
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
-            <span style="height:1px; width:36px; background:var(--clr-gold); opacity:0.6; display:block;"></span>
-            <span style="height:1px; width:8px; background:var(--clr-gold); opacity:0.4; display:block;"></span>
+          <div class="flex items-center gap-2.5 mb-4 lg:mb-5">
+            <span class="h-px w-9 bg-[var(--clr-gold)] opacity-60 block"></span>
+            <span class="h-px w-2 bg-[var(--clr-gold)] opacity-40 block"></span>
           </div>
-          <p style="font-family:var(--font-body); font-size:16px; color:rgba(255,255,255,0.72); max-width:420px; line-height:1.7; margin:0;">
-            Whether you have a question, feedback, or business enquiry,<br>our team is here to help you with the freshest support.
+          <p class="font-body text-sm lg:text-base text-white/70 max-w-md leading-relaxed">
+            Whether you have a question, feedback, or business enquiry,<br class="hidden md:block">our team is here to help you with the freshest support.
           </p>
         </div>
       </div>
     </section>
 
     <!-- Main Content -->
-    <section style="background:var(--clr-bg); padding:72px 0 80px;">
-      <div style="max-width:1200px; margin:0 auto; padding:0 40px; display:grid; grid-template-columns:1fr 1fr; gap:40px; align-items:start;">
+    <section class="bg-[var(--clr-bg)] py-10 md:py-14 lg:py-16">
+
+      <div class="max-w-7xl mx-auto px-4 md:px-10 grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-10 items-start">
 
         <!-- Left: Contact Info -->
         <div>
-          <div class="section-label" style="margin-bottom:16px;">Reach Us</div>
-          <h2 style="font-family:var(--font-display); font-size:42px; font-weight:600; color:#1a1a1a; margin:0 0 32px; line-height:1.1;">Get In Touch</h2>
+          <div class="section-label mb-4">Reach Us</div>
+          <h2 class="font-display text-2xl md:text-3xl lg:text-[42px] font-semibold text-[#1a1a1a] mb-6 lg:mb-8 leading-tight">Get In Touch</h2>
 
-          <div style="display:flex; flex-direction:column; gap:22px;">
-
-            <div v-for="item in contactItems" :key="item.label" style="display:flex; align-items:flex-start; gap:16px;">
-              <div style="width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; flex-shrink:0; background:#8B1A1A;">
-                <i :class="item.icon" style="font-size:14px; color:#fff;"></i>
+          <div class="flex flex-col gap-5">
+            <div v-for="item in contactItems" :key="item.label" class="flex items-start gap-4">
+              <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full flex items-center justify-center shrink-0 bg-[#8B1A1A]">
+                <i :class="item.icon" class="text-sm text-white"></i>
               </div>
               <div>
-                <p style="font-family:var(--font-body); font-size:14px; font-weight:600; letter-spacing:1.5px; text-transform:uppercase; color:#1a1a1a; margin:0 0 6px;">{{ item.label }}</p>
-                <p style="font-family:var(--font-body); font-size:16px; color:#1a1a1a; margin:0; line-height:1.6;" v-html="item.value"></p>
+                <p class="font-body text-xs lg:text-sm font-semibold tracking-wider uppercase text-[#1a1a1a] mb-1.5">{{ item.label }}</p>
+                <p class="font-body text-sm lg:text-base text-[#1a1a1a] leading-relaxed m-0" v-html="item.value"></p>
               </div>
             </div>
-
           </div>
 
           <!-- Business Hours -->
-          <div style="margin-top:40px; padding:24px 28px; background:var(--clr-card); border-radius:16px; border:1px solid rgba(181,138,58,0.12);">
-            <h3 style="font-family:var(--font-display); font-size:24px; font-weight:600; color:#1a1a1a; margin:0 0 18px;">Business Hours</h3>
-            <div style="display:flex; flex-direction:column; gap:12px;">
-              <div style="display:flex; justify-content:space-between; align-items:center; padding-bottom:12px; border-bottom:1px solid rgba(181,138,58,0.1);">
-                <div style="display:flex; align-items:center; gap:10px;">
-                  <div style="width:28px; height:28px; border-radius:50%; background:#8B1A1A; display:flex; align-items:center; justify-content:center;">
-                    <i class="fas fa-clock" style="font-size:11px; color:#fff;"></i>
+          <div class="mt-8 lg:mt-10 p-5 lg:p-6 bg-[var(--clr-card)] rounded-2xl border border-[rgba(181,138,58,0.12)]">
+            <h3 class="font-display text-xl lg:text-2xl font-semibold text-[#1a1a1a] mb-4">Business Hours</h3>
+            <div class="flex flex-col gap-3">
+              <div class="flex justify-between items-center pb-3 border-b border-[rgba(181,138,58,0.1)]">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-7 h-7 rounded-full bg-[#8B1A1A] flex items-center justify-center">
+                    <i class="fas fa-clock text-[11px] text-white"></i>
                   </div>
-                  <span style="font-family:var(--font-body); font-size:15px; font-weight:600; color:#1a1a1a;">Monday – Saturday</span>
+                  <span class="font-body text-sm lg:text-[15px] font-semibold text-[#1a1a1a]">Monday – Saturday</span>
                 </div>
-                <span style="font-family:var(--font-body); font-size:15px; color:#1a1a1a;">9:00 AM – 6:00 PM</span>
+                <span class="font-body text-sm lg:text-[15px] text-[#1a1a1a]">9:00 AM – 6:00 PM</span>
               </div>
-              <div style="display:flex; justify-content:space-between; align-items:center;">
-                <div style="display:flex; align-items:center; gap:10px;">
-                  <div style="width:28px; height:28px; border-radius:50%; background:#8B1A1A; display:flex; align-items:center; justify-content:center;">
-                    <i class="fas fa-calendar-times" style="font-size:11px; color:#fff;"></i>
+              <div class="flex justify-between items-center">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-7 h-7 rounded-full bg-[#8B1A1A] flex items-center justify-center">
+                    <i class="fas fa-calendar-times text-[11px] text-white"></i>
                   </div>
-                  <span style="font-family:var(--font-body); font-size:15px; font-weight:600; color:#666;">Sunday</span>
+                  <span class="font-body text-sm lg:text-[15px] font-semibold text-gray-500">Sunday</span>
                 </div>
-                <span style="font-family:var(--font-body); font-size:15px; color:#666;">Closed</span>
+                <span class="font-body text-sm lg:text-[15px] text-gray-500">Closed</span>
               </div>
             </div>
           </div>
         </div>
 
         <!-- Right: Map + Form stacked -->
-        <div style="display:flex; flex-direction:column; gap:32px;">
+        <div class="flex flex-col gap-6 lg:gap-8">
 
           <!-- Map -->
-          <div style="border-radius:20px; overflow:hidden; box-shadow:var(--shadow-card); border:1px solid rgba(181,138,58,0.1);">
-            <div style="padding:20px 24px 0; background:var(--clr-card);">
-              <h3 style="font-family:var(--font-display); font-size:20px; font-weight:600; color:var(--clr-dark); margin:0 0 16px;">Find Us Here</h3>
+          <div class="rounded-2xl overflow-hidden shadow-[var(--shadow-card)] border border-[rgba(181,138,58,0.1)]">
+            <div class="px-5 pt-5 lg:px-6 lg:pt-5 bg-[var(--clr-card)]">
+              <h3 class="font-display text-lg lg:text-xl font-semibold text-[var(--clr-dark)] mb-4">Find Us Here</h3>
             </div>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3508.7!2d77.07!3d28.45!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390d18e5b46a0001%3A0x1!2sSector+47%2C+Gurugram%2C+Haryana!5e0!3m2!1sen!2sin!4v1"
               width="100%"
-              height="240"
-              style="display:block; border:none;"
+              height="200"
+              class="block border-none"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
@@ -99,65 +98,49 @@
           </div>
 
           <!-- Contact Form -->
-          <div style="background:var(--clr-card); border-radius:20px; padding:32px 28px; box-shadow:var(--shadow-card); border:1px solid rgba(181,138,58,0.1);">
-            <h3 style="font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--clr-dark); margin:0 0 6px;">Send Us a Message</h3>
-            <p style="font-family:var(--font-body); font-size:13px; color:var(--clr-muted); margin:0 0 24px;">We'll get back to you within 24 hours.</p>
+          <div class="bg-[var(--clr-card)] rounded-2xl p-6 lg:p-7 shadow-[var(--shadow-card)] border border-[rgba(181,138,58,0.1)]">
+            <h3 class="font-display text-xl lg:text-2xl font-semibold text-[var(--clr-dark)] mb-1.5">Send Us a Message</h3>
+            <p class="font-body text-xs lg:text-[13px] text-[var(--clr-muted)] mb-5 lg:mb-6">We'll get back to you within 24 hours.</p>
 
-            <form @submit.prevent="submitForm" style="display:flex; flex-direction:column; gap:14px;">
-              <div style="display:grid; grid-template-columns:1fr 1fr; gap:14px;">
-                <div>
-                  <input
-                    v-model="form.name"
-                    type="text"
-                    placeholder="Your Name"
-                    required
-                    style="width:100%; padding:11px 14px; border:1px solid rgba(181,138,58,0.25); border-radius:10px; font-family:var(--font-body); font-size:13px; color:var(--clr-dark); background:var(--clr-bg); outline:none; transition:border-color 0.2s; box-sizing:border-box;"
-                    @focus="(e: FocusEvent) => (e.target as HTMLElement).style.borderColor='var(--clr-gold)'"
-                    @blur="(e: FocusEvent) => (e.target as HTMLElement).style.borderColor='rgba(181,138,58,0.25)'"
-                  />
-                </div>
-                <div>
-                  <input
-                    v-model="form.email"
-                    type="email"
-                    placeholder="Your Email"
-                    required
-                    style="width:100%; padding:11px 14px; border:1px solid rgba(181,138,58,0.25); border-radius:10px; font-family:var(--font-body); font-size:13px; color:var(--clr-dark); background:var(--clr-bg); outline:none; transition:border-color 0.2s; box-sizing:border-box;"
-                    @focus="(e: FocusEvent) => (e.target as HTMLElement).style.borderColor='var(--clr-gold)'"
-                    @blur="(e: FocusEvent) => (e.target as HTMLElement).style.borderColor='rgba(181,138,58,0.25)'"
-                  />
-                </div>
+            <form @submit.prevent="submitForm" class="flex flex-col gap-3 lg:gap-3.5">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 lg:gap-3.5">
+                <input
+                  v-model="form.name"
+                  type="text"
+                  placeholder="Your Name"
+                  required
+                  class="w-full px-3.5 py-2.5 lg:py-3 border border-[rgba(181,138,58,0.25)] rounded-lg font-body text-sm text-[var(--clr-dark)] bg-[var(--clr-bg)] outline-none transition-colors focus:border-[var(--clr-gold)]"
+                />
+                <input
+                  v-model="form.email"
+                  type="email"
+                  placeholder="Your Email"
+                  required
+                  class="w-full px-3.5 py-2.5 lg:py-3 border border-[rgba(181,138,58,0.25)] rounded-lg font-body text-sm text-[var(--clr-dark)] bg-[var(--clr-bg)] outline-none transition-colors focus:border-[var(--clr-gold)]"
+                />
               </div>
               <input
                 v-model="form.subject"
                 type="text"
                 placeholder="Subject"
-                style="width:100%; padding:11px 14px; border:1px solid rgba(181,138,58,0.25); border-radius:10px; font-family:var(--font-body); font-size:13px; color:var(--clr-dark); background:var(--clr-bg); outline:none; transition:border-color 0.2s; box-sizing:border-box;"
-                @focus="(e: FocusEvent) => (e.target as HTMLElement).style.borderColor='var(--clr-gold)'"
-                @blur="(e: FocusEvent) => (e.target as HTMLElement).style.borderColor='rgba(181,138,58,0.25)'"
+                class="w-full px-3.5 py-2.5 lg:py-3 border border-[rgba(181,138,58,0.25)] rounded-lg font-body text-sm text-[var(--clr-dark)] bg-[var(--clr-bg)] outline-none transition-colors focus:border-[var(--clr-gold)]"
               />
               <textarea
                 v-model="form.message"
                 placeholder="Your Message"
                 rows="4"
                 required
-                style="width:100%; padding:11px 14px; border:1px solid rgba(181,138,58,0.25); border-radius:10px; font-family:var(--font-body); font-size:13px; color:var(--clr-dark); background:var(--clr-bg); outline:none; transition:border-color 0.2s; resize:vertical; box-sizing:border-box;"
-                @focus="(e: FocusEvent) => (e.target as HTMLElement).style.borderColor='var(--clr-gold)'"
-                @blur="(e: FocusEvent) => (e.target as HTMLElement).style.borderColor='rgba(181,138,58,0.25)'"
+                class="w-full px-3.5 py-2.5 lg:py-3 border border-[rgba(181,138,58,0.25)] rounded-lg font-body text-sm text-[var(--clr-dark)] bg-[var(--clr-bg)] outline-none transition-colors resize-y focus:border-[var(--clr-gold)]"
               ></textarea>
-              <button
-                type="submit"
-                class="dk-btn"
-                style="align-self:flex-start;"
-              >
-                Send Message <i class="fas fa-arrow-right" style="font-size:11px;"></i>
+              <button type="submit" class="dk-btn self-start">
+                Send Message <i class="fas fa-arrow-right text-[11px]"></i>
               </button>
             </form>
 
             <!-- Success message -->
-            <div v-if="submitted" style="margin-top:16px; padding:14px 18px; background:rgba(65,84,59,0.08); border:1px solid rgba(65,84,59,0.2); border-radius:10px; display:flex; align-items:center; gap:10px;">
-              <i class="fas fa-check-circle" style="color:var(--clr-green); font-size:16px;"></i>
-              <p style="font-family:var(--font-body); font-size:13px; color:var(--clr-green); margin:0; font-weight:500;">Thank you! We'll be in touch soon.</p>
+            <div v-if="submitted" class="mt-4 p-3.5 bg-[rgba(65,84,59,0.08)] border border-[rgba(65,84,59,0.2)] rounded-lg flex items-center gap-2.5">
+              <i class="fas fa-check-circle text-[var(--clr-green)] text-base"></i>
+              <p class="font-body text-sm text-[var(--clr-green)] font-medium m-0">Thank you! We'll be in touch soon.</p>
             </div>
           </div>
 
@@ -166,15 +149,15 @@
     </section>
 
     <!-- Bottom Features Bar -->
-    <section style="background:var(--clr-dark); padding:40px 0;">
-      <div style="max-width:1200px; margin:0 auto; padding:0 40px; display:grid; grid-template-columns:repeat(4,1fr); gap:32px;">
-        <div v-for="feat in bottomFeatures" :key="feat.label" style="display:flex; align-items:center; gap:14px;">
-          <div style="width:44px; height:44px; border-radius:50%; border:1px solid rgba(181,138,58,0.3); display:flex; align-items:center; justify-content:center; flex-shrink:0;">
-            <i :class="feat.icon" style="font-size:16px; color:var(--clr-gold);"></i>
+    <section class="bg-[var(--clr-dark)] py-8 lg:py-10">
+      <div class="max-w-7xl mx-auto px-4 md:px-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-8">
+        <div v-for="feat in bottomFeatures" :key="feat.label" class="flex items-center gap-3.5">
+          <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full border border-[rgba(181,138,58,0.3)] flex items-center justify-center shrink-0">
+            <i :class="feat.icon" class="text-base text-[var(--clr-gold)]"></i>
           </div>
           <div>
-            <p style="font-family:var(--font-body); font-size:13px; font-weight:600; color:#fff; margin:0 0 2px;">{{ feat.label }}</p>
-            <p style="font-family:var(--font-body); font-size:12px; color:rgba(255,255,255,0.45); margin:0;">{{ feat.sub }}</p>
+            <p class="font-body text-xs lg:text-[13px] font-semibold text-white mb-0.5">{{ feat.label }}</p>
+            <p class="font-body text-[11px] lg:text-xs text-white/45 m-0">{{ feat.sub }}</p>
           </div>
         </div>
       </div>
