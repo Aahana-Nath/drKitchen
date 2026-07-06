@@ -137,12 +137,6 @@
   </div>
 </template>
 
-    </section>
-
-    <TheFooter />
-  </div>
-</template>
-
 <script setup lang="ts">
 const activeCategory = ref('All Products')
 const wishlist = ref<string[]>([])

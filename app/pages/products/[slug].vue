@@ -355,23 +355,3 @@ useHead(() => ({
 <style scoped>
 /* Minimal scoped styles - most layout now uses Tailwind */
 </style>
-
-@media (max-width: 900px) {
-  .slug-three-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .slug-two-grid,
-  .slug-faq-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 640px) {
-  .slug-h1 { font-size: clamp(32px, 9vw, 48px); }
-  .slug-section-pad { padding: 0 16px; }
-  .slug-about-grid,
-  .slug-three-grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
