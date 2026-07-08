@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[var(--clr-bg2)] relative overflow-hidden">
+  <section class="bg-[var(--clr-bg2)] relative overflow-hidden rounded-t-3xl">
 
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
@@ -111,9 +111,6 @@
               class="absolute top-0 left-0 w-full h-full object-cover object-center select-none pointer-events-none"
               :style="{ clipPath:`inset(0 0 0 ${splitPct}%)` }"
             />
-            <!-- Labels -->
-            <div class="absolute top-2.5 left-2.5 bg-[rgba(139,30,16,0.85)] text-white text-[11px] font-bold px-2.5 py-1 rounded-full tracking-wide pointer-events-none">Ground</div>
-            <div class="absolute top-2.5 right-2.5 bg-[rgba(26,18,8,0.75)] text-[#c8a96e] text-[11px] font-bold px-2.5 py-1 rounded-full tracking-wide pointer-events-none">Whole</div>
             <!-- Divider -->
             <div class="absolute top-0 h-full w-0.5 bg-white/85 z-[3] pointer-events-none" :style="{ left: splitPct+'%', transform:'translateX(-50%)' }">
               <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30px] h-[30px] rounded-full bg-white shadow-[0_2px_12px_rgba(0,0,0,0.3)] flex items-center justify-center">

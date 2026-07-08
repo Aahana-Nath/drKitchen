@@ -1,18 +1,18 @@
 <template>
-  <section class="relative overflow-hidden min-h-[60vh] lg:min-h-[70vh] flex items-center">
+  <section class="relative overflow-hidden h-[calc(100vh-130px)] bg-[#2a1810]">
 
     <!-- Full-bleed background image -->
     <img
-      src="https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/2b7bbc1d-ca8c-4435-bf40-87d509330a89.png"
+      src="https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/ddcce667-71e0-4927-b5e6-a6fefe61f9df_pm3ofl"
       alt="DrKitchen premium spices"
-      class="absolute inset-0 w-full h-full object-cover object-center z-0"
+      class="absolute inset-0 w-full h-full object-cover z-0"
     />
 
     <!-- Left-side overlay so text stays readable -->
     <div class="absolute inset-0 bg-gradient-to-r from-[rgba(20,14,8,0.85)] via-[rgba(20,14,8,0.55)] to-transparent z-[1]"></div>
 
-    <!-- Text content — overlaid on left -->
-    <div class="relative z-[2] px-5 py-10 md:px-10 lg:px-16 lg:py-14 w-full lg:w-1/2 fade-up">
+    <!-- Text content — overlaid on left, positioned lower -->
+    <div class="absolute inset-0 z-[2] px-5 py-8 md:px-10 lg:px-16 lg:py-10 w-full lg:w-1/2 flex flex-col justify-center fade-up">
 
       <!-- Section label -->
       <div class="section-label fade-up mb-4 lg:mb-6 text-white/70">Pure Spices. Rich Flavors.</div>
@@ -55,7 +55,7 @@
       </div>
 
       <!-- CTA -->
-      <NuxtLink to="/our-products" class="dk-btn fade-up fade-up-d4">
+      <NuxtLink to="/our-products" class="dk-btn fade-up fade-up-d4 self-start">
         Explore Our Products
         <i class="fas fa-arrow-right text-[11px]"></i>
       </NuxtLink>

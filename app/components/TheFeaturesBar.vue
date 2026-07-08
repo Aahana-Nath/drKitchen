@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[#1e3a5f] py-6">
+  <section class="bg-[#1e3a5f] py-6 rounded-t-3xl">
     <div class="max-w-[1400px] mx-auto px-6">
       <div class="flex items-center">
         <div

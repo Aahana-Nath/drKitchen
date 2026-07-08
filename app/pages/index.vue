@@ -1,23 +1,37 @@
+<script setup lang="ts">
+useHead({
+  title: "DrKitchen | Premium Indian Spices",
+  meta: [
+    { name: "description", content: "Premium Indian spices crafted with science, tradition and authentic flavour. Explore turmeric, garam masala, red chilli and more from DrKitchen." },
+    { property: "og:title", content: "DrKitchen | Premium Indian Spices" },
+    { property: "og:description", content: "Premium Indian spices preserving purity, flavour and aroma." },
+    { property: "og:url", content: "https://www.drkitchen.com" },
+  ]
+})
+</script>
+
 <template>
   <div>
     <TheNavbar />
 
-    <!-- Wrapper is 2× hero height so sticky has room to hold the hero fixed
-         while sections scroll over it -->
-    <div style="position: relative; height: 170vh;">
-      <div style="position: sticky; top: 0; z-index: 0;">
-        <TheHero />
-      </div>
+    <!-- Sticky hero — stays fixed while content scrolls over it -->
+    <div class="sticky top-[100px] md:top-[130px] z-0">
+      <TheHero />
     </div>
 
-    <!-- Sections pulled up by hero height so they begin right at the hero's bottom edge,
-         then slide upward covering the frozen hero as the user scrolls -->
-    <div style="position: relative; z-index: 1; margin-top: -85vh;">
-      <TheFeaturesBar />
-      <TheWhyChoose />
-      <TheProductShowcase />
-      <TheTestimonials />
-      <TheFooter />
+    <!-- Content sections scroll over the hero -->
+    <div class="relative z-10">
+      <!-- Sticky WhyChoose — stays fixed while content scrolls over it -->
+      <div class="sticky top-[100px] md:top-[130px] z-0">
+        <TheWhyChoose />
+      </div>
+
+      <!-- These sections scroll over WhyChoose -->
+      <div class="relative z-10">
+        <TheProductShowcase />
+        <TheTestimonials />
+        <TheFooter />
+      </div>
     </div>
   </div>
 </template>

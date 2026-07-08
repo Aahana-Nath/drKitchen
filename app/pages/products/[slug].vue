@@ -167,82 +167,6 @@
       </section>
 
       <!-- ══════════════════════════════════════════════════
-           4. PAIRS WITH | PROCESS
-      ══════════════════════════════════════════════════ -->
-      <section class="bg-white border-t border-[rgba(181,138,58,0.10)]">
-        <div class="max-w-7xl mx-auto px-4 py-6 md:px-8 lg:px-12 lg:py-9">
-
-          <!-- Our Careful Process -->
-          <div class="bg-[var(--clr-bg)] rounded-xl p-5 md:p-6 lg:p-8 lg:px-10 border border-[rgba(181,138,58,0.10)]">
-            <h3 class="font-display text-lg lg:text-xl font-bold text-[var(--clr-dark)] mb-5 lg:mb-7">Our Careful Process</h3>
-            <div class="flex items-start gap-0 justify-between flex-wrap">
-              <template v-for="(step, idx) in product.process" :key="step.label">
-                <div class="flex flex-col items-center gap-2.5 flex-1 min-w-[60px] lg:min-w-[72px]">
-                  <div class="w-12 h-12 lg:w-14 lg:h-14 rounded-full border border-[rgba(181,138,58,0.35)] bg-white flex items-center justify-center shadow">
-                    <i :class="step.icon" class="text-lg lg:text-xl text-[var(--clr-gold)]"></i>
-                  </div>
-                  <span class="font-body text-[10px] lg:text-[11px] font-semibold text-[var(--clr-dark)] text-center leading-tight whitespace-pre-line">{{ step.label }}</span>
-                </div>
-                <div v-if="idx < product.process.length - 1" class="hidden sm:flex items-center px-1 lg:px-2 mt-4 shrink-0">
-                  <svg width="20" height="12" viewBox="0 0 18 12" fill="none"><path d="M1 6h14M11 1l5 5-5 5" stroke="#c8a96e" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </div>
-              </template>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ══════════════════════════════════════════════════
-           5. NUTRITIONAL HIGHLIGHTS | GALLERY
-      ══════════════════════════════════════════════════ -->
-      <section class="bg-[var(--clr-bg)] border-t border-[rgba(181,138,58,0.10)]">
-        <div class="max-w-7xl mx-auto px-4 py-6 md:px-8 lg:px-12 lg:py-9 grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6 lg:gap-10 items-start">
-
-          <!-- Nutritional Highlights -->
-          <div class="bg-white rounded-xl p-5 lg:p-6 shadow-sm border border-[rgba(181,138,58,0.10)]">
-            <h3 class="font-display text-lg lg:text-xl font-bold text-[var(--clr-dark)] mb-1.5">Nutritional Highlights</h3>
-            <p class="font-body text-[11px] text-gray-400 mb-4">(Naturally Contains)</p>
-            <div class="flex gap-3 flex-wrap">
-              <div v-for="n in product.nutritional" :key="n.name" class="flex flex-col items-center gap-2 w-12 lg:w-14">
-                <div class="w-10 h-10 lg:w-11 lg:h-11 rounded-full border border-[rgba(181,138,58,0.28)] bg-[var(--clr-bg)] flex items-center justify-content-center">
-                  <i :class="n.icon" class="text-sm lg:text-base text-[var(--clr-gold)] mx-auto"></i>
-                </div>
-                <span class="font-body text-[10px] font-semibold text-[var(--clr-dark)] text-center leading-tight">{{ n.name }}</span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Product Gallery -->
-          <div class="bg-white rounded-xl p-5 lg:p-6 shadow-sm border border-[rgba(181,138,58,0.10)]">
-            <h3 class="font-display text-lg lg:text-xl font-bold text-[var(--clr-dark)] mb-4">Product Gallery</h3>
-            <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-2 lg:gap-2.5">
-              <div v-for="(img, idx) in product.gallery" :key="idx" class="rounded-lg overflow-hidden aspect-square cursor-pointer transition-transform duration-200 hover:scale-[1.04]">
-                <img :src="img" :alt="'Gallery ' + (idx+1)" class="w-full h-full object-cover" loading="lazy" />
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- ══════════════════════════════════════════════════
-           6. RECIPE INSPIRATION
-      ══════════════════════════════════════════════════ -->
-      <section class="bg-white border-t border-[rgba(181,138,58,0.10)]">
-        <div class="max-w-7xl mx-auto px-4 py-6 md:px-8 lg:px-12 lg:py-9">
-          <h2 class="font-display text-xl lg:text-2xl font-bold text-[var(--clr-dark)] text-center mb-5 lg:mb-6">Recipe Inspiration</h2>
-          <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-2 lg:gap-3">
-            <div v-for="r in product.recipes" :key="r.name" class="rounded-xl overflow-hidden relative cursor-pointer aspect-[1/1.18] transition-transform duration-200 hover:scale-[1.03]">
-              <img :src="r.image" :alt="r.name" class="w-full h-full object-cover" loading="lazy" />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/65 to-transparent pointer-events-none"></div>
-              <p class="absolute bottom-2 inset-x-0 text-center font-body text-[11px] font-bold text-white px-1.5 pointer-events-none leading-tight">{{ r.name }}</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- ══════════════════════════════════════════════════
            7. FAQ | EXPLORE MORE
       ══════════════════════════════════════════════════ -->
       <section class="bg-[var(--clr-bg)] border-t border-[rgba(181,138,58,0.10)]">
@@ -279,10 +203,10 @@
                 v-for="rel in related"
                 :key="rel.slug"
                 :to="'/products/' + rel.slug"
-                class="bg-white rounded-xl border border-[rgba(181,138,58,0.14)] overflow-hidden cursor-pointer no-underline transition-all duration-200 hover:scale-[1.04] hover:shadow-lg"
+                class="bg-white rounded-xl border border-[rgba(181,138,58,0.22)] overflow-hidden cursor-pointer no-underline transition-all duration-200 hover:scale-[1.04] shadow-[0_4px_18px_rgba(90,60,20,0.10)] hover:shadow-[0_10px_32px_rgba(90,60,20,0.18)]"
               >
-                <div class="h-20 lg:h-28 bg-[var(--clr-bg)] flex items-center justify-center p-2 lg:p-3">
-                  <img :src="rel.image" :alt="rel.name" class="max-h-16 lg:max-h-[90px] max-w-full object-contain" loading="lazy" />
+                <div class="h-28 lg:h-40 bg-[var(--clr-bg)] flex items-center justify-center p-2 lg:p-4">
+                  <img :src="rel.image" :alt="rel.name" class="max-h-24 lg:max-h-[130px] max-w-full object-contain" loading="lazy" />
                 </div>
                 <div class="p-2 lg:p-2.5 text-center">
                   <p class="font-body text-[10px] lg:text-[11px] font-bold text-[var(--clr-dark)] mb-0.5 leading-tight">{{ rel.name }}</p>

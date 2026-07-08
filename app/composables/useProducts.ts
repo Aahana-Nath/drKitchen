@@ -56,9 +56,9 @@ const ALL_PRODUCTS: ProductDetail[] = [
       { icon: 'fas fa-shield-alt',   label: 'Hygienically\nProcessed' },
     ],
     aboutText: [
-      'Turmeric has been part of Indian kitchens and Ayurveda for over 4000 years.',
-      'Known for its vibrant colour, warm earthy flavour and naturally occurring curcumin, it has remained one of India\'s most respected spices.',
-      'At DrKitchen, we preserve its natural oils through controlled low-temperature processing.',
+      'DrKitchen turmeric is born in the world\'s finest spice growing regions, where the soil is rich and the sun is kind.',
+      'DrKitchen turmeric is carefully sourced from select farms and hygienically processed on advanced production lines. They are gently ground to preserve and retain their natural colour, fresh aroma, rich flavour and precious essential oils.',
+      'DrKitchen turmeric powder carries nature\'s purity and warmth from farm to kitchen. They are exactly as mother nature intended.',
     ],
     aboutImage: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/Screenshot_2026-07-03_at_21.29.31_qtnkmi',
     whyFeatures: [
@@ -143,9 +143,9 @@ const ALL_PRODUCTS: ProductDetail[] = [
       { icon: 'fas fa-shield-alt',   label: 'Hygienically\nProcessed' },
     ],
     aboutText: [
-      'Red chilli is the heart of Indian cooking — from street-side chaats to royal curries.',
-      'Our blend combines the deep-red colour of Byadagi chilli with the sharp heat of Kashmiri chilli for a perfect balance.',
-      'Each batch is sun-dried, cleaned, and cold-ground to lock in the natural capsaicin and vibrant red pigment.',
+      'DrKitchen red chillies are born in the world\'s finest spice growing regions, where the soil is rich and the sun is kind.',
+      'DrKitchen red chillies are carefully sourced from select farms and hygienically processed on advanced production lines. They are gently ground to preserve and retain their natural colour, fresh aroma, rich flavour and precious essential oils.',
+      'DrKitchen red chilli powder carries nature\'s purity and warmth from farm to kitchen. They are exactly as mother nature intended.',
     ],
     aboutImage: `${PX}/1393382/pexels-photo-1393382.jpeg?auto=compress&cs=tinysrgb&w=280`,
     whyFeatures: [
@@ -230,9 +230,9 @@ const ALL_PRODUCTS: ProductDetail[] = [
       { icon: 'fas fa-shield-alt', label: 'Hygienically\nProcessed' },
     ],
     aboutText: [
-      'Coriander is the most widely used spice in Indian cooking — adding warmth, body, and aroma to every dish.',
-      'Sourced from Ramganj Mandi in Rajasthan, our coriander seeds are known for their high essential oil content and citrusy fragrance.',
-      'Cold-ground to preserve the delicate aroma molecules that are easily lost in heat-processed alternatives.',
+      'DrKitchen coriander is born in the world\'s finest spice growing regions, where the soil is rich and the sun is kind.',
+      'DrKitchen coriander is carefully sourced from select farms and hygienically processed on advanced production lines. They are gently ground to preserve and retain their natural colour, fresh aroma, rich flavour and precious essential oils.',
+      'DrKitchen coriander powder carries nature\'s purity and warmth from farm to kitchen. They are exactly as mother nature intended.',
     ],
     aboutImage: `${PX}/2802527/pexels-photo-2802527.jpeg?auto=compress&cs=tinysrgb&w=280`,
     whyFeatures: [

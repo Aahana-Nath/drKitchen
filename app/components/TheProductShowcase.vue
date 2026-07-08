@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[var(--clr-bg3)] py-10 md:py-14 relative overflow-hidden">
+  <section class="bg-[var(--clr-bg3)] py-10 md:py-14 relative overflow-hidden rounded-t-3xl">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
       <!-- Header -->
@@ -21,11 +21,11 @@
           class="dk-card group overflow-hidden"
         >
           <!-- Image -->
-          <div class="overflow-hidden h-28 md:h-36 lg:h-[150px] relative bg-transparent rounded-t-xl">
+          <div class="overflow-hidden h-28 md:h-36 lg:h-[150px] relative bg-[var(--clr-card)] rounded-t-xl">
             <img
               :src="product.image"
               :alt="product.name"
-              class="product-glow w-full h-full object-contain transition-transform duration-500"
+              class="product-glow w-full h-full object-contain transition-transform duration-500 mix-blend-multiply"
               loading="lazy"
             />
             <!-- Tag pill -->

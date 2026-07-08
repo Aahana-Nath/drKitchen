@@ -138,6 +138,16 @@
 </template>
 
 <script setup lang="ts">
+useHead({
+  title: "Premium Indian Spices | DrKitchen",
+  meta: [
+    { name: "description", content: "Explore turmeric powder, garam masala, red chilli powder, coriander powder, cumin seeds and premium Indian spice blends from DrKitchen." },
+    { property: "og:title", content: "Premium Indian Spices | DrKitchen" },
+    { property: "og:description", content: "Explore our complete range of authentic premium Indian spices." },
+    { property: "og:url", content: "https://www.drkitchen.com/our-products" },
+  ]
+})
+
 const activeCategory = ref('All Products')
 const wishlist = ref<string[]>([])
 

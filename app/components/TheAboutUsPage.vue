@@ -1,26 +1,27 @@
 <template>
-  <div style="background:#faf5ee; font-family:'Poppins',sans-serif;">
+  <div class="bg-[#faf5ee] font-body">
 
     <!-- ══════════════════════════════════════════
          HERO: OUR JOURNEY
     ══════════════════════════════════════════ -->
-    <div style="width:100%; line-height:0;">
+    <div class="w-full leading-[0]">
       <img src="https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/19b51bb4-5362-420b-b23c-455b1fb8c5c5.png" alt="Spices: A Story Older Than History"
-        style="width:100%; display:block; object-fit:cover;" />
+        class="w-full block object-cover" />
     </div>
 
     <!-- ══════════════════════════════════════════
          QUOTES BAR
     ══════════════════════════════════════════ -->
-    <div style="position:relative; z-index:10; margin:-36px 64px 0; background:#fff; border-radius:12px; box-shadow:0 6px 28px rgba(0,0,0,0.09); border:1px solid #f0e8d8;">
-      <div style="" class="about-quotes-grid">
+    <div class="relative z-10 -mt-4 md:-mt-9 mx-2 md:mx-16 bg-white rounded-xl shadow-[0_6px_28px_rgba(0,0,0,0.09)] border border-[#f0e8d8]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
         <div v-for="(q, i) in quotes" :key="i"
-          :style="{ padding:'14px 20px 10px', borderRight: i < 3 ? '1px solid #f0e8d8' : 'none', display:'flex', flexDirection:'column', justifyContent:'space-between', minHeight:'60px' }">
+          class="p-3 md:p-5 flex flex-col justify-between min-h-[60px] md:min-h-[80px] border-b sm:border-b-0 last:border-b-0"
+          :class="{ 'sm:border-r border-[#f0e8d8]': i < 3, 'lg:border-r': i < 3 }">
           <div>
-            <span style="display:block; font-size:48px; line-height:1; color:#c8a96e; font-family:Georgia,serif; margin-bottom:2px; margin-top:-10px;">&ldquo;</span>
-            <p style="font-family:'Playfair Display',Georgia,serif; font-size:16px; color:#333; line-height:1.6; margin:0; font-style:italic;">{{ q }}</p>
+            <span class="block text-3xl md:text-5xl leading-none text-[#c8a96e] font-serif -mt-1 md:-mt-2 mb-0.5">&ldquo;</span>
+            <p class="font-serif text-xs md:text-base text-gray-800 leading-relaxed m-0 italic">{{ q }}</p>
           </div>
-          <span style="display:block; font-size:48px; line-height:1; color:#c8a96e; font-family:Georgia,serif; text-align:right; margin-top:0; margin-bottom:-14px;">&rdquo;</span>
+          <span class="block text-3xl md:text-5xl leading-none text-[#c8a96e] font-serif text-right -mb-2 md:-mb-3">&rdquo;</span>
         </div>
       </div>
     </div>
@@ -28,73 +29,72 @@
     <!-- ══════════════════════════════════════════
          FLAVOUR THAT CHANGED TRADE
     ══════════════════════════════════════════ -->
-    <div style="display:flex; align-items:stretch; min-height:440px; background:#faf5ee; padding-top:64px;">
+    <div class="flex flex-col lg:flex-row items-stretch min-h-[400px] lg:min-h-[440px] bg-[#faf5ee] pt-10 lg:pt-16">
       <!-- Left video -->
-      <div style="width:46%; flex-shrink:0; padding:40px 0 40px 56px;">
+      <div class="w-full lg:w-[46%] shrink-0 px-4 lg:px-0 lg:pl-14 pb-6 lg:py-10">
         <video
           src="https://greyhound-test.s3.us-east-2.amazonaws.com/video-generation/videos/kling_video_20260625_081337_37d930f4-178237521790.mp4"
           autoplay loop muted playsinline
-          style="width:100%; height:100%; object-fit:cover; border-radius:18px; display:block;"
+          class="w-full h-64 lg:h-full object-cover rounded-2xl block"
         ></video>
       </div>
       <!-- Right text -->
-      <div style="flex:1; padding:64px 72px 64px 64px; display:flex; flex-direction:column; justify-content:center;">
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
-          <span style="height:1px; width:36px; background:#8b6914; opacity:0.7;"></span>
-          <p style="font-size:11px; font-weight:800; letter-spacing:3px; color:#8b6914; text-transform:uppercase; margin:0;">The World Came Looking for Spice</p>
+      <div class="flex-1 px-6 lg:px-16 py-8 lg:py-16 flex flex-col justify-center">
+        <div class="flex items-center gap-2.5 mb-5">
+          <span class="h-px w-9 bg-[#8b6914] opacity-70"></span>
+          <p class="text-[11px] font-extrabold tracking-[3px] text-[#8b6914] uppercase m-0">The World Came Looking for Spice</p>
         </div>
-        <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:44px; font-weight:700; color:#1a1208; line-height:1.1; margin:0 0 24px;">
+        <h2 class="font-serif text-3xl md:text-4xl lg:text-[44px] font-bold text-[#1a1208] leading-tight mb-5 lg:mb-6">
           Flavour That Changed<br>Trade. And History.
         </h2>
-        <p style="font-size:15px; color:#555; line-height:1.8; margin:0 0 16px; max-width:520px;">
+        <p class="text-sm lg:text-[15px] text-gray-600 leading-relaxed lg:leading-loose mb-4 max-w-lg">
           Spices preserved food, enabled voyages, built empires and defined wealth. Indian spices were so valuable, they were weighed against gold and demanded as tax by kings.
         </p>
-        <p style="font-size:15px; color:#555; line-height:1.8; margin:0 0 24px; max-width:520px;">
+        <p class="text-sm lg:text-[15px] text-gray-600 leading-relaxed lg:leading-loose mb-5 lg:mb-6 max-w-lg">
           But the story is not just about demand.<br>
           It's also about control, colonisation, and a system that tried to dictate flavour.
         </p>
-        <p style="font-size:18px; font-weight:700; color:#C73A2B; margin:0 0 20px;">We are here to change that.</p>
+        <p class="text-base lg:text-lg font-bold text-[#C73A2B] mb-5">We are here to change that.</p>
       </div>
     </div>
 
     <!-- ══════════════════════════════════════════
          REGIONS: ONE COUNTRY, COUNTLESS FLAVOURS
     ══════════════════════════════════════════ -->
-    <div style="background:#faf5ee; padding:72px 0 56px;">
+    <div class="bg-[#faf5ee] py-12 lg:py-[72px] lg:pb-14">
       <!-- Header row -->
-      <div class="about-flavours-grid" style="gap:40px; padding:0 80px; margin-bottom:40px; align-items:end;">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 px-4 md:px-8 lg:px-20 mb-8 lg:mb-10 items-end">
         <div>
-          <div style="display:flex; align-items:center; gap:10px; margin-bottom:16px;">
-            <span style="height:1px; width:36px; background:#8b6914; opacity:0.7;"></span>
-            <p style="font-size:11px; font-weight:800; letter-spacing:3px; color:#8b6914; text-transform:uppercase; margin:0;">India, a Land Defined by Flavour</p>
+          <div class="flex items-center gap-2.5 mb-4">
+            <span class="h-px w-9 bg-[#8b6914] opacity-70"></span>
+            <p class="text-[11px] font-extrabold tracking-[3px] text-[#8b6914] uppercase m-0">India, a Land Defined by Flavour</p>
           </div>
-          <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:46px; font-weight:700; color:#1a1208; line-height:1.1; margin:0;">
+          <h2 class="font-serif text-3xl md:text-4xl lg:text-[46px] font-bold text-[#1a1208] leading-tight m-0">
             One Country.<br>Countless Flavours.
           </h2>
         </div>
-        <p style="font-size:15px; color:#555; line-height:1.8; padding-top:8px;">
+        <p class="text-sm lg:text-[15px] text-gray-600 leading-relaxed lg:leading-loose pt-2">
           From the spice gardens of Kerala to the turmeric fields of Rajasthan, every region contributes to India's unmatched spice heritage. Explore the diversity that makes our spices extraordinary.
         </p>
       </div>
       <!-- Region cards scroll with nav arrows -->
-      <div style="position:relative; padding:0 80px;">
+      <div class="relative px-4 md:px-8 lg:px-20">
         <!-- Left arrow -->
-        <button @click="scrollRegions(-1)" style="position:absolute; left:20px; top:50%; transform:translateY(-50%); z-index:2; width:36px; height:36px; border-radius:50%; background:#fff; border:1px solid #e8ddd0; box-shadow:0 2px 8px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; cursor:pointer;">
-          <span style="font-size:14px; color:#555;">&#8249;</span>
+        <button @click="scrollRegions(-1)" class="hidden md:flex absolute left-2 lg:left-5 top-1/2 -translate-y-1/2 z-[2] w-9 h-9 rounded-full bg-white border border-[#e8ddd0] shadow-md items-center justify-center cursor-pointer">
+          <span class="text-sm text-gray-600">&#8249;</span>
         </button>
         <!-- Right arrow -->
-        <button @click="scrollRegions(1)" style="position:absolute; right:20px; top:50%; transform:translateY(-50%); z-index:2; width:36px; height:36px; border-radius:50%; background:#fff; border:1px solid #e8ddd0; box-shadow:0 2px 8px rgba(0,0,0,0.1); display:flex; align-items:center; justify-content:center; cursor:pointer;">
-          <span style="font-size:14px; color:#555;">&#8250;</span>
+        <button @click="scrollRegions(1)" class="hidden md:flex absolute right-2 lg:right-5 top-1/2 -translate-y-1/2 z-[2] w-9 h-9 rounded-full bg-white border border-[#e8ddd0] shadow-md items-center justify-center cursor-pointer">
+          <span class="text-sm text-gray-600">&#8250;</span>
         </button>
-        <div ref="regionsScroll" style="display:flex; gap:16px; overflow-x:auto; scrollbar-width:none; scroll-behavior:smooth;">
-          <div v-for="region in regions" :key="region.name" class="region-card"
-            style="flex:0 0 calc(20% - 13px); min-width:200px; border-radius:12px; overflow:hidden; background:#fff; box-shadow:0 2px 16px rgba(0,0,0,0.06); cursor:pointer; border:1px solid #f0e8d8;">
+        <div ref="regionsScroll" class="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-2">
+          <div v-for="region in regions" :key="region.name" class="region-card flex-shrink-0 w-[280px] sm:w-[240px] lg:w-[calc(20%-13px)] min-w-[200px] rounded-xl overflow-hidden bg-white shadow-[0_2px_16px_rgba(0,0,0,0.06)] cursor-pointer border border-[#f0e8d8]">
             <img :src="region.image" :alt="region.name"
-              style="width:100%; height:180px; object-fit:cover; display:block;" />
-            <div style="padding:16px 18px 20px;">
-              <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:17px; font-weight:700; color:#1a1208; margin:0 0 8px; line-height:1.3;">{{ region.name }}</h3>
-              <p style="font-size:13px; color:#666; line-height:1.65; margin:0 0 14px;">{{ region.desc }}</p>
-              <div style="width:28px; height:2px; background:#c8a96e;"></div>
+              class="w-full h-44 lg:h-[180px] object-cover block" />
+            <div class="p-4 lg:px-[18px] lg:py-5">
+              <h3 class="font-serif text-base lg:text-[17px] font-bold text-[#1a1208] mb-2 leading-snug">{{ region.name }}</h3>
+              <p class="text-xs lg:text-[13px] text-gray-600 leading-relaxed mb-3">{{ region.desc }}</p>
+              <div class="w-7 h-0.5 bg-[#c8a96e]"></div>
             </div>
           </div>
         </div>
@@ -105,27 +105,27 @@
     <!-- ══════════════════════════════════════════
          PROMISE: SCIENCE WITH SOUL
     ══════════════════════════════════════════ -->
-    <div style="position:relative; display:flex; align-items:stretch; min-height:420px; overflow:hidden;">
+    <div class="relative flex items-stretch min-h-[360px] lg:min-h-[420px] overflow-hidden">
       <!-- Background image -->
-      <img src="https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/e36f7d3e-7491-4fd0-a454-0738bba7a8f3_opusbf" alt="" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; z-index:0;" />
+      <img src="https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/e36f7d3e-7491-4fd0-a454-0738bba7a8f3_opusbf" alt="" class="absolute inset-0 w-full h-full object-cover object-center z-0" />
       <!-- Warm overlay to keep text readable -->
-      <div style="position:absolute; inset:0; background:rgba(247,241,231,0.45); z-index:1;"></div>
+      <div class="absolute inset-0 bg-[rgba(247,241,231,0.45)] z-[1]"></div>
       <!-- Centered text -->
-      <div style="flex:1; padding:72px 80px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; position:relative; z-index:2;">
-        <div style="display:flex; align-items:center; gap:10px; margin-bottom:20px;">
-          <span style="height:1px; width:36px; background:#8b6914; opacity:0.7;"></span>
-          <p style="font-size:11px; font-weight:800; letter-spacing:3px; color:#8b6914; text-transform:uppercase; margin:0;">Our Promise</p>
-          <span style="height:1px; width:36px; background:#8b6914; opacity:0.7;"></span>
+      <div class="flex-1 px-6 py-12 lg:px-20 lg:py-[72px] flex flex-col items-center justify-center text-center relative z-[2]">
+        <div class="flex items-center gap-2.5 mb-5">
+          <span class="h-px w-9 bg-[#8b6914] opacity-70"></span>
+          <p class="text-[11px] font-extrabold tracking-[3px] text-[#8b6914] uppercase m-0">Our Promise</p>
+          <span class="h-px w-9 bg-[#8b6914] opacity-70"></span>
         </div>
-        <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:44px; font-weight:700; color:#1a1208; line-height:1.1; margin:0 0 20px;">
-          Science With Soul.<br>Heritage With Discipline.<br>This is <span style="color:#C73A2B;">DrKitchen.</span>
+        <h2 class="font-serif text-2xl md:text-4xl lg:text-[44px] font-bold text-[#1a1208] leading-tight mb-5">
+          Science With Soul.<br>Heritage With Discipline.<br>This is <span class="text-[#C73A2B]">DrKitchen.</span>
         </h2>
-        <p style="font-size:15px; color:#555; line-height:1.8; max-width:560px; margin:0 0 28px;">
+        <p class="text-sm lg:text-[15px] text-gray-600 leading-relaxed lg:leading-loose max-w-xl mb-6 lg:mb-7">
           India's most advanced class of spices — where natural oils are preserved, aroma remains untouched and authenticity is non-negotiable.
         </p>
-        <NuxtLink to="/products" style="display:inline-flex; align-items:center; gap:8px; font-size:14px; font-weight:700; color:#C73A2B; text-decoration:none;">
+        <NuxtLink to="/products" class="inline-flex items-center gap-2 text-sm font-bold text-[#C73A2B] no-underline">
           Explore Our Products
-          <span style="font-size:18px;">→</span>
+          <span class="text-lg">→</span>
         </NuxtLink>
       </div>
     </div>
@@ -188,27 +188,11 @@ const regions = [
   box-shadow: 0 10px 32px rgba(0,0,0,0.12);
 }
 
-.about-quotes-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
+.scrollbar-hide {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
 }
-.about-flavours-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
 }
-
-@media (max-width: 768px) {
-  .about-quotes-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-  .about-flavours-grid {
-    grid-template-columns: 1fr;
-    padding: 0 20px !important;
-  }
-}
-
-@media (max-width: 480px) {
-  .about-quotes-grid {
-    grid-template-columns: 1fr;
-  }
-}</style>
+</style>
