@@ -6,6 +6,7 @@
       src="https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/ddcce667-71e0-4927-b5e6-a6fefe61f9df_pm3ofl"
       alt="DrKitchen premium spices"
       class="absolute inset-0 w-full h-full object-cover z-0"
+      fetchpriority="high"
     />
 
     <!-- Left-side overlay so text stays readable -->

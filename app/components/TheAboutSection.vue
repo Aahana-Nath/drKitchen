@@ -5,7 +5,7 @@
     <div class="relative overflow-hidden min-h-[300px] md:min-h-[400px] flex items-center">
       <!-- Full-bleed background image -->
       <img src="https://res.cloudinary.com/dvtf1ckaf/image/upload/v1783507591/4a207765-d7fd-40d0-bf39-a5829ad65f1b_tej4jc.png" alt="Founder's Note"
-        class="absolute inset-0 w-full h-full object-cover object-center" />
+        class="absolute inset-0 w-full h-full object-cover object-center" loading="lazy" />
       <!-- Dark overlay -->
       <div class="absolute inset-0 bg-gradient-to-r from-[rgba(20,14,8,0.82)] via-[rgba(20,14,8,0.45)] to-transparent z-[1]"></div>
       <!-- Text on left -->

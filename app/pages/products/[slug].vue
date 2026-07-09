@@ -272,7 +272,44 @@ const openFaq = ref(-1)
 
 useHead(() => ({
   title: product.value ? `${product.value.name} — DrKitchen` : 'Product — DrKitchen',
-  meta: [{ name: 'description', content: product.value?.tagline ?? '' }],
+  meta: [
+    { name: 'description', content: product.value?.tagline?.replace(/\n/g, ' ') ?? '' },
+    { property: 'og:title', content: product.value ? `${product.value.name} | DrKitchen` : 'DrKitchen' },
+    { property: 'og:description', content: product.value?.tagline?.replace(/\n/g, ' ') ?? '' },
+    { property: 'og:image', content: product.value?.image ?? 'https://www.drkitchen.com/og-image.jpg' },
+    { property: 'og:url', content: product.value ? `https://www.drkitchen.com/products/${product.value.slug}` : 'https://www.drkitchen.com' },
+  ],
+  script: product.value ? [
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.drkitchen.com' },
+          { '@type': 'ListItem', position: 2, name: 'Products', item: 'https://www.drkitchen.com/our-products' },
+          { '@type': 'ListItem', position: 3, name: product.value.name, item: `https://www.drkitchen.com/products/${product.value.slug}` },
+        ]
+      })
+    },
+    {
+      type: 'application/ld+json',
+      children: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'Product',
+        name: product.value.name,
+        description: product.value.tagline?.replace(/\n/g, ' '),
+        image: product.value.image,
+        brand: { '@type': 'Brand', name: 'DrKitchen' },
+        offers: {
+          '@type': 'Offer',
+          priceCurrency: 'INR',
+          availability: 'https://schema.org/InStock',
+          url: `https://www.drkitchen.com/products/${product.value.slug}`,
+        }
+      })
+    }
+  ] : []
 }))
 </script>
 
