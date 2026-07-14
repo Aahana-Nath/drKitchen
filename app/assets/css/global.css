@@ -114,7 +114,7 @@
    CARDS
 ───────────────────────────────────────── */
 .dk-card {
-  background: var(--clr-card);
+  background: var(--clr-bg3);
   border-radius: var(--radius-card);
   box-shadow: var(--shadow-card);
   border: 1px solid rgba(181,138,58,0.12);

@@ -47,7 +47,7 @@ const ALL_PRODUCTS: ProductDetail[] = [
     tagline: 'Pure. Vibrant. Naturally rich in Curcumin.\nScientifically processed to preserve aroma.',
     category: 'Spice Powders',
     tag: 'Bestseller',
-    image: `${S3}/46b4bcb9-0f6b-48fe-8ded-91aed109a631_removalai_preview.png`,
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/46b4bcb9-0f6b-48fe-8ded-91aed109a631_removalai_preview-removebg-preview_z2ylnf',
     heroBg: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/4a95c3ce-68b9-4e10-9f2f-3d8e3b49c8fe_bg1acq',
     heroFeatures: [
       { icon: 'fas fa-leaf',         label: 'Pure &\nNatural' },
@@ -135,7 +135,7 @@ const ALL_PRODUCTS: ProductDetail[] = [
     tagline: 'Byadagi & Kashmiri blend.\nDeep colour, authentic heat, aromatic finish.',
     category: 'Spice Powders',
     tag: 'Popular',
-    image: `${S3}/red_chili.png`,
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/e2ba5fd7-0f54-4e4b-adf1-fa9b6682f740_removalai_preview_wfqaat',
     heroFeatures: [
       { icon: 'fas fa-fire',         label: 'Bold\nHeat' },
       { icon: 'fas fa-palette',      label: 'Deep\nColour' },
@@ -222,7 +222,7 @@ const ALL_PRODUCTS: ProductDetail[] = [
     tagline: 'Freshly ground from premium Rajasthani seeds.\nEarthy, aromatic, and naturally cooling.',
     category: 'Spice Powders',
     tag: 'New',
-    image: `${S3}/coriander.png`,
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/ad60a436-6d22-4b90-b9bf-dd17213aaeeb_removalai_preview_zol6tk',
     heroFeatures: [
       { icon: 'fas fa-leaf',       label: 'Freshly\nGround' },
       { icon: 'fas fa-wind',       label: 'Rich\nAroma' },
@@ -309,7 +309,7 @@ const ALL_PRODUCTS: ProductDetail[] = [
     tagline: 'A perfectly balanced blend of 14 whole spices.\nIndia\'s most beloved seasoning.',
     category: 'Masala Blends',
     tag: 'Bestseller',
-    image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/garam_masala_whole_dmf6oq',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/slazzer-preview-rcz8i_m5qrkg',
     heroFeatures: [
       { icon: 'fas fa-star',       label: '14-Spice\nBlend' },
       { icon: 'fas fa-fire',       label: 'Warm\nAroma' },
@@ -396,7 +396,7 @@ const ALL_PRODUCTS: ProductDetail[] = [
     tagline: 'One masala for every dish.\nRich, bold, and deeply aromatic.',
     category: 'Masala Blends',
     tag: 'Premium',
-    image: `${S3}/kitchen_king.png`,
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/9118a7dc-248c-41c2-b451-e7718861ba50_removalai_preview_dqxqj3',
     heroFeatures: [
       { icon: 'fas fa-crown',      label: 'All-Purpose\nMasala' },
       { icon: 'fas fa-fire',       label: 'Bold\nFlavour' },
@@ -483,7 +483,7 @@ const ALL_PRODUCTS: ProductDetail[] = [
     tagline: 'Hand-cleaned Rajasthani jeera.\nRich in essential oils, warm and nutty.',
     category: 'Seeds',
     tag: 'Pure',
-    image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/cumin_powder_ps3tqk',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/b4c7e9b4-d02a-48b1-a29d-a8c7e90db0c8_removalai_preview_ictfw6',
     heroFeatures: [
       { icon: 'fas fa-hands',      label: 'Hand\nCleaned' },
       { icon: 'fas fa-tint',       label: 'Rich in\nEssential Oils' },
@@ -562,6 +562,36 @@ const ALL_PRODUCTS: ProductDetail[] = [
   },
 ]
 
+export interface SearchProduct {
+  slug: string
+  name: string
+  hindi: string
+  image: string
+  tag: string
+  category: string
+}
+
+// Full catalogue for search — includes all products from the shop page
+export const ALL_SEARCH_PRODUCTS: SearchProduct[] = [
+  { slug: 'turmeric-powder',  name: 'Turmeric Powder',    hindi: 'हल्दी पाउडर',         tag: '100% Natural | Rich in Curcumin',      category: 'Spice Powders',  image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/46b4bcb9-0f6b-48fe-8ded-91aed109a631_removalai_preview-removebg-preview_z2ylnf' },
+  { slug: 'red-chilli-powder', name: 'Red Chilli Powder',  hindi: 'लाल मिर्च पाउडर',     tag: 'Vibrant Colour | Bold Flavour',         category: 'Spice Powders',  image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/e2ba5fd7-0f54-4e4b-adf1-fa9b6682f740_removalai_preview_wfqaat' },
+  { slug: 'coriander-powder',  name: 'Coriander Powder',   hindi: 'धनिया पाउडर',         tag: 'Aromatic | Freshly Ground',             category: 'Spice Powders',  image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/ad60a436-6d22-4b90-b9bf-dd17213aaeeb_removalai_preview_zol6tk' },
+  { slug: 'garam-masala',      name: 'Garam Masala Whole', hindi: 'गरम मसाला साबुत',     tag: 'Perfect Blend | Rich Aroma',           category: 'Masala Blends',  image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/slazzer-preview-rcz8i_m5qrkg' },
+  { slug: 'cumin-seeds',       name: 'Cumin Powder',       hindi: 'जीरा पाउडर',          tag: 'Strong Aroma | Natural Oils',          category: 'Spice Powders',  image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/cumin_powder_ps3tqk' },
+  { slug: 'kitchen-king',      name: 'Black Pepper Whole', hindi: 'काली मिर्च साबुत',    tag: 'Bold | Pungent | Pure',                category: 'Whole Spices',   image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/black_pepper-removebg-preview_mszflu' },
+  { slug: 'kitchen-king',      name: 'Kitchen King',       hindi: 'किचन किंग',           tag: 'Master Blend | All-Purpose',           category: 'Masala Blends',  image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/9118a7dc-248c-41c2-b451-e7718861ba50_removalai_preview_dqxqj3' },
+  { slug: 'garam-masala',      name: 'Garam Masala',       hindi: 'गरम मसाला',           tag: 'Tangy | Zingy Flavour',                category: 'Masala Blends',  image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/f70c278c-8f8b-4e30-a4e8-4033ede3de4c_removalai_preview_wh4gwr' },
+  { slug: 'garam-masala',      name: 'Cardamom Green',     hindi: 'हरी इलायची',          tag: 'Fragrant | Premium Grade',             category: 'Whole Spices',   image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/elaichi_whole_upyyli' },
+  { slug: 'cumin-seeds',       name: 'Cumin Seeds',        hindi: 'जीरा साबुत',          tag: 'Rich Oils | Warm & Nutty',             category: 'Seeds',          image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/b4c7e9b4-d02a-48b1-a29d-a8c7e90db0c8_removalai_preview_ictfw6' },
+  { slug: 'cumin-seeds',       name: 'Sesame Seeds',       hindi: 'तिल',                 tag: 'Nutty | Pure | Natural',               category: 'Seeds',          image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/chicken_masala-removebg-preview_nhbcav' },
+  { slug: 'cumin-seeds',       name: 'Fenugreek Seeds',    hindi: 'मेथी दाना',           tag: 'Bitter | Earthy | Healthful',          category: 'Seeds',          image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/dc0214fb-771e-4173-9fb2-c0c77e08a954-Picsart-BackgroundRemover_lmgph7' },
+  { slug: 'kitchen-king',      name: 'Ajwain',             hindi: 'अजवाइन',              tag: 'Pungent | Digestive | Pure',           category: 'Whole Spices',   image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/ajwain-removebg-preview_pr6yex' },
+  { slug: 'kitchen-king',      name: 'Jaifal Whole',       hindi: 'जायफल',               tag: 'Warm | Woody | Aromatic',             category: 'Whole Spices',   image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/jaifal_iubulg' },
+  { slug: 'kitchen-king',      name: 'Chicken Masala',     hindi: 'चिकन मसाला',          tag: 'Bold | Smoky | Restaurant Style',      category: 'Masala Blends',  image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/chicken_masala_lotwaz' },
+  { slug: 'yellow-mustard',    name: 'Yellow Mustard',     hindi: 'पीली सरसों',           tag: 'Mild | Tangy | Pure',                  category: 'Seeds',          image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/yellow_mustard_-removebg-preview_yyuyyz' },
+  { slug: 'dry-red-chili',     name: 'Dry Red Chili',      hindi: 'सूखी लाल मिर्च',      tag: 'Fiery | Whole | Natural',              category: 'Whole Spices',   image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/slazzer-preview-y03vb_zq7utp' },
+]
+
 export const useProducts = () => {
   const getProduct = (slug: string): ProductDetail | undefined =>
     ALL_PRODUCTS.find(p => p.slug === slug)
@@ -571,5 +601,7 @@ export const useProducts = () => {
 
   const getAllProducts = () => ALL_PRODUCTS
 
-  return { getProduct, getRelated, getAllProducts }
+  const getSearchProducts = () => ALL_SEARCH_PRODUCTS
+
+  return { getProduct, getRelated, getAllProducts, getSearchProducts }
 }

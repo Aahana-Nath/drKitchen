@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-[var(--clr-bg2)] relative overflow-hidden rounded-t-3xl">
+  <section class="bg-[var(--clr-bg2)] relative overflow-hidden rounded-t-2xl sm:rounded-t-3xl">
 
     <!-- Background image -->
     <div class="absolute inset-0 z-0">
@@ -11,50 +11,50 @@
       <div class="absolute inset-0 bg-[rgba(247,241,231,0.78)]"></div>
     </div>
 
-    <div class="max-w-6xl mx-auto px-4 py-5 md:px-8 lg:px-8 relative z-[1]">
+    <div class="max-w-6xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8 py-6 sm:py-8 md:py-10 lg:py-12 relative z-[1]">
 
       <!-- Eyebrow -->
-      <div class="text-center mb-1.5">
-        <div class="section-label justify-center">WHY CHOOSE DRKITCHEN?</div>
+      <div class="text-center mb-2 sm:mb-2.5">
+        <div class="section-label justify-center text-[9px] sm:text-[10px] md:text-[11px]">WHY CHOOSE DRKITCHEN?</div>
       </div>
 
       <!-- Heading -->
-      <div class="text-center mb-1.5">
-        <h2 class="font-display text-2xl md:text-3xl lg:text-[40px] font-bold text-[var(--clr-dark)] leading-tight m-0">Not just spices.</h2>
-        <h2 class="font-display text-2xl md:text-3xl lg:text-[40px] font-bold italic text-[var(--clr-accent)] leading-tight m-0">A promise in every grain.</h2>
+      <div class="text-center mb-1.5 sm:mb-2">
+        <h2 class="font-display text-lg sm:text-2xl md:text-3xl lg:text-[40px] font-bold text-[var(--clr-dark)] leading-tight m-0">Not just spices.</h2>
+        <h2 class="font-display text-lg sm:text-2xl md:text-3xl lg:text-[40px] font-bold italic text-[var(--clr-accent)] leading-tight m-0">A promise in every grain.</h2>
       </div>
-      <p class="text-center text-[var(--clr-dark)] text-xs md:text-sm font-bold max-w-md mx-auto mb-3 leading-relaxed">
+      <p class="text-center text-[var(--clr-dark)] text-[10px] sm:text-xs md:text-sm font-bold max-w-md mx-auto mb-6 sm:mb-7 md:mb-8 lg:mb-9 leading-relaxed px-2">
         At DrKitchen, every spice goes through a journey of care, science and tradition to deliver unmatched purity, aroma and flavor.
       </p>
 
       <!-- Features grid: left | center bowl with orbit | right -->
-      <div ref="featuresRef" class="grid grid-cols-1 lg:grid-cols-[1fr_260px_1fr] items-center gap-0 mb-3">
+      <div ref="featuresRef" class="grid grid-cols-1 lg:grid-cols-[1fr_260px_1fr] items-center gap-0 mb-4 sm:mb-5 md:mb-6 lg:mb-7">
 
         <!-- Left features -->
-        <div class="flex flex-col gap-0 lg:pr-5">
+        <div class="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-0 lg:pr-5">
           <div
             v-for="(f, i) in leftFeatures"
             :key="f.title"
-            class="feature-card feature-card--left"
+            class="feature-card feature-card--left flex gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-5 lg:p-0"
             :class="{ 'feature-card--visible': featuresVisible }"
             :style="{ transitionDelay: (i * 120) + 'ms' }"
             @mouseenter="hoveredFeature = f.title"
             @mouseleave="hoveredFeature = ''"
           >
             <div
-              class="feature-icon"
+              class="feature-icon w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-12 lg:h-12 rounded-lg flex items-center justify-center shrink-0"
               :style="{
                 background: hoveredFeature === f.title ? (f.iconColor || '#c8a96e') : '#faf6ee',
                 border: '1.5px solid ' + (f.iconColor || '#c8a96e') + '66',
                 boxShadow: hoveredFeature === f.title ? '0 4px 16px ' + (f.iconColor || '#c8a96e') + '44' : '0 2px 8px rgba(0,0,0,0.06)',
               }"
             >
-              <i :class="f.icon" class="text-base transition-colors duration-300" :style="{ color: hoveredFeature === f.title ? '#fff' : (f.iconColor || '#c8a96e') }"></i>
+              <i :class="f.icon" class="text-xs sm:text-sm md:text-base transition-colors duration-300" :style="{ color: hoveredFeature === f.title ? '#fff' : (f.iconColor || '#c8a96e') }"></i>
             </div>
             <div>
-              <p class="font-serif font-extrabold text-base lg:text-lg text-[#1a1208] mb-1 m-0">{{ f.title }}</p>
-              <p class="text-sm text-gray-600 leading-relaxed mb-1 m-0">{{ f.desc }}</p>
-              <p v-if="f.highlight" class="text-sm font-bold text-[#8b1e10] m-0">{{ f.highlight }}</p>
+              <p class="font-serif font-extrabold text-sm sm:text-base md:text-lg lg:text-lg text-[#1a1208] mb-1 m-0">{{ f.title }}</p>
+              <p class="text-xs sm:text-sm md:text-[15px] lg:text-sm text-gray-600 leading-relaxed mb-1 m-0">{{ f.desc }}</p>
+              <p v-if="f.highlight" class="text-xs sm:text-sm md:text-[15px] lg:text-sm font-bold text-[#8b1e10] m-0">{{ f.highlight }}</p>
             </div>
           </div>
         </div>
@@ -123,30 +123,30 @@
         </div>
 
         <!-- Right features -->
-        <div class="flex flex-col gap-0 lg:pl-5">
+        <div class="flex flex-col gap-3 sm:gap-4 md:gap-5 lg:gap-0 lg:pl-5">
           <div
             v-for="(f, i) in rightFeatures"
             :key="f.title"
-            class="feature-card feature-card--right"
+            class="feature-card feature-card--right flex gap-2 sm:gap-3 md:gap-4 p-3 sm:p-4 md:p-5 lg:p-0"
             :class="{ 'feature-card--visible': featuresVisible }"
             :style="{ transitionDelay: (i * 120) + 'ms' }"
             @mouseenter="hoveredFeature = f.title"
             @mouseleave="hoveredFeature = ''"
           >
             <div
-              class="feature-icon"
+              class="feature-icon w-10 h-10 sm:w-12 sm:h-12 md:w-14 md:h-14 lg:w-12 lg:h-12 rounded-lg flex items-center justify-center shrink-0"
               :style="{
                 background: hoveredFeature === f.title ? (f.iconColor || '#c8a96e') : '#faf6ee',
                 border: '1.5px solid ' + (f.iconColor || '#c8a96e') + '66',
                 boxShadow: hoveredFeature === f.title ? '0 4px 16px ' + (f.iconColor || '#c8a96e') + '44' : '0 2px 8px rgba(0,0,0,0.06)',
               }"
             >
-              <i :class="f.icon" class="text-base transition-colors duration-300" :style="{ color: hoveredFeature === f.title ? '#fff' : (f.iconColor || '#c8a96e') }"></i>
+              <i :class="f.icon" class="text-xs sm:text-sm md:text-base transition-colors duration-300" :style="{ color: hoveredFeature === f.title ? '#fff' : (f.iconColor || '#c8a96e') }"></i>
             </div>
             <div class="text-left">
-              <p class="font-serif font-extrabold text-base lg:text-lg text-[#1a1208] mb-1 m-0">{{ f.title }}</p>
-              <p class="text-sm text-gray-600 leading-relaxed mb-1 m-0">{{ f.desc }}</p>
-              <p v-if="f.highlight" class="text-sm font-bold text-[#8b1e10] m-0">{{ f.highlight }}</p>
+              <p class="font-serif font-extrabold text-sm sm:text-base md:text-lg lg:text-lg text-[#1a1208] mb-1 m-0">{{ f.title }}</p>
+              <p class="text-xs sm:text-sm md:text-[15px] lg:text-sm text-gray-600 leading-relaxed mb-1 m-0">{{ f.desc }}</p>
+              <p v-if="f.highlight" class="text-xs sm:text-sm md:text-[15px] lg:text-sm font-bold text-[#8b1e10] m-0">{{ f.highlight }}</p>
             </div>
           </div>
         </div>
@@ -154,50 +154,50 @@
       </div>
 
       <!-- Quality Difference Bar -->
-      <div class="bg-[#1c2318] rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-[155px_1fr_120px] min-h-[60px] shadow-[0_6px_24px_rgba(0,0,0,0.18)]">
+      <div class="bg-[#1c2318] rounded-lg sm:rounded-xl overflow-hidden grid grid-cols-1 md:grid-cols-[120px_1fr_100px] lg:grid-cols-[155px_1fr_120px] min-h-[50px] sm:min-h-[60px] shadow-[0_6px_24px_rgba(0,0,0,0.18)]">
 
         <!-- Left text -->
-        <div class="p-4 md:p-2.5 md:px-3.5 flex flex-col justify-center md:border-r border-white/[0.06]">
+        <div class="p-3 sm:p-4 md:p-2.5 md:px-3.5 flex flex-col justify-center md:border-r border-white/[0.06]">
           <p class="text-[11px] font-semibold text-gray-200 leading-snug mb-1 tracking-wide uppercase m-0">See the DrKitchen</p>
           <p class="font-serif text-lg font-extrabold text-[#c8a96e] leading-tight mb-2 m-0">Quality Difference</p>
           <p class="font-serif italic text-xs text-gray-300 leading-relaxed m-0 hidden md:block">Try it. Taste it.<br>You'll feel it. →</p>
         </div>
 
         <!-- Comparison circles -->
-        <div class="p-3 md:p-2 flex items-center justify-center gap-2 md:gap-1.5 flex-wrap">
+        <div class="p-2 sm:p-3 md:p-2 flex items-center justify-center gap-1 sm:gap-2 md:gap-1.5 flex-wrap">
 
-          <div class="flex flex-col items-center gap-1.5">
-            <p class="text-[11px] font-bold text-[#c8a96e] tracking-wider m-0 text-center">DrKitchen</p>
-            <div class="w-10 h-10 rounded-full overflow-hidden border-[2.5px] border-[#c8a96e] shadow-[0_0_10px_rgba(200,169,110,0.4)]">
+          <div class="flex flex-col items-center gap-1">
+            <p class="text-[9px] sm:text-[10px] md:text-[11px] font-bold text-[#c8a96e] tracking-wider m-0 text-center">DrKitchen</p>
+            <div class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-[2px] sm:border-[2.5px] border-[#c8a96e] shadow-[0_0_10px_rgba(200,169,110,0.4)]">
               <img src="https://images.pexels.com/photos/1340116/pexels-photo-1340116.jpeg?auto=compress&cs=tinysrgb&w=200" class="w-full h-full object-cover" />
             </div>
             <div class="text-center">
-              <p class="text-xs text-white m-0 leading-snug">Bold color</p>
-              <p class="text-[11px] text-gray-400 m-0">Natural oils intact</p>
+              <p class="text-[8px] sm:text-xs text-white m-0 leading-snug">Bold color</p>
+              <p class="text-[8px] sm:text-[10px] md:text-[11px] text-gray-400 m-0">Natural oils intact</p>
             </div>
           </div>
 
-          <div class="flex flex-col items-center gap-1 -mt-3.5">
-            <span class="w-6 h-6 rounded-full bg-[#2a3624] border border-[#4a5e40] flex items-center justify-center text-[8px] font-extrabold text-[#8aab7a] shrink-0">VS</span>
+          <div class="flex flex-col items-center gap-0.5 -mt-2 sm:-mt-2.5">
+            <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#2a3624] border border-[#4a5e40] flex items-center justify-center text-[7px] sm:text-[8px] font-extrabold text-[#8aab7a] shrink-0">VS</span>
           </div>
 
           <div v-for="(comp, idx) in comparisons" :key="comp.label" class="contents">
-            <div class="flex flex-col items-center gap-1.5">
-              <p class="text-[11px] font-bold text-gray-300 tracking-wider m-0 text-center">Other Spices</p>
+            <div class="flex flex-col items-center gap-1">
+              <p class="text-[9px] sm:text-[10px] md:text-[11px] font-bold text-gray-300 tracking-wider m-0 text-center">Other Spices</p>
               <div
                 @mouseenter="comp.hovered = true" @mouseleave="comp.hovered = false"
-                class="w-10 h-10 rounded-full overflow-hidden border-2 border-gray-600 transition-all duration-300 cursor-pointer"
+                class="w-8 h-8 sm:w-10 sm:h-10 rounded-full overflow-hidden border-2 border-gray-600 transition-all duration-300 cursor-pointer"
                 :class="comp.hovered ? 'scale-110' : 'saturate-[0.3] brightness-75'"
               >
                 <img :src="comp.img" class="w-full h-full object-cover" />
               </div>
               <div class="text-center">
-                <p class="text-xs text-gray-200 m-0 leading-snug">{{ comp.label }}</p>
-                <p class="text-[11px] text-gray-400 m-0">{{ comp.sub }}</p>
+                <p class="text-[8px] sm:text-xs text-gray-200 m-0 leading-snug">{{ comp.label }}</p>
+                <p class="text-[8px] sm:text-[10px] md:text-[11px] text-gray-400 m-0">{{ comp.sub }}</p>
               </div>
             </div>
-            <div v-if="idx < comparisons.length - 1" class="flex flex-col items-center gap-1 -mt-3.5">
-              <span class="w-6 h-6 rounded-full bg-[#2a3624] border border-[#4a5e40] flex items-center justify-center text-[8px] font-extrabold text-[#8aab7a] shrink-0">VS</span>
+            <div v-if="idx < comparisons.length - 1" class="flex flex-col items-center gap-0.5 -mt-2 sm:-mt-2.5">
+              <span class="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-[#2a3624] border border-[#4a5e40] flex items-center justify-center text-[7px] sm:text-[8px] font-extrabold text-[#8aab7a] shrink-0">VS</span>
             </div>
           </div>
         </div>

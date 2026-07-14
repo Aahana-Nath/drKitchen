@@ -65,41 +65,41 @@
     <!-- ═══════════════════════════════════════
          PRODUCTS LISTING
     ═══════════════════════════════════════ -->
-    <section class="max-w-7xl mx-auto px-4 py-8 md:px-8 md:py-10 lg:pb-20">
+    <section class="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 py-6 sm:py-8 md:py-10 lg:pb-20">
 
       <!-- Count + Sort + Filter bar -->
-      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-6 lg:mb-7">
-        <p class="font-body text-sm text-[var(--clr-muted)] m-0">
+      <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3 mb-5 sm:mb-6 lg:mb-7">
+        <p class="font-body text-xs sm:text-sm text-[var(--clr-muted)] m-0">
           Showing <strong class="text-[var(--clr-dark)]">1–{{ filteredProducts.length }}</strong> of <strong class="text-[var(--clr-dark)]">{{ allProducts.length }}</strong> products
         </p>
-        <div class="flex items-center gap-2.5">
-          <div class="hidden md:flex items-center gap-2 border border-[rgba(181,138,58,0.22)] rounded-lg px-3 py-1.5 cursor-pointer bg-white">
+        <div class="flex items-center gap-2">
+          <div class="hidden md:flex items-center gap-2 border border-[rgba(181,138,58,0.22)] rounded-lg px-2.5 sm:px-3 py-1 md:py-1.5 cursor-pointer bg-white">
             <span class="font-body text-xs text-[var(--clr-muted)]">Sort by:</span>
             <span class="font-body text-xs font-semibold text-[var(--clr-dark)]">Popular</span>
             <svg width="10" height="10" viewBox="0 0 10 10" fill="none"><path d="M2 3.5L5 6.5L8 3.5" stroke="#5E564C" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
           </div>
-          <div class="hidden md:flex items-center gap-1.5 border border-[rgba(181,138,58,0.22)] rounded-lg px-3 py-1.5 cursor-pointer bg-white">
+          <div class="hidden md:flex items-center gap-1.5 border border-[rgba(181,138,58,0.22)] rounded-lg px-2.5 sm:px-3 py-1 md:py-1.5 cursor-pointer bg-white">
             <svg width="14" height="12" viewBox="0 0 14 12" fill="none"><path d="M1 1H13M3 6H11M5 11H9" stroke="#1F1B16" stroke-width="1.5" stroke-linecap="round"/></svg>
             <span class="font-body text-xs font-semibold text-[var(--clr-dark)]">Filter</span>
-            <span class="w-4 h-4 rounded-full border border-[rgba(181,138,58,0.3)] flex items-center justify-center text-[10px] font-bold text-[var(--clr-gold)]">0</span>
+            <span class="w-3.5 h-3.5 rounded-full border border-[rgba(181,138,58,0.3)] flex items-center justify-center text-[9px] font-bold text-[var(--clr-gold)]">0</span>
           </div>
         </div>
       </div>
 
       <!-- Product grid -->
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3 md:gap-5">
+      <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-2 sm:gap-3 md:gap-4 lg:gap-5">
         <NuxtLink
           v-for="product in filteredProducts"
           :key="product.name"
           :to="'/products/' + product.slug"
-          class="product-card bg-white rounded-2xl border border-[rgba(181,138,58,0.18)] shadow-[0_4px_18px_rgba(90,60,20,0.08)] overflow-hidden relative block no-underline transition-all hover:scale-[1.03] hover:shadow-[0_20px_56px_rgba(90,60,20,0.18)] hover:border-[rgba(181,138,58,0.45)]"
+          class="product-card bg-white rounded-lg sm:rounded-2xl border border-[rgba(181,138,58,0.18)] shadow-[0_4px_18px_rgba(90,60,20,0.08)] overflow-hidden relative block no-underline transition-all hover:scale-105 md:hover:scale-[1.03] hover:shadow-[0_20px_56px_rgba(90,60,20,0.18)] hover:border-[rgba(181,138,58,0.45)]"
         >
           <!-- Wishlist heart -->
           <button
             @click.stop="toggleWishlist(product.name)"
-            class="absolute top-2.5 right-2.5 z-[2] w-8 h-8 rounded-full bg-white/90 border-none cursor-pointer flex items-center justify-center shadow-[0_2px_10px_rgba(0,0,0,0.12)] transition-all"
+            class="absolute top-1.5 sm:top-2 right-1.5 sm:right-2 z-[2] w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/90 border-none cursor-pointer flex items-center justify-center shadow-[0_2px_10px_rgba(0,0,0,0.12)] transition-all"
           >
-            <svg width="16" height="15" viewBox="0 0 14 13" fill="none">
+            <svg width="14" height="13" viewBox="0 0 14 13" fill="none">
               <path
                 d="M7 12S1 8.5 1 4.5C1 2.567 2.567 1 4.5 1C5.612 1 6.607 1.528 7 2.3C7.393 1.528 8.388 1 9.5 1C11.433 1 13 2.567 13 4.5C13 8.5 7 12 7 12Z"
                 :fill="wishlist.includes(product.name) ? '#8C2D21' : 'none'"
@@ -112,20 +112,20 @@
           </button>
 
           <!-- Product image -->
-          <div class="h-36 md:h-48 lg:h-[210px] flex items-center justify-center px-4 py-4 bg-[var(--clr-bg)]">
+          <div class="h-24 sm:h-32 md:h-40 lg:h-48 xl:h-[210px] flex items-center justify-center px-2.5 sm:px-3 md:px-4 py-2 sm:py-3">
             <img
               :src="product.image"
               :alt="product.name"
-              class="max-h-full max-w-full object-contain transition-transform"
+              class="max-h-full max-w-full object-contain transition-transform mix-blend-multiply"
               loading="lazy"
             />
           </div>
 
           <!-- Info -->
-          <div class="p-3 md:p-4">
-            <p class="font-body text-sm md:text-[15px] font-bold text-[var(--clr-dark)] mb-1 leading-snug">{{ product.name }}</p>
-            <p class="font-body text-xs text-[var(--clr-muted)] mb-1 tracking-wide">{{ product.hindi }}</p>
-            <p class="font-body text-[11px] md:text-xs text-gray-400 m-0 leading-snug">{{ product.tag }}</p>
+          <div class="p-2 sm:p-2.5 md:p-4">
+            <p class="font-body text-xs sm:text-sm md:text-[15px] font-bold text-[var(--clr-dark)] mb-0.5 md:mb-1 leading-snug">{{ product.name }}</p>
+            <p class="font-body text-[9px] sm:text-[10px] text-[var(--clr-muted)] mb-0.5 md:mb-1 tracking-wide">{{ product.hindi }}</p>
+            <p class="font-body text-[8px] sm:text-[10px] text-gray-400 m-0 leading-snug">{{ product.tag }}</p>
           </div>
 
         </NuxtLink>
@@ -148,7 +148,16 @@ useHead({
   ]
 })
 
+const route = useRoute()
 const activeCategory = ref('All Products')
+
+// Watch route query parameter for category changes
+watch(() => route.query.category, (newCategory) => {
+  if (newCategory) {
+    activeCategory.value = newCategory as string
+  }
+}, { immediate: true })
+
 const wishlist = ref<string[]>([])
 
 function toggleWishlist(name: string) {
@@ -189,7 +198,7 @@ const allProducts = [
     price: 95,
     weight: '100 g',
     category: 'Spice Powders',
-    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/46b4bcb9-0f6b-48fe-8ded-91aed109a631_removalai_preview.png',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/46b4bcb9-0f6b-48fe-8ded-91aed109a631_removalai_preview-removebg-preview_z2ylnf',
   },
   {
     slug: 'red-chilli-powder',
@@ -199,7 +208,7 @@ const allProducts = [
     price: 105,
     weight: '100 g',
     category: 'Spice Powders',
-    image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/dr_red_chiii_rtahdn',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/e2ba5fd7-0f54-4e4b-adf1-fa9b6682f740_removalai_preview_wfqaat',
   },
   {
     slug: 'coriander-powder',
@@ -209,7 +218,7 @@ const allProducts = [
     price: 70,
     weight: '100 g',
     category: 'Spice Powders',
-    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/coriander.png',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/ad60a436-6d22-4b90-b9bf-dd17213aaeeb_removalai_preview_zol6tk',
   },
   {
     slug: 'garam-masala',
@@ -219,7 +228,7 @@ const allProducts = [
     price: 110,
     weight: '100 g',
     category: 'Masala Blends',
-    image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/garam_masala_whole_dmf6oq',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/slazzer-preview-rcz8i_m5qrkg',
   },
   {
     slug: 'cumin-seeds',
@@ -239,7 +248,7 @@ const allProducts = [
     price: 160,
     weight: '100 g',
     category: 'Whole Spices',
-    image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/black_pepper_moafjw',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/black_pepper-removebg-preview_mszflu',
   },
   {
     slug: 'kitchen-king',
@@ -249,7 +258,7 @@ const allProducts = [
     price: 90,
     weight: '100 g',
     category: 'Masala Blends',
-    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/kitchen_king.png',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/9118a7dc-248c-41c2-b451-e7718861ba50_removalai_preview_dqxqj3',
   },
   {
     slug: 'garam-masala',
@@ -259,7 +268,7 @@ const allProducts = [
     price: 65,
     weight: '100 g',
     category: 'Masala Blends',
-    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/aram_masala.png',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/f70c278c-8f8b-4e30-a4e8-4033ede3de4c_removalai_preview_wh4gwr',
   },
   {
     slug: 'garam-masala',
@@ -279,7 +288,7 @@ const allProducts = [
     price: 90,
     weight: '100 g',
     category: 'Seeds',
-    image: 'https://dresma-assets.s3.us-east-2.amazonaws.com/brandagent/cumin.png',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/b4c7e9b4-d02a-48b1-a29d-a8c7e90db0c8_removalai_preview_ictfw6',
   },
   {
     slug: 'cumin-seeds',
@@ -289,7 +298,7 @@ const allProducts = [
     price: 65,
     weight: '100 g',
     category: 'Seeds',
-    image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/seseme_qetljw',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/chicken_masala-removebg-preview_nhbcav',
   },
   {
     slug: 'cumin-seeds',
@@ -299,7 +308,7 @@ const allProducts = [
     price: 55,
     weight: '100 g',
     category: 'Seeds',
-    image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/dc0214fb-771e-4173-9fb2-c0c77e08a954_xaklvh',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/dc0214fb-771e-4173-9fb2-c0c77e08a954-Picsart-BackgroundRemover_lmgph7',
   },
   {
     slug: 'kitchen-king',
@@ -309,7 +318,7 @@ const allProducts = [
     price: 70,
     weight: '100 g',
     category: 'Whole Spices',
-    image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/ajwain_ehrllp',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/ajwain-removebg-preview_pr6yex',
   },
   {
     slug: 'kitchen-king',
@@ -330,6 +339,26 @@ const allProducts = [
     weight: '100 g',
     category: 'Masala Blends',
     image: 'https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/chicken_masala_lotwaz',
+  },
+  {
+    slug: 'yellow-mustard',
+    name: 'Yellow Mustard',
+    hindi: 'पीली सरसों',
+    tag: 'Mild | Tangy | Pure',
+    price: 60,
+    weight: '100 g',
+    category: 'Seeds',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/yellow_mustard_-removebg-preview_yyuyyz',
+  },
+  {
+    slug: 'dry-red-chili',
+    name: 'Dry Red Chili',
+    hindi: 'सूखी लाल मिर्च',
+    tag: 'Fiery | Whole | Natural',
+    price: 80,
+    weight: '100 g',
+    category: 'Whole Spices',
+    image: 'https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/slazzer-preview-y03vb_zq7utp',
   },
 ]
 const filteredProducts = computed(() => {

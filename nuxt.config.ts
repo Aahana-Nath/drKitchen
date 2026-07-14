@@ -65,7 +65,7 @@ export default defineNuxtConfig({
           content: "Premium Indian spices preserving purity, flavour and aroma.",
         },
         { property: "og:url", content: "https://www.drkitchen.com" },
-        { property: "og:image", content: "https://www.drkitchen.com/og-image.jpg" },
+        { property: "og:image", content: "https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/f915951e-86a3-4be2-a469-97160f6fccb5_zwpuv9" },
         { property: "og:image:width", content: "1200" },
         { property: "og:image:height", content: "630" },
         { name: "twitter:card", content: "summary_large_image" },
@@ -74,7 +74,7 @@ export default defineNuxtConfig({
           name: "twitter:description",
           content: "Premium Indian spices preserving purity, flavour and aroma.",
         },
-        { name: "twitter:image", content: "https://www.drkitchen.com/og-image.jpg" },
+        { name: "twitter:image", content: "https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/f915951e-86a3-4be2-a469-97160f6fccb5_zwpuv9" },
       ],
 
       script: [
@@ -88,10 +88,82 @@ export default defineNuxtConfig({
           children: `(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script","xjm8epkmby");`,
           type: "text/javascript",
         },
+        // WebSite + SiteNavigationElement structured data
+        {
+          type: "application/ld+json",
+          children: JSON.stringify({
+            "@context": "https://schema.org",
+            "@graph": [
+              {
+                "@type": "WebSite",
+                "@id": "https://www.drkitchen.com/#website",
+                "url": "https://www.drkitchen.com",
+                "name": "DrKitchen",
+                "description": "Premium Indian spices crafted with science, tradition and authentic flavour.",
+                "publisher": {
+                  "@id": "https://www.drkitchen.com/#organization"
+                },
+                "potentialAction": {
+                  "@type": "SearchAction",
+                  "target": {
+                    "@type": "EntryPoint",
+                    "urlTemplate": "https://www.drkitchen.com/our-products?q={search_term_string}"
+                  },
+                  "query-input": "required name=search_term_string"
+                }
+              },
+              {
+                "@type": "Organization",
+                "@id": "https://www.drkitchen.com/#organization",
+                "name": "DrKitchen",
+                "url": "https://www.drkitchen.com",
+                "logo": {
+                  "@type": "ImageObject",
+                  "url": "https://www.drkitchen.com/android-chrome-192x192.png",
+                  "width": 192,
+                  "height": 192
+                },
+                "contactPoint": {
+                  "@type": "ContactPoint",
+                  "telephone": "+91-7303269330",
+                  "contactType": "customer service",
+                  "email": "info@drkitchen.com"
+                },
+                "sameAs": [
+                  "https://www.facebook.com/drkitchen.india/",
+                  "https://www.instagram.com/drkitchen.suradhuni/",
+                  "https://x.com/drkitchenindia",
+                  "https://www.youtube.com/@DrKitchenindia"
+                ]
+              },
+              {
+                "@type": "SiteNavigationElement",
+                "name": "Home",
+                "url": "https://www.drkitchen.com/"
+              },
+              {
+                "@type": "SiteNavigationElement",
+                "name": "Our Products",
+                "url": "https://www.drkitchen.com/our-products"
+              },
+              {
+                "@type": "SiteNavigationElement",
+                "name": "About Us",
+                "url": "https://www.drkitchen.com/about-us"
+              },
+              {
+                "@type": "SiteNavigationElement",
+                "name": "Contact Us",
+                "url": "https://www.drkitchen.com/contact-us"
+              }
+            ]
+          })
+        },
       ],
 
       link: [
         { rel: "canonical", href: "https://www.drkitchen.com" },
+        { rel: "manifest", href: "/site.webmanifest" },
         { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
         { rel: "icon", type: "image/png", sizes: "192x192", href: "/android-chrome-192x192.png" },
         { rel: "icon", type: "image/png", sizes: "48x48", href: "/favicon-48x48.png" },
@@ -113,7 +185,7 @@ export default defineNuxtConfig({
         {
           rel: "stylesheet",
           href:
-            "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap",
+            "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500;600&family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600;700&display=swap",
         },
 
         {

@@ -12,16 +12,16 @@
     <!-- ══════════════════════════════════════════
          QUOTES BAR
     ══════════════════════════════════════════ -->
-    <div class="relative z-10 -mt-4 md:-mt-9 mx-2 md:mx-16 bg-white rounded-xl shadow-[0_6px_28px_rgba(0,0,0,0.09)] border border-[#f0e8d8]">
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+    <div class="relative z-10 -mt-3 sm:-mt-4 md:-mt-6 lg:-mt-9 mx-2 sm:mx-4 md:mx-8 lg:mx-16 bg-white rounded-lg sm:rounded-xl shadow-[0_6px_28px_rgba(0,0,0,0.09)] border border-[#f0e8d8]">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-0">
         <div v-for="(q, i) in quotes" :key="i"
-          class="p-3 md:p-5 flex flex-col justify-between min-h-[60px] md:min-h-[80px] border-b sm:border-b-0 last:border-b-0"
+          class="p-3 sm:p-4 md:p-5 flex flex-col justify-between min-h-14 sm:min-h-16 md:min-h-20 lg:min-h-[80px] border-b sm:border-b-0 last:border-b-0"
           :class="{ 'sm:border-r border-[#f0e8d8]': i < 3, 'lg:border-r': i < 3 }">
           <div>
-            <span class="block text-3xl md:text-5xl leading-none text-[#c8a96e] font-serif -mt-1 md:-mt-2 mb-0.5">&ldquo;</span>
-            <p class="font-serif text-xs md:text-base text-gray-800 leading-relaxed m-0 italic">{{ q }}</p>
+            <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-none text-[#c8a96e] font-serif -mt-0.5 md:-mt-1 lg:-mt-2 mb-1 md:mb-0.5">&ldquo;</span>
+            <p class="font-serif text-[11px] sm:text-xs md:text-sm lg:text-base text-gray-800 leading-relaxed m-0 italic">{{ q }}</p>
           </div>
-          <span class="block text-3xl md:text-5xl leading-none text-[#c8a96e] font-serif text-right -mb-2 md:-mb-3">&rdquo;</span>
+          <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-none text-[#c8a96e] font-serif text-right -mb-1 md:-mb-1.5 lg:-mb-3">&rdquo;</span>
         </div>
       </div>
     </div>
@@ -29,72 +29,72 @@
     <!-- ══════════════════════════════════════════
          FLAVOUR THAT CHANGED TRADE
     ══════════════════════════════════════════ -->
-    <div class="flex flex-col lg:flex-row items-stretch min-h-[400px] lg:min-h-[440px] bg-[#faf5ee] pt-10 lg:pt-16">
+    <div class="flex flex-col lg:flex-row items-stretch min-h-screen sm:min-h-auto lg:min-h-[440px] bg-[#faf5ee] pt-6 sm:pt-8 md:pt-10 lg:pt-16">
       <!-- Left video -->
-      <div class="w-full lg:w-[46%] shrink-0 px-4 lg:px-0 lg:pl-14 pb-6 lg:py-10">
+      <div class="w-full lg:w-[46%] shrink-0 px-3 sm:px-4 md:px-6 lg:px-0 lg:pl-14 pb-4 sm:pb-5 md:pb-6 lg:py-10">
         <video
           src="https://greyhound-test.s3.us-east-2.amazonaws.com/video-generation/videos/kling_video_20260625_081337_37d930f4-178237521790.mp4"
           autoplay loop muted playsinline
-          class="w-full h-64 lg:h-full object-cover rounded-2xl block"
+          class="w-full h-40 sm:h-48 md:h-56 lg:h-full object-cover rounded-lg sm:rounded-2xl block"
         ></video>
       </div>
       <!-- Right text -->
-      <div class="flex-1 px-6 lg:px-16 py-8 lg:py-16 flex flex-col justify-center">
-        <div class="flex items-center gap-2.5 mb-5">
-          <span class="h-px w-9 bg-[#8b6914] opacity-70"></span>
-          <p class="text-[11px] font-extrabold tracking-[3px] text-[#8b6914] uppercase m-0">The World Came Looking for Spice</p>
+      <div class="flex-1 px-4 sm:px-5 md:px-8 lg:px-16 py-6 sm:py-7 md:py-8 lg:py-16 flex flex-col justify-center">
+        <div class="flex items-center gap-2 sm:gap-2.5 mb-3 sm:mb-4 md:mb-5">
+          <span class="h-px w-6 sm:w-7 md:w-9 bg-[#8b6914] opacity-70"></span>
+          <p class="text-[10px] sm:text-[11px] md:text-[11px] font-extrabold tracking-[2px] md:tracking-[3px] text-[#8b6914] uppercase m-0">The World Came Looking</p>
         </div>
-        <h2 class="font-serif text-3xl md:text-4xl lg:text-[44px] font-bold text-[#1a1208] leading-tight mb-5 lg:mb-6">
+        <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[44px] font-bold text-[#1a1208] leading-tight mb-3 sm:mb-4 md:mb-5 lg:mb-6">
           Flavour That Changed<br>Trade. And History.
         </h2>
-        <p class="text-sm lg:text-[15px] text-gray-600 leading-relaxed lg:leading-loose mb-4 max-w-lg">
+        <p class="text-xs sm:text-sm md:text-[15px] text-gray-600 leading-relaxed lg:leading-loose mb-3 md:mb-4 max-w-lg">
           Spices preserved food, enabled voyages, built empires and defined wealth. Indian spices were so valuable, they were weighed against gold and demanded as tax by kings.
         </p>
-        <p class="text-sm lg:text-[15px] text-gray-600 leading-relaxed lg:leading-loose mb-5 lg:mb-6 max-w-lg">
+        <p class="text-xs sm:text-sm md:text-[15px] text-gray-600 leading-relaxed lg:leading-loose mb-4 md:mb-5 lg:mb-6 max-w-lg">
           But the story is not just about demand.<br>
           It's also about control, colonisation, and a system that tried to dictate flavour.
         </p>
-        <p class="text-base lg:text-lg font-bold text-[#C73A2B] mb-5">We are here to change that.</p>
+        <p class="text-sm md:text-base lg:text-lg font-bold text-[#C73A2B] mb-4 md:mb-5">We are here to change that.</p>
       </div>
     </div>
 
     <!-- ══════════════════════════════════════════
          REGIONS: ONE COUNTRY, COUNTLESS FLAVOURS
     ══════════════════════════════════════════ -->
-    <div class="bg-[#faf5ee] py-12 lg:py-[72px] lg:pb-14">
+    <div class="bg-[#faf5ee] py-8 sm:py-10 md:py-12 lg:py-[72px] lg:pb-14">
       <!-- Header row -->
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-10 px-4 md:px-8 lg:px-20 mb-8 lg:mb-10 items-end">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-10 px-3 sm:px-4 md:px-8 lg:px-20 mb-6 sm:mb-7 md:mb-8 lg:mb-10 items-end">
         <div>
-          <div class="flex items-center gap-2.5 mb-4">
-            <span class="h-px w-9 bg-[#8b6914] opacity-70"></span>
-            <p class="text-[11px] font-extrabold tracking-[3px] text-[#8b6914] uppercase m-0">India, a Land Defined by Flavour</p>
+          <div class="flex items-center gap-2 sm:gap-2.5 mb-2 sm:mb-3 md:mb-4">
+            <span class="h-px w-6 sm:w-7 md:w-9 bg-[#8b6914] opacity-70"></span>
+            <p class="text-[10px] sm:text-[11px] font-extrabold tracking-[2px] md:tracking-[3px] text-[#8b6914] uppercase m-0">India's Flavour Heritage</p>
           </div>
-          <h2 class="font-serif text-3xl md:text-4xl lg:text-[46px] font-bold text-[#1a1208] leading-tight m-0">
+          <h2 class="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-[46px] font-bold text-[#1a1208] leading-tight m-0">
             One Country.<br>Countless Flavours.
           </h2>
         </div>
-        <p class="text-sm lg:text-[15px] text-gray-600 leading-relaxed lg:leading-loose pt-2">
+        <p class="text-xs sm:text-sm md:text-[15px] text-gray-600 leading-relaxed lg:leading-loose pt-1 md:pt-2">
           From the spice gardens of Kerala to the turmeric fields of Rajasthan, every region contributes to India's unmatched spice heritage. Explore the diversity that makes our spices extraordinary.
         </p>
       </div>
       <!-- Region cards scroll with nav arrows -->
-      <div class="relative px-4 md:px-8 lg:px-20">
+      <div class="relative px-3 sm:px-4 md:px-8 lg:px-20">
         <!-- Left arrow -->
-        <button @click="scrollRegions(-1)" class="hidden md:flex absolute left-2 lg:left-5 top-1/2 -translate-y-1/2 z-[2] w-9 h-9 rounded-full bg-white border border-[#e8ddd0] shadow-md items-center justify-center cursor-pointer">
-          <span class="text-sm text-gray-600">&#8249;</span>
+        <button @click="scrollRegions(-1)" class="hidden md:flex absolute left-0 md:left-2 lg:left-5 top-1/2 -translate-y-1/2 z-[2] w-8 md:w-9 h-8 md:h-9 rounded-full bg-white border border-[#e8ddd0] shadow-md items-center justify-center cursor-pointer hover:bg-gray-50 transition-colors">
+          <span class="text-xs md:text-sm text-gray-600">&#8249;</span>
         </button>
         <!-- Right arrow -->
-        <button @click="scrollRegions(1)" class="hidden md:flex absolute right-2 lg:right-5 top-1/2 -translate-y-1/2 z-[2] w-9 h-9 rounded-full bg-white border border-[#e8ddd0] shadow-md items-center justify-center cursor-pointer">
-          <span class="text-sm text-gray-600">&#8250;</span>
+        <button @click="scrollRegions(1)" class="hidden md:flex absolute right-0 md:right-2 lg:right-5 top-1/2 -translate-y-1/2 z-[2] w-8 md:w-9 h-8 md:h-9 rounded-full bg-white border border-[#e8ddd0] shadow-md items-center justify-center cursor-pointer hover:bg-gray-50 transition-colors">
+          <span class="text-xs md:text-sm text-gray-600">&#8250;</span>
         </button>
-        <div ref="regionsScroll" class="flex gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-2">
-          <div v-for="region in regions" :key="region.name" class="region-card flex-shrink-0 w-[280px] sm:w-[240px] lg:w-[calc(20%-13px)] min-w-[200px] rounded-xl overflow-hidden bg-white shadow-[0_2px_16px_rgba(0,0,0,0.06)] cursor-pointer border border-[#f0e8d8]">
+        <div ref="regionsScroll" class="flex gap-3 sm:gap-4 overflow-x-auto scrollbar-hide scroll-smooth pb-2">
+          <div v-for="region in regions" :key="region.name" class="region-card flex-shrink-0 w-44 sm:w-52 md:w-56 lg:w-[calc(20%-13px)] min-w-max md:min-w-0 rounded-lg md:rounded-xl overflow-hidden bg-white shadow-[0_2px_16px_rgba(0,0,0,0.06)] cursor-pointer border border-[#f0e8d8]">
             <img :src="region.image" :alt="region.name"
-              class="w-full h-44 lg:h-[180px] object-cover block" />
-            <div class="p-4 lg:px-[18px] lg:py-5">
-              <h3 class="font-serif text-base lg:text-[17px] font-bold text-[#1a1208] mb-2 leading-snug">{{ region.name }}</h3>
-              <p class="text-xs lg:text-[13px] text-gray-600 leading-relaxed mb-3">{{ region.desc }}</p>
-              <div class="w-7 h-0.5 bg-[#c8a96e]"></div>
+              class="w-full h-32 sm:h-36 md:h-40 lg:h-[180px] object-cover block" />
+            <div class="p-3 sm:p-4 lg:px-[18px] lg:py-5">
+              <h3 class="font-serif text-sm sm:text-base lg:text-[17px] font-bold text-[#1a1208] mb-2 leading-snug">{{ region.name }}</h3>
+              <p class="text-[11px] sm:text-xs lg:text-[13px] text-gray-600 leading-relaxed mb-2 md:mb-3">{{ region.desc }}</p>
+              <div class="w-6 sm:w-7 h-0.5 bg-[#c8a96e]"></div>
             </div>
           </div>
         </div>
@@ -105,27 +105,27 @@
     <!-- ══════════════════════════════════════════
          PROMISE: SCIENCE WITH SOUL
     ══════════════════════════════════════════ -->
-    <div class="relative flex items-stretch min-h-[360px] lg:min-h-[420px] overflow-hidden">
+    <div class="relative flex items-stretch min-h-screen sm:min-h-auto md:min-h-[360px] lg:min-h-[420px] overflow-hidden">
       <!-- Background image -->
       <img src="https://res.cloudinary.com/dvtf1ckaf/image/upload/f_auto,q_auto/e36f7d3e-7491-4fd0-a454-0738bba7a8f3_opusbf" alt="" class="absolute inset-0 w-full h-full object-cover object-center z-0" />
       <!-- Warm overlay to keep text readable -->
       <div class="absolute inset-0 bg-[rgba(247,241,231,0.45)] z-[1]"></div>
       <!-- Centered text -->
-      <div class="flex-1 px-6 py-12 lg:px-20 lg:py-[72px] flex flex-col items-center justify-center text-center relative z-[2]">
-        <div class="flex items-center gap-2.5 mb-5">
-          <span class="h-px w-9 bg-[#8b6914] opacity-70"></span>
-          <p class="text-[11px] font-extrabold tracking-[3px] text-[#8b6914] uppercase m-0">Our Promise</p>
-          <span class="h-px w-9 bg-[#8b6914] opacity-70"></span>
+      <div class="flex-1 px-4 sm:px-6 md:px-8 lg:px-20 py-8 sm:py-10 md:py-12 lg:py-[72px] flex flex-col items-center justify-center text-center relative z-[2]">
+        <div class="flex items-center gap-2 sm:gap-2.5 mb-3 sm:mb-4 md:mb-5">
+          <span class="h-px w-6 sm:w-7 md:w-9 bg-[#8b6914] opacity-70"></span>
+          <p class="text-[10px] sm:text-[11px] font-extrabold tracking-[2px] md:tracking-[3px] text-[#8b6914] uppercase m-0">Our Promise</p>
+          <span class="h-px w-6 sm:w-7 md:w-9 bg-[#8b6914] opacity-70"></span>
         </div>
-        <h2 class="font-serif text-2xl md:text-4xl lg:text-[44px] font-bold text-[#1a1208] leading-tight mb-5">
+        <h2 class="font-serif text-xl sm:text-2xl md:text-4xl lg:text-[44px] font-bold text-[#1a1208] leading-tight mb-3 sm:mb-4 md:mb-5">
           Science With Soul.<br>Heritage With Discipline.<br>This is <span class="text-[#C73A2B]">DrKitchen.</span>
         </h2>
-        <p class="text-sm lg:text-[15px] text-gray-600 leading-relaxed lg:leading-loose max-w-xl mb-6 lg:mb-7">
+        <p class="text-xs sm:text-sm md:text-[15px] text-gray-600 leading-relaxed lg:leading-loose max-w-2xl mb-4 md:mb-6 lg:mb-7">
           India's most advanced class of spices — where natural oils are preserved, aroma remains untouched and authenticity is non-negotiable.
         </p>
-        <NuxtLink to="/products" class="inline-flex items-center gap-2 text-sm font-bold text-[#C73A2B] no-underline">
+        <NuxtLink to="/products" class="inline-flex items-center gap-2 text-xs sm:text-sm md:text-[15px] font-bold text-[#C73A2B] no-underline hover:underline transition-all">
           Explore Our Products
-          <span class="text-lg">→</span>
+          <span class="text-base sm:text-lg md:text-xl">→</span>
         </NuxtLink>
       </div>
     </div>
