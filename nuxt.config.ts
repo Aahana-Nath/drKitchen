@@ -65,9 +65,9 @@ export default defineNuxtConfig({
           content: "Premium Indian spices preserving purity, flavour and aroma.",
         },
         { property: "og:url", content: "https://www.drkitchen.com" },
-        { property: "og:image", content: "https://res.cloudinary.com/a17qsguq/image/upload/f_auto,q_auto/f915951e-86a3-4be2-a469-97160f6fccb5_zwpuv9" },
-        { property: "og:image:width", content: "1200" },
-        { property: "og:image:height", content: "630" },
+        { property: "og:image", content: "https://www.drkitchen.com/og-image.jpg" },
+        { property: "og:image:width", content: "1731" },
+        { property: "og:image:height", content: "909" },
         { name: "twitter:card", content: "summary_large_image" },
         { name: "twitter:title", content: "DrKitchen | Premium Indian Spices" },
         {
