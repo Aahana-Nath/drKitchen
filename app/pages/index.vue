@@ -1,6 +1,7 @@
 <script setup lang="ts">
 useHead({
   title: "DrKitchen | Premium Indian Spices",
+  link: [{ rel: 'canonical', href: 'https://www.drkitchen.com' }],
   meta: [
     { name: "description", content: "Premium Indian spices crafted with science, tradition and authentic flavour. Explore turmeric, garam masala, red chilli and more from DrKitchen." },
     { property: "og:title", content: "DrKitchen | Premium Indian Spices" },

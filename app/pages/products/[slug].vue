@@ -272,6 +272,9 @@ const openFaq = ref(-1)
 
 useHead(() => ({
   title: product.value ? `${product.value.name} — DrKitchen` : 'Product — DrKitchen',
+  link: product.value ? [
+    { rel: 'canonical', href: `https://www.drkitchen.com/products/${product.value.slug}` }
+  ] : [],
   meta: [
     { name: 'description', content: product.value?.tagline?.replace(/\n/g, ' ') ?? '' },
     { property: 'og:title', content: product.value ? `${product.value.name} | DrKitchen` : 'DrKitchen' },
@@ -300,15 +303,23 @@ useHead(() => ({
         name: product.value.name,
         description: product.value.tagline?.replace(/\n/g, ' '),
         image: product.value.image,
+        url: `https://www.drkitchen.com/products/${product.value.slug}`,
+        sku: product.value.slug,
         brand: { '@type': 'Brand', name: 'DrKitchen' },
-        offers: {
-          '@type': 'Offer',
-          priceCurrency: 'INR',
-          availability: 'https://schema.org/InStock',
-          url: `https://www.drkitchen.com/products/${product.value.slug}`,
-        }
       })
-    }
+    },
+    ...(product.value.faq?.length ? [{
+      type: 'application/ld+json',
+      innerHTML: JSON.stringify({
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: product.value.faq.map(item => ({
+          '@type': 'Question',
+          name: item.q,
+          acceptedAnswer: { '@type': 'Answer', text: item.a }
+        }))
+      })
+    }] : [])
   ] : []
 }))
 </script>

@@ -1,3 +1,15 @@
+<script setup lang="ts">
+useHead({
+  title: 'Our Products | DrKitchen',
+  link: [{ rel: 'canonical', href: 'https://www.drkitchen.com/our-products' }],
+  meta: [
+    { name: 'description', content: 'Explore DrKitchen\'s full range of premium Indian spices — turmeric, red chilli, coriander, garam masala, cumin and more.' },
+    { property: 'og:title', content: 'Our Products | DrKitchen' },
+    { property: 'og:url', content: 'https://www.drkitchen.com/our-products' },
+  ]
+})
+</script>
+
 <template>
   <div class="bg-[var(--clr-bg)] min-h-screen">
     <TheNavbar />

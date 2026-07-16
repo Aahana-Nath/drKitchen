@@ -162,7 +162,6 @@ export default defineNuxtConfig({
       ],
 
       link: [
-        { rel: "canonical", href: "https://www.drkitchen.com" },
         { rel: "manifest", href: "/site.webmanifest" },
         { rel: "icon", type: "image/png", sizes: "512x512", href: "/android-chrome-512x512.png" },
         { rel: "icon", type: "image/png", sizes: "192x192", href: "/android-chrome-192x192.png" },
