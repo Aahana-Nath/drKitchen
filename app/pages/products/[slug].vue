@@ -263,12 +263,23 @@
 
 <script setup lang="ts">
 const route = useRoute()
+const { $mixpanel } = useNuxtApp()
 const { getProduct, getRelated } = useProducts()
 
 const product = computed(() => getProduct(route.params.slug as string))
 const related = computed(() => product.value ? getRelated(product.value.relatedSlugs) : [])
 
 const openFaq = ref(-1)
+
+watch(product, (p) => {
+  if (p) {
+    $mixpanel.track('Product Viewed', {
+      product_name: p.name,
+      product_slug: p.slug,
+      category: p.category,
+    })
+  }
+}, { immediate: true })
 
 useHead(() => ({
   title: product.value ? `${product.value.name} — DrKitchen` : 'Product — DrKitchen',
