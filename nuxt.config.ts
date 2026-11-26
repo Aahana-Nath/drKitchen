@@ -7,7 +7,7 @@ export default defineNuxtConfig({
     enabled: true,
   },
 
-  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/sitemap", "@nuxtjs/robots", "nuxt-gtag"],
+  modules: ["@nuxtjs/tailwindcss", "@nuxtjs/sitemap", "@nuxtjs/robots", "nuxt-gtag", "@vercel/analytics/nuxt"],
 
   gtag: {
     id: "G-NG0HM9BJM0",
